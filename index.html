@@ -157,6 +157,13 @@
     text-transform: uppercase; color: var(--text-muted); font-weight: 700;
   }
 
+  /* ---------- Hero banner ---------- */
+  .hero-banner { width: 100%; line-height: 0; }
+  .hero-banner img {
+    width: 100%; height: clamp(280px, 42vw, 470px);
+    object-fit: cover; object-position: center 42%; display: block;
+  }
+
   /* ---------- Gallery ---------- */
   .gallery-sec { padding: 84px 0; background: var(--bg); }
   .gallery-sec .eyebrow { display: block; text-align: center; }
@@ -514,6 +521,11 @@
     </div>
     <p class="hero-scroll">Private retreats year-round · One limited cohort in 2026</p>
   </div>
+</section>
+
+<!-- ============ HERO BANNER ============ -->
+<section class="hero-banner">
+  <img src="images/main.jpg" alt="A guide introduces the haenyeo to guests, the sea women seated with their tewak floats" />
 </section>
 
 <!-- ============ PRODUCT PANELS ============ -->
