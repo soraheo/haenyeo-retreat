@@ -856,7 +856,9 @@
     </div>
 
     <div class="form-card">
-      <form id="applyForm" novalidate>
+      <form id="applyForm" action="https://formspree.io/f/mojzywzq" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Haenyeo Retreat application" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="form-grid">
           <div class="field">
             <label for="f-name">Full name <span class="req">*</span></label>
@@ -965,13 +967,10 @@
 
 <script>
   /* ====================================================================
-     CONFIG — paste your Google Apps Script Web App URL here.
-     This is the same backend pattern as the existing Vamos landing page:
-     a Google Apps Script bound to a Sheet that (1) appends the row and
-     (2) sends Soraya a Gmail notification via MailApp.sendEmail().
-     Until a URL is set, the form runs in DEMO mode (logs + shows success).
+     Form backend — Formspree.
+     Submissions POST to the form's action URL (set on the <form> tag)
+     and arrive by email + in the Formspree dashboard (formspree.io).
      ==================================================================== */
-  const SHEETS_ENDPOINT = ""; // e.g. "https://script.google.com/macros/s/AKfy.../exec"
 
   /* ---------- Tab switching ---------- */
   const tabs = ["quiet", "still", "deep"];
@@ -1081,31 +1080,26 @@
     e.preventDefault();
     if (!form.reportValidity()) return;
 
-    const data = Object.fromEntries(new FormData(form).entries());
-    data.submittedAt = new Date().toISOString();
-    data.source = "Haenyeo Retreat — product page";
-
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
 
     try {
-      if (SHEETS_ENDPOINT) {
-        await fetch(SHEETS_ENDPOINT, {
-          method: "POST",
-          // no-cors keeps it simple for Apps Script Web Apps; the Sheet still
-          // receives the payload and Gmail still fires. We can't read the
-          // response, so we optimistically show success.
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" },
+      });
+
+      if (response.ok) {
+        form.style.display = "none";
+        successBox.classList.add("show");
+        successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+        form.reset();
       } else {
-        console.log("[DEMO] No SHEETS_ENDPOINT set. Application payload:", data);
-        await new Promise(r => setTimeout(r, 600));
+        const data = await response.json().catch(() => ({}));
+        const msg = (data.errors && data.errors.map(er => er.message).join(", ")) || "Submission failed.";
+        throw new Error(msg);
       }
-      form.style.display = "none";
-      successBox.classList.add("show");
-      successBox.scrollIntoView({ behavior: "smooth", block: "center" });
     } catch (err) {
       console.error(err);
       submitBtn.disabled = false;
