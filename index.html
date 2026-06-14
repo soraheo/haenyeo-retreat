@@ -395,6 +395,9 @@
   }
   .btn-apply:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(224,138,69,0.9); }
 
+  .see-dates { color: var(--accent-deep); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+  .see-dates:hover { color: var(--primary); }
+
   /* open dates */
   .opendates { display: flex; flex-direction: column; gap: 14px; }
   .od-month { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -1031,6 +1034,7 @@
           <div class="field">
             <label for="f-departure">Preferred date <span class="req">*</span></label>
             <input id="f-departure" name="departure" type="date" min="2026-08-04" max="2026-12-29" required />
+            <span class="hint" id="departureHint"></span>
           </div>
           <div class="field">
             <label for="f-guests">Number of guests <span class="req">*</span></label>
@@ -1120,6 +1124,54 @@
 
   /* ---------- Tab switching ---------- */
   const tabs = ["quiet", "still", "deep"];
+
+  // Per-retreat apply-form context: retreat value, date window, and date hint.
+  const RETREAT_CFG = {
+    quiet: {
+      retreat: "Quiet Tide",
+      min: "2026-08-04", max: "2026-12-29",
+      hint: 'Quiet Tide departs Tue &amp; Fri (<a href="#cal" class="see-dates">see open dates</a>) — please pick a date at least a month ahead.'
+    },
+    still: {
+      retreat: "Still Waters",
+      min: "2026-10-20", max: "2026-10-24",
+      hint: 'Still Waters runs once — <b>20–24 October 2026</b> (fixed dates).'
+    },
+    deep: {
+      retreat: "Deep Roots — 2027 waitlist",
+      min: "2027-06-01", max: "2027-06-10",
+      hint: 'Deep Roots is set for <b>early June 2027</b> — warm days, cool nights.'
+    }
+  };
+  const RETREAT_TO_TAB = { "Quiet Tide": "quiet", "Still Waters": "still", "Deep Roots — 2027 waitlist": "deep" };
+
+  // Wire the "see open dates" link inside the (re-rendered) date hint.
+  function wireSeeDates() {
+    const sd = document.querySelector("#departureHint .see-dates");
+    if (!sd) return;
+    sd.addEventListener("click", (e) => {
+      e.preventDefault();
+      activateTab("quiet");
+      const cal = document.getElementById("cal");
+      if (cal) cal.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
+
+  // Point the apply form at a retreat: set retreat, date window, and hint.
+  // When `reset` is true, all entered values are cleared first.
+  function syncApplyForm(tab, reset) {
+    const cfg = RETREAT_CFG[tab];
+    if (!cfg) return;
+    const form = document.getElementById("applyForm");
+    if (reset && form) form.reset();
+    const sel = document.getElementById("f-retreat");
+    if (sel) sel.value = cfg.retreat;
+    const dep = document.getElementById("f-departure");
+    if (dep) { dep.min = cfg.min; dep.max = cfg.max; if (reset) dep.value = ""; }
+    const hint = document.getElementById("departureHint");
+    if (hint) { hint.innerHTML = cfg.hint; wireSeeDates(); }
+  }
+
   function activateTab(tab) {
     if (!tabs.includes(tab)) return;
     document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
@@ -1127,6 +1179,8 @@
     document.querySelectorAll("#navTabs button, #heroTabs button").forEach(b => {
       b.classList.toggle("active", b.dataset.tab === tab);
     });
+    // Reset the apply form to match the newly active tab.
+    syncApplyForm(tab, true);
   }
 
   document.querySelectorAll("#navTabs button, #heroTabs button").forEach(btn => {
@@ -1138,13 +1192,16 @@
     a.addEventListener("click", () => activateTab(a.dataset.tab));
   });
 
-  /* ---------- "Apply for X" buttons pre-select the retreat ---------- */
+  /* ---------- "Apply for X" buttons select the retreat ---------- */
   document.querySelectorAll(".btn-apply[data-pick]").forEach(btn => {
     btn.addEventListener("click", () => {
-      const sel = document.getElementById("f-retreat");
-      sel.value = btn.dataset.pick;
+      const tab = RETREAT_TO_TAB[btn.dataset.pick];
+      if (tab) syncApplyForm(tab, false);
     });
   });
+
+  // Initialise the date hint/window for the tab that's active on load.
+  syncApplyForm("quiet", false);
 
   /* ---------- Open-date calendar (Quiet Tide private departures) ---------- */
   (function () {
