@@ -158,11 +158,17 @@
   }
 
   /* ---------- Hero banner ---------- */
-  .hero-banner { width: 100%; line-height: 0; }
-  .hero-banner img {
-    width: 100%; height: clamp(280px, 42vw, 470px);
-    object-fit: cover; object-position: center 42%; display: block;
+  .hero-banner {
+    max-width: var(--maxw); margin: -42px auto 6px; padding: 0 24px;
+    position: relative; z-index: 2; line-height: 0;
   }
+  .hero-banner img {
+    width: 100%; height: clamp(260px, 40vw, 460px);
+    object-fit: cover; object-position: center 42%; display: block;
+    border-radius: 22px;
+    box-shadow: 0 34px 64px -34px rgba(28,74,53,0.5);
+  }
+  @media (max-width: 720px) { .hero-banner { margin-top: -24px; padding: 0 18px; } .hero-banner img { border-radius: 16px; } }
 
   /* ---------- Gallery ---------- */
   .gallery-sec { padding: 84px 0; background: var(--bg); }
