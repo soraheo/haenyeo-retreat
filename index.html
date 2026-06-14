@@ -101,35 +101,30 @@
   /* ---------- Hero ---------- */
   .hero {
     position: relative;
-    padding: 96px 0 80px;
+    padding: 116px 0 94px;
     text-align: center;
     background:
-      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(28,74,53,0.10), transparent 70%),
-      linear-gradient(180deg, #f0ece3 0%, var(--bg) 60%);
+      linear-gradient(180deg, rgba(18,48,42,0.82) 0%, rgba(18,48,42,0.52) 45%, rgba(18,48,42,0.88) 100%),
+      url("images/hero.jpg") center 42% / cover no-repeat;
     overflow: hidden;
   }
-  .hero::before, .hero::after {
-    content: ""; position: absolute; border-radius: 50%;
-    background: radial-gradient(circle, rgba(244,162,97,0.18), transparent 70%);
-    pointer-events: none;
-  }
-  .hero::before { width: 360px; height: 360px; top: -80px; left: -120px; }
-  .hero::after { width: 420px; height: 420px; bottom: -160px; right: -140px;
-    background: radial-gradient(circle, rgba(28,74,53,0.10), transparent 70%); }
-  .hero .eyebrow { display: block; margin-bottom: 22px; }
+  .hero::before, .hero::after { display: none; }
+  .hero .eyebrow { display: block; margin-bottom: 22px; color: var(--accent); }
   .hero h1 {
     font-size: clamp(44px, 8vw, 88px);
-    color: var(--primary);
+    color: #fff;
     font-weight: 700;
     letter-spacing: 0.02em;
+    text-shadow: 0 2px 34px rgba(0,0,0,0.4);
   }
-  .hero h1 .tide { font-style: italic; color: var(--accent-deep); font-weight: 500; }
+  .hero h1 .tide { font-style: italic; color: var(--accent); font-weight: 500; }
   .hero .sub {
     margin: 26px auto 0;
     max-width: 540px;
     font-size: clamp(18px, 2.5vw, 23px);
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.92);
     font-weight: 400;
+    text-shadow: 0 1px 16px rgba(0,0,0,0.3);
   }
   .hero-tabs {
     display: inline-flex; flex-wrap: wrap; justify-content: center;
@@ -154,8 +149,31 @@
   .hero-tabs button.active .dot { box-shadow: 0 0 0 2px rgba(255,255,255,0.6); }
   .hero-scroll {
     margin-top: 34px; font-size: 13px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--text-muted); font-weight: 700;
+    text-transform: uppercase; color: rgba(255,255,255,0.82); font-weight: 700;
   }
+
+  /* ---------- Gallery ---------- */
+  .gallery-sec { padding: 84px 0; background: var(--bg); }
+  .gallery-sec .eyebrow { display: block; text-align: center; }
+  .gallery-title {
+    text-align: center; font-size: clamp(28px, 4vw, 44px);
+    color: var(--primary); margin: 10px 0 12px;
+  }
+  .gallery-sub {
+    text-align: center; color: var(--text-muted);
+    max-width: 580px; margin: 0 auto 42px; font-size: 17px;
+  }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .gallery figure {
+    margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3;
+    box-shadow: var(--shadow); background: #e8e2d6;
+  }
+  .gallery img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .gallery figure:hover img { transform: scale(1.06); }
+  @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---------- Product panels ---------- */
   .panels { padding: 72px 0 40px; }
@@ -793,6 +811,23 @@
 
   </div>
 </main>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery-sec">
+  <div class="wrap">
+    <span class="eyebrow">Moments</span>
+    <h2 class="gallery-title">From the shore to the temple</h2>
+    <p class="gallery-sub">Real moments from our haenyeo retreats — guests, sea women, and the quiet in between.</p>
+    <div class="gallery">
+      <figure><img src="images/g1.jpg" alt="A guide shares the story of the haenyeo with guests" loading="lazy" /></figure>
+      <figure><img src="images/g2.jpg" alt="Guests and a haenyeo sorting the day's catch" loading="lazy" /></figure>
+      <figure><img src="images/g3.jpg" alt="A haenyeo at work along the rocky shore" loading="lazy" /></figure>
+      <figure><img src="images/g4.jpg" alt="Guests and haenyeo together after a dive" loading="lazy" /></figure>
+      <figure><img src="images/g5.jpg" alt="In traditional haenyeo dress at the sea women's gathering" loading="lazy" /></figure>
+      <figure><img src="images/g6.jpg" alt="The haenyeo community with their tewak floats" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
 
 <!-- ============ APPLY ============ -->
 <section class="apply" id="apply">
