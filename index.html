@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Haenyeo Retreat — Live the haenyeo rhythm, one tide at a time</title>
+<meta name="description" content="Haenyeo Retreat by Vamos a Jeju — quiet, immersive travel on Jeju Island. Meet the haenyeo, rest in a mountain temple, and move at the speed of stillness." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --primary: #1C4A35;       /* deep green */
+    --primary-soft: #2c6149;
+    --accent: #F4A261;        /* orange */
+    --accent-deep: #e08a45;
+    --bg: #FAF7F2;            /* cream */
+    --text: #1A1A1A;
+    --text-muted: #5a5750;
+    --cream: #F3EBDD;
+    --espresso: #3a2a1e;
+    --line: rgba(28, 74, 53, 0.14);
+    --radius: 18px;
+    --shadow: 0 18px 50px -24px rgba(28, 74, 53, 0.35);
+    --maxw: 1120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Nunito Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent-deep);
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(250, 247, 242, 0.86);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand-mark {
+    font-family: "Playfair Display", serif;
+    font-weight: 700; font-size: 19px; letter-spacing: 0.04em;
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .brand-mark span { color: var(--accent-deep); }
+  .nav-tabs { display: flex; gap: 4px; }
+  .nav-tabs button {
+    font-family: inherit; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.02em;
+    background: none; border: none; cursor: pointer;
+    color: var(--text-muted);
+    padding: 9px 16px; border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+  .nav-tabs button:hover { color: var(--primary); background: rgba(28,74,53,0.06); }
+  .nav-tabs button.active { color: #fff; background: var(--primary); }
+  .nav-cta {
+    display: none;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    color: var(--primary); padding: 9px 18px;
+    border: 1.5px solid var(--primary); border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+  .nav-cta:hover { background: var(--primary); color: #fff; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 96px 0 80px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(28,74,53,0.10), transparent 70%),
+      linear-gradient(180deg, #f0ece3 0%, var(--bg) 60%);
+    overflow: hidden;
+  }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,162,97,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .hero::before { width: 360px; height: 360px; top: -80px; left: -120px; }
+  .hero::after { width: 420px; height: 420px; bottom: -160px; right: -140px;
+    background: radial-gradient(circle, rgba(28,74,53,0.10), transparent 70%); }
+  .hero .eyebrow { display: block; margin-bottom: 22px; }
+  .hero h1 {
+    font-size: clamp(44px, 8vw, 88px);
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .hero h1 .tide { font-style: italic; color: var(--accent-deep); font-weight: 500; }
+  .hero .sub {
+    margin: 26px auto 0;
+    max-width: 540px;
+    font-size: clamp(18px, 2.5vw, 23px);
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .hero-tabs {
+    display: inline-flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin-top: 40px;
+    padding: 8px; border-radius: 999px;
+    background: #fff; box-shadow: var(--shadow);
+  }
+  .hero-tabs button {
+    font-family: "Playfair Display", serif;
+    font-size: 16px; font-weight: 600;
+    cursor: pointer; border: none; background: none;
+    padding: 12px 26px; border-radius: 999px;
+    color: var(--primary);
+    transition: all 0.22s ease;
+  }
+  .hero-tabs button .dot {
+    display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+    margin-right: 9px; vertical-align: middle;
+  }
+  .hero-tabs button:hover { background: rgba(28,74,53,0.07); }
+  .hero-tabs button.active { color: #fff; background: var(--primary); }
+  .hero-tabs button.active .dot { box-shadow: 0 0 0 2px rgba(255,255,255,0.6); }
+  .hero-scroll {
+    margin-top: 34px; font-size: 13px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--text-muted); font-weight: 700;
+  }
+
+  /* ---------- Product panels ---------- */
+  .panels { padding: 72px 0 40px; }
+  .panel { display: none; animation: fade 0.45s ease; }
+  .panel.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  /* product header */
+  .prod-head {
+    border-radius: var(--radius);
+    padding: 52px 48px;
+    color: #fff;
+    position: relative; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .prod-head.theme-green { background: linear-gradient(135deg, #1C4A35, #14342596); background-color: var(--primary); }
+  .prod-head.theme-cream { background: linear-gradient(135deg, #efe4d1, #e7d8be); color: var(--espresso); }
+  .prod-head.theme-espresso { background: linear-gradient(135deg, #3a2a1e, #2a1d13); }
+  .prod-head .eyebrow { color: var(--accent); }
+  .prod-head.theme-cream .eyebrow { color: var(--accent-deep); }
+  .prod-head h2 {
+    font-size: clamp(36px, 6vw, 60px);
+    margin: 14px 0 6px;
+  }
+  .prod-head .concept {
+    font-size: clamp(18px, 2.4vw, 22px);
+    font-style: italic;
+    font-family: "Playfair Display", serif; font-weight: 500;
+    opacity: 0.92; max-width: 600px;
+  }
+  .prod-meta {
+    display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px;
+  }
+  .prod-meta .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 9px 18px; border-radius: 999px;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.01em;
+  }
+  .prod-head.theme-cream .chip { background: rgba(58,42,30,0.08); border-color: rgba(58,42,30,0.18); }
+  .prod-meta .chip .label { font-weight: 400; opacity: 0.75; font-size: 13px; }
+  .prod-meta .price { background: var(--accent); color: var(--espresso); border-color: transparent; font-size: 17px; }
+
+  /* layout grid */
+  .prod-body {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    margin-top: 48px;
+  }
+  @media (max-width: 860px) { .prod-body { grid-template-columns: 1fr; gap: 36px; } }
+
+  .section-title {
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 800; color: var(--accent-deep);
+    margin-bottom: 22px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* timeline */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(var(--primary), var(--accent));
+  }
+  .tl-item { position: relative; padding-bottom: 28px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -30px; top: 5px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--primary);
+  }
+  .tl-day {
+    font-family: "Playfair Display", serif; font-weight: 700;
+    font-size: 14px; color: var(--accent-deep); letter-spacing: 0.05em;
+    text-transform: uppercase; margin-bottom: 3px;
+  }
+  .tl-title { font-weight: 800; font-size: 17px; color: var(--primary); margin-bottom: 4px; }
+  .tl-desc { font-size: 15.5px; color: var(--text-muted); }
+
+  /* activities */
+  .acts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .act {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: #fff; border: 1px solid var(--line);
+    padding: 11px 16px; border-radius: 12px;
+    font-size: 14.5px; font-weight: 700; color: var(--primary);
+    box-shadow: 0 4px 14px -10px rgba(28,74,53,0.4);
+  }
+  .act .ic { font-size: 17px; }
+
+  /* includes */
+  .incl-card {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px 26px 28px;
+    box-shadow: 0 10px 30px -22px rgba(28,74,53,0.4);
+  }
+  .incl-card + .incl-card { margin-top: 18px; }
+  .incl-card h4 {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 800; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .incl-card.inc h4 { color: var(--primary); }
+  .incl-card.exc h4 { color: #a8472e; }
+  .incl-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .incl-list li { display: flex; gap: 11px; font-size: 15.5px; color: var(--text-muted); align-items: flex-start; }
+  .incl-list li .tick { flex-shrink: 0; font-weight: 800; margin-top: 1px; }
+  .inc .tick { color: var(--primary); }
+  .exc .tick { color: #c06b50; }
+
+  /* departures */
+  .departures {
+    margin-top: 40px;
+    background: linear-gradient(120deg, rgba(28,74,53,0.05), rgba(244,162,97,0.08));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px;
+    justify-content: space-between;
+  }
+  .departures .dep-label { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; color: var(--accent-deep); }
+  .dep-dates { display: flex; gap: 14px; flex-wrap: wrap; }
+  .dep-dates .date {
+    background: #fff; border: 1px solid var(--line);
+    padding: 12px 22px; border-radius: 12px;
+    font-family: "Playfair Display", serif; font-weight: 600; font-size: 17px; color: var(--primary);
+  }
+  .dep-dates .date small { display: block; font-family: "Nunito Sans"; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+  .btn-apply {
+    background: var(--accent); color: var(--espresso);
+    font-family: "Nunito Sans"; font-weight: 800; font-size: 15px;
+    text-decoration: none; padding: 14px 30px; border-radius: 999px;
+    box-shadow: 0 12px 26px -12px rgba(224,138,69,0.8);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    white-space: nowrap;
+  }
+  .btn-apply:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(224,138,69,0.9); }
+
+  /* open dates */
+  .opendates { display: flex; flex-direction: column; gap: 14px; }
+  .od-month { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .od-mlabel {
+    font-family: "Playfair Display", serif; font-weight: 600; color: var(--primary);
+    width: 44px; flex-shrink: 0; font-size: 15px;
+  }
+  .od-chip {
+    cursor: pointer; background: #fff; border: 1px solid var(--line);
+    border-radius: 10px; padding: 7px 13px; font-size: 13.5px; font-weight: 700;
+    color: var(--primary); transition: all 0.18s ease;
+  }
+  .od-chip i { font-style: normal; font-weight: 400; color: var(--text-muted); font-size: 11px; margin-left: 5px; }
+  .od-chip:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-1px); }
+  .od-chip:hover i { color: rgba(255,255,255,0.7); }
+  .limited-badge {
+    display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--espresso); background: var(--accent);
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 6px;
+  }
+
+  /* calendar */
+  .cal { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; max-width: 430px; box-shadow: 0 14px 34px -22px rgba(28,74,53,0.55); }
+  .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .cal-title { font-family: "Playfair Display", serif; font-weight: 600; font-size: 19px; color: var(--primary); }
+  .cal-nav { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: 18px; color: var(--primary); line-height: 1; transition: all 0.18s ease; }
+  .cal-nav:hover:not(:disabled) { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .cal-nav:disabled { opacity: 0.28; cursor: not-allowed; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+  .cal-dow span { text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 0.03em; color: var(--text-muted); text-transform: uppercase; padding: 2px 0 8px; }
+  .cal-day { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; border-radius: 10px; color: #cfcabf; }
+  .cal-day.empty { visibility: hidden; }
+  .cal-day.dim { color: #d2cdc2; }
+  .cal-day.open { background: rgba(28,74,53,0.07); color: var(--primary); cursor: pointer; border: 1px solid rgba(28,74,53,0.18); transition: all 0.15s ease; }
+  .cal-day.open:hover { background: var(--primary); color: #fff; transform: translateY(-1px); }
+  .cal-day.selected { background: var(--accent); color: var(--espresso); border-color: var(--accent); box-shadow: 0 6px 14px -6px rgba(224,138,69,0.8); }
+  .cal-legend { margin-top: 16px; font-size: 12.5px; color: var(--text-muted); display: flex; align-items: center; gap: 7px; }
+  .cal-legend .dot-open { width: 13px; height: 13px; border-radius: 4px; background: rgba(28,74,53,0.1); border: 1px solid rgba(28,74,53,0.3); display: inline-block; }
+  .cal-selected { margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--primary); min-height: 20px; }
+  .cal-selected b { color: var(--accent-deep); }
+
+  /* pull quote */
+  .pull-quote {
+    font-family: "Playfair Display", serif; font-style: italic; font-weight: 500;
+    text-align: center; color: var(--primary); font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.38; max-width: 760px; margin: 40px auto 8px; padding: 0 16px;
+  }
+  .pull-quote::before { content: ""; display: block; width: 46px; height: 2px; background: var(--accent); margin: 0 auto 20px; }
+  .pull-quote::after { content: ""; display: block; width: 46px; height: 2px; background: var(--accent); margin: 20px auto 0; }
+
+  /* ---------- Form ---------- */
+  .apply {
+    margin-top: 96px;
+    background: var(--primary);
+    color: #fff;
+    padding: 80px 0 90px;
+    position: relative; overflow: hidden;
+  }
+  .apply::before {
+    content: ""; position: absolute; width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,162,97,0.18), transparent 70%);
+    top: -160px; right: -120px; pointer-events: none;
+  }
+  .apply-head { text-align: center; max-width: 600px; margin: 0 auto 44px; position: relative; }
+  .apply-head .eyebrow { color: var(--accent); }
+  .apply-head h2 { color: #fff; font-size: clamp(32px, 5vw, 50px); margin: 14px 0 14px; }
+  .apply-head p { color: rgba(255,255,255,0.78); font-size: 18px; }
+
+  .form-card {
+    background: var(--bg); color: var(--text);
+    border-radius: 24px; padding: 44px;
+    max-width: 760px; margin: 0 auto;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field.full { grid-column: 1 / -1; }
+  @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } .field.full { grid-column: auto; } }
+  .field label {
+    font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
+    color: var(--primary); text-transform: uppercase;
+  }
+  .field label .req { color: var(--accent-deep); }
+  .field input, .field select, .field textarea {
+    font-family: "Nunito Sans"; font-size: 16px;
+    padding: 13px 15px; border-radius: 11px;
+    border: 1.5px solid var(--line); background: #fff;
+    color: var(--text); transition: border 0.18s ease, box-shadow 0.18s ease;
+    width: 100%;
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(244,162,97,0.22);
+  }
+  .field .hint { font-size: 12.5px; color: var(--text-muted); font-weight: 400; }
+  .form-submit { margin-top: 30px; text-align: center; }
+  .btn-submit {
+    font-family: "Nunito Sans"; font-weight: 800; font-size: 17px;
+    background: var(--accent); color: var(--espresso);
+    border: none; cursor: pointer;
+    padding: 16px 48px; border-radius: 999px;
+    box-shadow: 0 16px 30px -14px rgba(224,138,69,0.9);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.2s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-note { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+
+  .form-success {
+    display: none;
+    text-align: center; padding: 30px 10px;
+  }
+  .form-success.show { display: block; animation: fade 0.5s ease; }
+  .form-success .check {
+    width: 72px; height: 72px; margin: 0 auto 22px;
+    border-radius: 50%; background: var(--primary); color: #fff;
+    display: grid; place-items: center; font-size: 36px;
+  }
+  .form-success h3 { font-size: 28px; color: var(--primary); margin-bottom: 12px; }
+  .form-success p { color: var(--text-muted); font-size: 17px; max-width: 420px; margin: 0 auto; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--espresso); color: rgba(255,255,255,0.75);
+    padding: 60px 0 40px;
+  }
+  .foot-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; }
+  .foot-brand { max-width: 320px; }
+  .foot-brand .logo {
+    font-family: "Playfair Display", serif; font-weight: 700;
+    font-size: 22px; color: #fff; letter-spacing: 0.04em;
+  }
+  .foot-brand .logo span { color: var(--accent); }
+  .foot-brand p { margin-top: 12px; font-size: 14.5px; line-height: 1.7; }
+  .foot-links { display: flex; gap: 56px; flex-wrap: wrap; }
+  .foot-col h5 {
+    font-family: "Nunito Sans"; font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 800; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .foot-col a {
+    display: block; text-decoration: none; font-size: 15px;
+    color: rgba(255,255,255,0.78); margin-bottom: 11px;
+    transition: color 0.18s ease;
+  }
+  .foot-col a:hover { color: var(--accent); }
+  .foot-bottom {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13px; color: rgba(255,255,255,0.55);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+  }
+
+  @media (min-width: 720px) { .nav-cta { display: inline-block; } }
+  @media (max-width: 720px) {
+    .nav-tabs { display: none; }
+    .prod-head { padding: 38px 26px; }
+    .form-card { padding: 30px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#top" class="brand-mark">HAENYEO <span>RETREAT</span></a>
+    <nav class="nav-tabs" id="navTabs">
+      <button data-tab="quiet" class="active">Quiet Tide</button>
+      <button data-tab="still">Still Waters</button>
+      <button data-tab="deep">Deep Roots</button>
+    </nav>
+    <a href="#apply" class="nav-cta">Apply</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Quiet travel · Jeju Island, Korea</span>
+    <h1>HAENYEO <span class="tide">Retreat</span></h1>
+    <p class="sub">Step out of the noise. <em>Live the haenyeo rhythm, one tide at a time.</em></p>
+
+    <div class="hero-tabs" id="heroTabs">
+      <button data-tab="quiet" class="active"><span class="dot" style="background:#1C4A35"></span>Quiet Tide</button>
+      <button data-tab="still"><span class="dot" style="background:#d9c49e"></span>Still Waters</button>
+      <button data-tab="deep"><span class="dot" style="background:#3a2a1e"></span>Deep Roots</button>
+    </div>
+    <p class="hero-scroll">Private retreats year-round · One limited cohort in 2026</p>
+  </div>
+</section>
+
+<!-- ============ PRODUCT PANELS ============ -->
+<main class="panels">
+  <div class="wrap">
+
+    <!-- ===== QUIET TIDE ===== -->
+    <section class="panel active" id="panel-quiet">
+      <div class="prod-head theme-green">
+        <span class="eyebrow">Private Retreat · 2 days, 1 night</span>
+        <h2>Quiet Tide</h2>
+        <p class="concept">Meet the haenyeo by day, rest in a mountain temple by night — two days between the sea and stillness.</p>
+        <div class="prod-meta">
+          <span class="chip"><span class="label">Style</span> Private · your group only</span>
+          <span class="chip"><span class="label">Group</span> 2+ guests</span>
+          <span class="chip price">From $390 / person</span>
+        </div>
+      </div>
+
+      <p class="pull-quote">"A day tour shows you the haenyeo. A night shows you the quiet."</p>
+
+      <div class="prod-body">
+        <div>
+          <h3 class="section-title">Itinerary</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-day">Day 1 · Afternoon</div>
+              <div class="tl-title">Into the haenyeo's world</div>
+              <div class="tl-desc">Walk the village shoreline and sit with an active sea woman for her story of the water, the breath-hold, and a vanishing way of life.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 1 · Evening</div>
+              <div class="tl-title">Cross to the temple</div>
+              <div class="tl-desc">Arrive at a mountain temple for your overnight templestay — evening chanting, a quiet tea, and the unhurried rhythm of monastic life.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 2 · Dawn</div>
+              <div class="tl-title">Stillness</div>
+              <div class="tl-desc">Pre-dawn meditation, a slow forest path through the temple grounds, and a simple monastic breakfast (barugongyang).</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 2 · Morning</div>
+              <div class="tl-title">A gentle farewell</div>
+              <div class="tl-desc">An unhurried close to your retreat before we return you to the day, carrying the quiet with you.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="section-title">Experiences</h3>
+          <div class="acts">
+            <span class="act"><span class="ic">🫧</span>Haenyeo interview</span>
+            <span class="act"><span class="ic">🏯</span>Templestay overnight</span>
+            <span class="act"><span class="ic">🌀</span>Dawn meditation</span>
+            <span class="act"><span class="ic">🍵</span>Tea with a monastic</span>
+            <span class="act"><span class="ic">🌲</span>Temple forest path</span>
+          </div>
+
+          <div style="margin-top:32px">
+            <div class="incl-card inc">
+              <h4>✓ Included</h4>
+              <ul class="incl-list">
+                <li><span class="tick">✓</span>1 night templestay (temple lodging)</li>
+                <li><span class="tick">✓</span>Haenyeo interview by the shore</li>
+                <li><span class="tick">✓</span>All meals — temple cuisine, lunch to breakfast</li>
+                <li><span class="tick">✓</span>Templestay program &amp; dawn meditation</li>
+                <li><span class="tick">✓</span>Private guiding &amp; island transfers</li>
+              </ul>
+            </div>
+            <div class="incl-card exc">
+              <h4>✕ Not included</h4>
+              <ul class="incl-list">
+                <li><span class="tick">✕</span>Flights &amp; airport transfers</li>
+                <li><span class="tick">✕</span>Travel insurance</li>
+                <li><span class="tick">✕</span>Personal expenses</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="departures" style="flex-direction:column; align-items:stretch; gap:24px;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:18px;">
+          <div>
+            <div class="dep-label">Private · on your own dates</div>
+            <p style="margin-top:10px; max-width:470px; color:var(--text-muted); font-size:15.5px;">Quiet Tide is yours alone — a private retreat for your group. Choose an open date below, or simply propose your own. <b style="color:var(--primary)">2 guests minimum</b>, booked at least <b style="color:var(--primary)">one month ahead</b>. We reply within 48 hours.</p>
+          </div>
+          <a href="#apply" class="btn-apply" data-pick="Quiet Tide">Request your dates →</a>
+        </div>
+        <div>
+          <div class="dep-label" style="margin-bottom:14px;">Choose an open date · departures Tue &amp; Fri</div>
+          <div class="cal" id="cal">
+            <div class="cal-head">
+              <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month">‹</button>
+              <div class="cal-title" id="calTitle">August 2026</div>
+              <button type="button" class="cal-nav" id="calNext" aria-label="Next month">›</button>
+            </div>
+            <div class="cal-grid cal-dow">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="cal-grid" id="calDays"></div>
+            <div class="cal-legend"><span class="dot-open"></span> Available · Aug – Dec 2026</div>
+            <div class="cal-selected" id="calSelected"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STILL WATERS ===== -->
+    <section class="panel" id="panel-still">
+      <div class="prod-head theme-cream">
+        <span class="limited-badge">2026 Limited Edition</span>
+        <span class="eyebrow">One cohort only · 3 nights, 4 days</span>
+        <h2>Still Waters</h2>
+        <p class="concept">Settle into the rhythm — breathwork below the surface, slow days on land, and the quiet that the sea teaches.</p>
+        <div class="prod-meta">
+          <span class="chip"><span class="label">Duration</span> 4 days / 3 nights</span>
+          <span class="chip"><span class="label">Seats</span> 8 only · by application</span>
+          <span class="chip price">$1,090 / person</span>
+        </div>
+      </div>
+
+      <div class="prod-body">
+        <div>
+          <h3 class="section-title">Itinerary</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-day">Day 1</div>
+              <div class="tl-title">Arrival &amp; grounding</div>
+              <div class="tl-desc">Settle in by the water, an opening yoga session at dusk, and a welcome dinner with the haenyeo.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 2</div>
+              <div class="tl-title">Into the water</div>
+              <div class="tl-desc">Freediving fundamentals with a certified guide — breath, equalisation, and your first calm descents.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 3</div>
+              <div class="tl-title">Sea &amp; forest</div>
+              <div class="tl-desc">Morning haenyeo interview and cooking, an afternoon forest trail through Jeju's gotjawal, and an evening soundscape session.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 4</div>
+              <div class="tl-title">Stillness &amp; departure</div>
+              <div class="tl-desc">A closing meditation by the shore before farewell.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="section-title">Experiences</h3>
+          <div class="acts">
+            <span class="act"><span class="ic">🫧</span>Haenyeo interview</span>
+            <span class="act"><span class="ic">🍲</span>Cook a haenyeo meal</span>
+            <span class="act"><span class="ic">🤿</span>Freediving basics</span>
+            <span class="act"><span class="ic">🧘</span>Yoga</span>
+            <span class="act"><span class="ic">🌲</span>Forest trail</span>
+            <span class="act"><span class="ic">🎧</span>Soundscape</span>
+            <span class="act"><span class="ic">🌀</span>Meditation</span>
+          </div>
+
+          <div style="margin-top:32px">
+            <div class="incl-card inc">
+              <h4>✓ Included</h4>
+              <ul class="incl-list">
+                <li><span class="tick">✓</span>3 nights coastal stay</li>
+                <li><span class="tick">✓</span>All meals &amp; haenyeo cooking class</li>
+                <li><span class="tick">✓</span>Guided freediving session &amp; gear</li>
+                <li><span class="tick">✓</span>Daily yoga, meditation &amp; soundscape</li>
+                <li><span class="tick">✓</span>Forest trail &amp; local transfers</li>
+              </ul>
+            </div>
+            <div class="incl-card exc">
+              <h4>✕ Not included</h4>
+              <ul class="incl-list">
+                <li><span class="tick">✕</span>International flights</li>
+                <li><span class="tick">✕</span>Airport transfers &amp; insurance</li>
+                <li><span class="tick">✕</span>Freediving certification fee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="departures">
+        <div>
+          <div class="dep-label">One departure · 2026 only</div>
+          <div class="dep-dates" style="margin-top:12px">
+            <span class="date"><small>The single 2026 cohort</small>Late October 2026</span>
+            <span class="date"><small>Availability</small>8 seats · by application</span>
+          </div>
+        </div>
+        <a href="#apply" class="btn-apply" data-pick="Still Waters">Apply for the 2026 cohort →</a>
+      </div>
+    </section>
+
+    <!-- ===== DEEP ROOTS ===== -->
+    <section class="panel" id="panel-deep">
+      <div class="prod-head theme-espresso">
+        <span class="eyebrow">The Full Tide · 6 nights, 7 days · arriving 2027</span>
+        <h2>Deep Roots</h2>
+        <p class="concept">A full turning of the tide — temple silence, deep water, ancestral forests, and the haenyeo way woven into a week of your life.</p>
+        <div class="prod-meta">
+          <span class="chip"><span class="label">Duration</span> 7 days / 6 nights</span>
+          <span class="chip"><span class="label">Group</span> Max 8 guests</span>
+          <span class="chip price">$2,100 / person</span>
+        </div>
+      </div>
+
+      <div class="prod-body">
+        <div>
+          <h3 class="section-title">Itinerary</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-day">Day 1</div>
+              <div class="tl-title">Arrival &amp; welcome</div>
+              <div class="tl-desc">Settle into the coast, opening circle, and a haenyeo welcome dinner.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 2</div>
+              <div class="tl-title">Breath &amp; body</div>
+              <div class="tl-desc">Morning yoga, freediving fundamentals, and an evening soundscape by the water.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 3</div>
+              <div class="tl-title">The sea women</div>
+              <div class="tl-desc">A deep haenyeo interview and a full cooking session — from tide to table.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 4</div>
+              <div class="tl-title">Temple stay</div>
+              <div class="tl-desc">An overnight templestay inland — silence, tea, and the monastic rhythm of Jeju's mountains.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 5</div>
+              <div class="tl-title">Forest &amp; roots</div>
+              <div class="tl-desc">A long forest trail through ancient gotjawal, with meditation among the trees.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 6</div>
+              <div class="tl-title">Return to the water</div>
+              <div class="tl-desc">A deeper freedive, an afternoon village walk, and a closing feast.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 7</div>
+              <div class="tl-title">Integration &amp; departure</div>
+              <div class="tl-desc">Closing meditation and farewell — carrying the tide home with you.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="section-title">Experiences</h3>
+          <div class="acts">
+            <span class="act"><span class="ic">🫧</span>Haenyeo interview</span>
+            <span class="act"><span class="ic">🍲</span>Cook a haenyeo meal</span>
+            <span class="act"><span class="ic">🚶</span>Village walk</span>
+            <span class="act"><span class="ic">🤿</span>Freediving</span>
+            <span class="act"><span class="ic">🧘</span>Yoga</span>
+            <span class="act"><span class="ic">🌲</span>Forest trail</span>
+            <span class="act"><span class="ic">🌀</span>Meditation</span>
+            <span class="act"><span class="ic">🎧</span>Soundscape</span>
+            <span class="act"><span class="ic">🏯</span>Templestay</span>
+          </div>
+
+          <div style="margin-top:32px">
+            <div class="incl-card inc">
+              <h4>✓ Included</h4>
+              <ul class="incl-list">
+                <li><span class="tick">✓</span>6 nights (coast + 1 night templestay)</li>
+                <li><span class="tick">✓</span>All meals &amp; haenyeo cooking</li>
+                <li><span class="tick">✓</span>Multiple guided freedives &amp; gear</li>
+                <li><span class="tick">✓</span>Daily yoga, meditation &amp; soundscape</li>
+                <li><span class="tick">✓</span>Templestay, forest trails &amp; all transfers</li>
+              </ul>
+            </div>
+            <div class="incl-card exc">
+              <h4>✕ Not included</h4>
+              <ul class="incl-list">
+                <li><span class="tick">✕</span>International flights</li>
+                <li><span class="tick">✕</span>Airport transfers &amp; insurance</li>
+                <li><span class="tick">✕</span>Freediving certification fee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="departures">
+        <div>
+          <div class="dep-label">Coming 2027</div>
+          <div class="dep-dates" style="margin-top:12px">
+            <span class="date"><small>Status</small>In development</span>
+            <span class="date"><small>Be first to know</small>Join the waitlist</span>
+          </div>
+        </div>
+        <a href="#apply" class="btn-apply" data-pick="Deep Roots — 2027 waitlist">Join the 2027 waitlist →</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ APPLY ============ -->
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="apply-head">
+      <span class="eyebrow">Reservation</span>
+      <h2>Apply for your retreat</h2>
+      <p>Tell us a little about you. Soraya personally reviews every application and will be in touch within 48 hours.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="applyForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-name">Full name <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="f-nationality">Nationality <span class="req">*</span></label>
+            <input id="f-nationality" name="nationality" type="text" required autocomplete="country-name" />
+          </div>
+          <div class="field">
+            <label for="f-retreat">Retreat <span class="req">*</span></label>
+            <select id="f-retreat" name="retreat" required>
+              <option value="" disabled selected>Choose a retreat…</option>
+              <option value="Quiet Tide">Quiet Tide · Private · 2 days · from $390</option>
+              <option value="Still Waters">Still Waters · 2026 Limited · 4 days · $1,090</option>
+              <option value="Deep Roots — 2027 waitlist">Deep Roots · 2027 waitlist · 7 days</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-departure">Preferred date <span class="req">*</span></label>
+            <input id="f-departure" name="departure" type="date" min="2026-08-04" max="2026-12-29" required />
+            <span class="hint">Quiet Tide departs Tue &amp; Fri (see open dates) — please pick a date at least a month ahead. Still Waters: Late October 2026.</span>
+          </div>
+          <div class="field">
+            <label for="f-guests">Number of guests <span class="req">*</span></label>
+            <select id="f-guests" name="guests" required>
+              <option value="" disabled selected>Choose…</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+              <option value="7">7 guests</option>
+              <option value="8">8 guests</option>
+              <option value="1 (private supplement)">Just me — solo (private supplement)</option>
+            </select>
+            <span class="hint">Quiet Tide runs for 2+ guests. Travelling solo? You can still go with a private supplement.</span>
+          </div>
+          <div class="field full">
+            <label for="f-dietary">Dietary restrictions</label>
+            <input id="f-dietary" name="dietary" type="text" placeholder="Vegetarian, allergies, none…" />
+          </div>
+          <div class="field full">
+            <label for="f-access">Accessibility needs</label>
+            <input id="f-access" name="accessibility" type="text" placeholder="Mobility, medical, or other needs — or leave blank" />
+          </div>
+          <div class="field full">
+            <label for="f-motivation">What are you hoping to find in the quiet? <span class="req">*</span></label>
+            <textarea id="f-motivation" name="motivation" required placeholder="The sea, the silence, the slowing down — a few words on what's drawing you here…"></textarea>
+            <span class="hint">This helps Soraya make sure the retreat is the right fit for you.</span>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-submit" id="submitBtn">Send application</button>
+          <p class="form-note">No payment is taken now. Your spot is confirmed after a conversation with Soraya.</p>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="check">✓</div>
+        <h3>Application received</h3>
+        <p>Soraya will be in touch within 48 hours. Keep an eye on your inbox — and welcome to the tide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">HAENYEO <span>RETREAT</span></div>
+        <p>By Vamos a Jeju · Vamos Travel Korea. Quiet, immersive retreats in the rhythm of Korea's free-diving sea women.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Explore</h5>
+          <a href="https://vamosajeju.com" target="_blank" rel="noopener">vamosajeju.com</a>
+          <a href="https://vamosajeju.com" target="_blank" rel="noopener">AI Trip Planner</a>
+        </div>
+        <div class="foot-col">
+          <h5>Follow</h5>
+          <a href="https://instagram.com/vamosajeju" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://vamosajeju.com" target="_blank" rel="noopener">Podcast</a>
+        </div>
+        <div class="foot-col">
+          <h5>Retreats</h5>
+          <a href="#top" data-tab="quiet">Quiet Tide</a>
+          <a href="#top" data-tab="still">Still Waters</a>
+          <a href="#top" data-tab="deep">Deep Roots</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Vamos Travel Korea. All rights reserved.</span>
+      <span>Live the haenyeo rhythm. One tide at a time.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ====================================================================
+     CONFIG — paste your Google Apps Script Web App URL here.
+     This is the same backend pattern as the existing Vamos landing page:
+     a Google Apps Script bound to a Sheet that (1) appends the row and
+     (2) sends Soraya a Gmail notification via MailApp.sendEmail().
+     Until a URL is set, the form runs in DEMO mode (logs + shows success).
+     ==================================================================== */
+  const SHEETS_ENDPOINT = ""; // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+
+  /* ---------- Tab switching ---------- */
+  const tabs = ["quiet", "still", "deep"];
+  function activateTab(tab) {
+    if (!tabs.includes(tab)) return;
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+    document.getElementById("panel-" + tab).classList.add("active");
+    document.querySelectorAll("#navTabs button, #heroTabs button").forEach(b => {
+      b.classList.toggle("active", b.dataset.tab === tab);
+    });
+  }
+
+  document.querySelectorAll("#navTabs button, #heroTabs button").forEach(btn => {
+    btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+  });
+
+  // Footer retreat links also switch tabs
+  document.querySelectorAll(".foot-col a[data-tab]").forEach(a => {
+    a.addEventListener("click", () => activateTab(a.dataset.tab));
+  });
+
+  /* ---------- "Apply for X" buttons pre-select the retreat ---------- */
+  document.querySelectorAll(".btn-apply[data-pick]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const sel = document.getElementById("f-retreat");
+      sel.value = btn.dataset.pick;
+    });
+  });
+
+  /* ---------- Open-date calendar (Quiet Tide private departures) ---------- */
+  (function () {
+    const OPEN = new Set([
+      "2026-08-04","2026-08-07","2026-08-11","2026-08-14","2026-08-18","2026-08-28",
+      "2026-09-01","2026-09-08","2026-09-11","2026-09-15","2026-09-18","2026-09-25","2026-09-29",
+      "2026-10-02","2026-10-09","2026-10-16","2026-10-20","2026-10-23","2026-10-27","2026-10-30",
+      "2026-11-13","2026-11-17","2026-11-20","2026-11-24","2026-11-27",
+      "2026-12-01","2026-12-04","2026-12-08","2026-12-11","2026-12-15","2026-12-18","2026-12-22","2026-12-25","2026-12-29"
+    ]);
+    const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const MIN = { y: 2026, m: 7 };  // August
+    const MAX = { y: 2026, m: 11 }; // December
+    const view = { y: 2026, m: 7 };
+    let selected = null;
+
+    const titleEl = document.getElementById("calTitle");
+    const daysEl = document.getElementById("calDays");
+    const prevB = document.getElementById("calPrev");
+    const nextB = document.getElementById("calNext");
+    const selEl = document.getElementById("calSelected");
+    if (!daysEl) return;
+
+    const iso = (y, m, d) => y + "-" + String(m + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0");
+    const pretty = (id) => {
+      const [y, m, d] = id.split("-").map(Number);
+      return MONTHS[m - 1] + " " + d + ", " + y;
+    };
+
+    function render() {
+      titleEl.textContent = MONTHS[view.m] + " " + view.y;
+      daysEl.innerHTML = "";
+      const firstDow = new Date(view.y, view.m, 1).getDay();
+      const daysIn = new Date(view.y, view.m + 1, 0).getDate();
+      for (let i = 0; i < firstDow; i++) {
+        const e = document.createElement("div");
+        e.className = "cal-day empty";
+        daysEl.appendChild(e);
+      }
+      for (let d = 1; d <= daysIn; d++) {
+        const cell = document.createElement("div");
+        cell.textContent = d;
+        const id = iso(view.y, view.m, d);
+        if (OPEN.has(id)) {
+          cell.className = "cal-day open";
+          if (selected === id) cell.classList.add("selected");
+          cell.addEventListener("click", () => {
+            selected = id;
+            document.getElementById("f-retreat").value = "Quiet Tide";
+            document.getElementById("f-departure").value = id;
+            selEl.innerHTML = "Selected: <b>" + pretty(id) + "</b> — continue in the form below.";
+            render();
+            document.getElementById("apply").scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        } else {
+          cell.className = "cal-day dim";
+        }
+        daysEl.appendChild(cell);
+      }
+      prevB.disabled = (view.y === MIN.y && view.m === MIN.m);
+      nextB.disabled = (view.y === MAX.y && view.m === MAX.m);
+    }
+
+    prevB.addEventListener("click", () => {
+      if (view.y > MIN.y || view.m > MIN.m) { view.m--; if (view.m < 0) { view.m = 11; view.y--; } render(); }
+    });
+    nextB.addEventListener("click", () => {
+      if (view.y < MAX.y || view.m < MAX.m) { view.m++; if (view.m > 11) { view.m = 0; view.y++; } render(); }
+    });
+    render();
+  })();
+
+  /* ---------- Form submit ---------- */
+  const form = document.getElementById("applyForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const successBox = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.submittedAt = new Date().toISOString();
+    data.source = "Haenyeo Retreat — product page";
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+
+    try {
+      if (SHEETS_ENDPOINT) {
+        await fetch(SHEETS_ENDPOINT, {
+          method: "POST",
+          // no-cors keeps it simple for Apps Script Web Apps; the Sheet still
+          // receives the payload and Gmail still fires. We can't read the
+          // response, so we optimistically show success.
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      } else {
+        console.log("[DEMO] No SHEETS_ENDPOINT set. Application payload:", data);
+        await new Promise(r => setTimeout(r, 600));
+      }
+      form.style.display = "none";
+      successBox.classList.add("show");
+      successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    } catch (err) {
+      console.error(err);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send application";
+      alert("Something went wrong sending your application. Please email Soraya directly at hello@vamosajeju.com.");
+    }
+  });
+</script>
+</body>
+</html>
