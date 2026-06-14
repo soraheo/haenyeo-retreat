@@ -253,6 +253,29 @@
   @media (max-width: 900px) { .voices-grid { columns: 2; } }
   @media (max-width: 600px) { .voices-grid { columns: 1; } }
 
+  /* ---------- FAQ ---------- */
+  .faq-sec { padding: 90px 0; background: var(--cream); }
+  .faq-sec .eyebrow { display: block; text-align: center; }
+  .faq-list { max-width: 760px; margin: 26px auto 0; }
+  .faq-item {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    margin-bottom: 14px; overflow: hidden;
+  }
+  .faq-item summary {
+    list-style: none; cursor: pointer; padding: 20px 24px;
+    font-family: "Playfair Display", serif; font-size: 18px; color: var(--primary);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+"; font-family: "Nunito Sans", sans-serif; font-weight: 700;
+    font-size: 22px; color: var(--accent-deep); flex-shrink: 0; transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item .faq-a { padding: 0 24px 22px; color: var(--text-muted); font-size: 15.5px; line-height: 1.72; }
+  .faq-item .faq-a a { color: var(--accent-deep); font-weight: 700; }
+  .faq-note { max-width: 760px; margin: 22px auto 0; text-align: center; font-size: 13.5px; color: var(--text-muted); }
+
   /* ---------- Product panels ---------- */
   .panels { padding: 72px 0 40px; }
   .panel { display: none; animation: fade 0.45s ease; }
@@ -628,7 +651,7 @@
         <div class="prod-meta">
           <span class="chip"><span class="label">Style</span> Private · your group only</span>
           <span class="chip"><span class="label">Group</span> 2+ guests</span>
-          <span class="chip price">From $390 / person</span>
+          <span class="chip price">$390 / person</span>
         </div>
       </div>
 
@@ -801,7 +824,7 @@
         <div>
           <div class="dep-label">One departure · 2026 only</div>
           <div class="dep-dates" style="margin-top:12px">
-            <span class="date"><small>The single 2026 cohort</small>Late October 2026</span>
+            <span class="date"><small>The single 2026 cohort</small>20–24 October 2026</span>
             <span class="date"><small>Availability</small>8 seats · by application</span>
           </div>
         </div>
@@ -905,7 +928,8 @@
         <div>
           <div class="dep-label">Coming 2027</div>
           <div class="dep-dates" style="margin-top:12px">
-            <span class="date"><small>Status</small>In development</span>
+            <span class="date"><small>Target dates</small>Early June 2027</span>
+            <span class="date"><small>Weather</small>Warm days, cool nights</span>
             <span class="date"><small>Be first to know</small>Join the waitlist</span>
           </div>
         </div>
@@ -996,6 +1020,58 @@
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Good to know</span>
+    <h2 class="gallery-title">Questions, answered</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>What language are the retreats in?</summary>
+        <div class="faq-a">English throughout — guided personally by Soraya, who lives on Jeju and translates for the haenyeo.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need freediving experience?</summary>
+        <div class="faq-a">No. The freediving sessions (Still Waters &amp; Deep Roots) begin with the fundamentals alongside a certified guide — beginners are welcome. Quiet Tide has no diving.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How fit do I need to be?</summary>
+        <div class="faq-a">The pace is gentle. Expect easy forest walks and calm time in the water and at the temple — you always move at your own speed. Please share any health, mobility, or medical needs in your application so we can prepare.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I get there, and where do we meet?</summary>
+        <div class="faq-a">Fly into Jeju International Airport (CJU). Once your spot is confirmed, we'll send the exact meeting point and a simple guide on getting there.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I come on my own?</summary>
+        <div class="faq-a">Yes. Quiet Tide is private (2 guests minimum); solo travellers are welcome with a private supplement (1.5× the per-person rate). Still Waters and Deep Roots are small-group retreats you can join solo.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What about meals and dietary needs?</summary>
+        <div class="faq-a">All meals are included. Temple cuisine is plant-based — just tell us about any allergies or restrictions and we'll do our best to accommodate.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does booking work — do I pay now?</summary>
+        <div class="faq-a">We're taking inquiries only for now. There's no payment at this stage; after a short conversation with Soraya, your spot is confirmed. Online booking and payment will open later in 2026.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is your cancellation &amp; refund policy?</summary>
+        <div class="faq-a">Because no payment is taken at the inquiry stage, there's nothing to cancel — simply let us know if your plans change. A full booking &amp; cancellation policy will apply once payments open, and we'll share it with you before anything is paid.</div>
+      </details>
+
+    </div>
+    <p class="faq-note">Still have a question? Add it with your application below — Soraya answers every one personally.</p>
+  </div>
+</section>
+
 <!-- ============ APPLY ============ -->
 <section class="apply" id="apply">
   <div class="wrap">
@@ -1031,7 +1107,7 @@
               <option value="Deep Roots — 2027 waitlist">Deep Roots · 2027 waitlist · 7 days</option>
             </select>
           </div>
-          <div class="field">
+          <div class="field" id="departureField">
             <label for="f-departure">Preferred date <span class="req">*</span></label>
             <input id="f-departure" name="departure" type="date" min="2026-08-04" max="2026-12-29" required />
             <span class="hint" id="departureHint"></span>
@@ -1049,7 +1125,7 @@
               <option value="8">8 guests</option>
               <option value="1 (private supplement)">Just me — solo (private supplement)</option>
             </select>
-            <span class="hint">Quiet Tide runs for 2+ guests. Travelling solo? You can still go with a private supplement.</span>
+            <span class="hint">Quiet Tide runs for 2+ guests. Travelling solo? You can still go with a private supplement (1.5× the per-person rate).</span>
           </div>
           <div class="field full">
             <label for="f-dietary">Dietary restrictions</label>
@@ -1068,7 +1144,7 @@
 
         <div class="form-submit">
           <button type="submit" class="btn-submit" id="submitBtn">Send application</button>
-          <p class="form-note">No payment is taken now. Your spot is confirmed after a conversation with Soraya.</p>
+          <p class="form-note">We're taking inquiries only for now — no payment is taken. Your spot is confirmed after a conversation with Soraya.</p>
         </div>
       </form>
 
@@ -1140,7 +1216,8 @@
     deep: {
       retreat: "Deep Roots — 2027 waitlist",
       min: "2027-06-01", max: "2027-06-10",
-      hint: 'Deep Roots is set for <b>early June 2027</b> — warm days, cool nights.'
+      hideDate: true,
+      hint: 'Deep Roots is targeting <b>early June 2027</b> — no date needed to join the waitlist.'
     }
   };
   const RETREAT_TO_TAB = { "Quiet Tide": "quiet", "Still Waters": "still", "Deep Roots — 2027 waitlist": "deep" };
@@ -1167,7 +1244,12 @@
     const sel = document.getElementById("f-retreat");
     if (sel) sel.value = cfg.retreat;
     const dep = document.getElementById("f-departure");
-    if (dep) { dep.min = cfg.min; dep.max = cfg.max; if (reset) dep.value = ""; }
+    if (dep) {
+      dep.min = cfg.min; dep.max = cfg.max; if (reset) dep.value = "";
+      dep.required = !cfg.hideDate;          // waitlist needs no date
+    }
+    const depField = document.getElementById("departureField");
+    if (depField) depField.style.display = cfg.hideDate ? "none" : "";
     const hint = document.getElementById("departureHint");
     if (hint) { hint.innerHTML = cfg.hint; wireSeeDates(); }
   }
