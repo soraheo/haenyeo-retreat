@@ -5,6 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Haenyeo Retreat — Live the haenyeo rhythm, one tide at a time</title>
 <meta name="description" content="Haenyeo Retreat by Vamos a Jeju — quiet, immersive travel on Jeju Island. Meet the haenyeo, rest in a mountain temple, and move at the speed of stillness." />
+<link rel="canonical" href="https://haenyeo.vercel.app/" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Haenyeo Retreat by Vamos a Jeju",
+  "url": "https://haenyeo.vercel.app/",
+  "image": "https://haenyeo.vercel.app/images/main.jpg",
+  "description": "Quiet, immersive retreats on Jeju Island, Korea — meet the haenyeo sea women, rest in a mountain temple, and move at the speed of stillness.",
+  "areaServed": "Jeju Island, South Korea",
+  "knowsLanguage": ["en", "es"],
+  "sameAs": [
+    "https://instagram.com/vamosajeju",
+    "https://vamosajeju.com"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "name": "Quiet Tide — 2-day private retreat", "price": "390", "priceCurrency": "USD", "category": "Private retreat" },
+    { "@type": "Offer", "name": "Still Waters — 4-day retreat (2026 cohort)", "price": "1090", "priceCurrency": "USD", "category": "Group retreat" },
+    { "@type": "Offer", "name": "Deep Roots — 7-day retreat (2027)", "price": "2100", "priceCurrency": "USD", "category": "Group retreat" }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -578,7 +601,12 @@
 
   @media (min-width: 720px) { .nav-cta { display: inline-block; } }
   @media (max-width: 720px) {
-    .nav-tabs { display: none; }
+    /* Keep the retreat tabs reachable in the sticky header: brand on row 1,
+       full-width compact tab row below it. */
+    .topbar-inner { height: auto; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; row-gap: 8px; }
+    .brand-mark { font-size: 17px; }
+    .nav-tabs { order: 3; width: 100%; gap: 6px; }
+    .nav-tabs button { flex: 1; padding: 8px 4px; font-size: 12px; }
     .prod-head { padding: 38px 26px; }
     .form-card { padding: 30px 22px; }
   }
@@ -607,9 +635,9 @@
     <p class="sub">Step out of the noise. <em>Live the haenyeo rhythm, one tide at a time.</em></p>
 
     <div class="hero-tabs" id="heroTabs">
-      <button data-tab="quiet" class="active"><span class="dot" style="background:#1C4A35"></span>Quiet Tide</button>
-      <button data-tab="still"><span class="dot" style="background:#d9c49e"></span>Still Waters</button>
-      <button data-tab="deep"><span class="dot" style="background:#3a2a1e"></span>Deep Roots</button>
+      <button data-tab="quiet" class="active"><span class="dot" aria-hidden="true" style="background:#1C4A35"></span>Quiet Tide</button>
+      <button data-tab="still"><span class="dot" aria-hidden="true" style="background:#d9c49e"></span>Still Waters</button>
+      <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>Deep Roots</button>
     </div>
     <p class="hero-scroll">Private retreats year-round · One limited cohort in 2026</p>
   </div>
@@ -687,30 +715,30 @@
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
-            <span class="act"><span class="ic">🫧</span>Haenyeo interview</span>
-            <span class="act"><span class="ic">🏯</span>Templestay overnight</span>
-            <span class="act"><span class="ic">🌀</span>Dawn meditation</span>
-            <span class="act"><span class="ic">🍵</span>Tea with a monastic</span>
-            <span class="act"><span class="ic">🌲</span>Temple forest path</span>
+            <span class="act"><span class="ic" aria-hidden="true">🫧</span>Haenyeo interview</span>
+            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Templestay overnight</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌀</span>Dawn meditation</span>
+            <span class="act"><span class="ic" aria-hidden="true">🍵</span>Tea with a monastic</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌲</span>Temple forest path</span>
           </div>
 
           <div style="margin-top:32px">
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick">✓</span>1 night templestay (temple lodging)</li>
-                <li><span class="tick">✓</span>Haenyeo interview by the shore</li>
-                <li><span class="tick">✓</span>All meals — temple cuisine, lunch to breakfast</li>
-                <li><span class="tick">✓</span>Templestay program &amp; dawn meditation</li>
-                <li><span class="tick">✓</span>Private guiding &amp; island transfers</li>
+                <li><span class="tick" aria-hidden="true">✓</span>1 night templestay (temple lodging)</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Haenyeo interview by the shore</li>
+                <li><span class="tick" aria-hidden="true">✓</span>All meals — temple cuisine, lunch to breakfast</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Templestay program &amp; dawn meditation</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Private guiding &amp; island transfers</li>
               </ul>
             </div>
             <div class="incl-card exc">
               <h4>✕ Not included</h4>
               <ul class="incl-list">
-                <li><span class="tick">✕</span>Flights &amp; airport transfers</li>
-                <li><span class="tick">✕</span>Travel insurance</li>
-                <li><span class="tick">✕</span>Personal expenses</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Flights &amp; airport transfers</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Travel insurance</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Personal expenses</li>
               </ul>
             </div>
           </div>
@@ -788,32 +816,32 @@
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
-            <span class="act"><span class="ic">🫧</span>Haenyeo interview</span>
-            <span class="act"><span class="ic">🍲</span>Cook a haenyeo meal</span>
-            <span class="act"><span class="ic">🤿</span>Freediving basics</span>
-            <span class="act"><span class="ic">🧘</span>Yoga</span>
-            <span class="act"><span class="ic">🌲</span>Forest trail</span>
-            <span class="act"><span class="ic">🎧</span>Soundscape</span>
-            <span class="act"><span class="ic">🌀</span>Meditation</span>
+            <span class="act"><span class="ic" aria-hidden="true">🫧</span>Haenyeo interview</span>
+            <span class="act"><span class="ic" aria-hidden="true">🍲</span>Cook a haenyeo meal</span>
+            <span class="act"><span class="ic" aria-hidden="true">🤿</span>Freediving <small>(optional)</small></span>
+            <span class="act"><span class="ic" aria-hidden="true">🧘</span>Yoga</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌲</span>Forest trail</span>
+            <span class="act"><span class="ic" aria-hidden="true">🎧</span>Soundscape</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌀</span>Meditation</span>
           </div>
 
           <div style="margin-top:32px">
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick">✓</span>3 nights coastal stay</li>
-                <li><span class="tick">✓</span>All meals &amp; haenyeo cooking class</li>
-                <li><span class="tick">✓</span>Guided freediving session &amp; gear</li>
-                <li><span class="tick">✓</span>Daily yoga, meditation &amp; soundscape</li>
-                <li><span class="tick">✓</span>Forest trail &amp; local transfers</li>
+                <li><span class="tick" aria-hidden="true">✓</span>3 nights coastal stay</li>
+                <li><span class="tick" aria-hidden="true">✓</span>All meals &amp; haenyeo cooking class</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Guided freediving session &amp; gear</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Daily yoga, meditation &amp; soundscape</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Forest trail &amp; local transfers</li>
               </ul>
             </div>
             <div class="incl-card exc">
               <h4>✕ Not included</h4>
               <ul class="incl-list">
-                <li><span class="tick">✕</span>International flights</li>
-                <li><span class="tick">✕</span>Airport transfers &amp; insurance</li>
-                <li><span class="tick">✕</span>Freediving certification fee</li>
+                <li><span class="tick" aria-hidden="true">✕</span>International flights</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Airport transfers &amp; insurance</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Freediving certification fee</li>
               </ul>
             </div>
           </div>
@@ -890,34 +918,34 @@
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
-            <span class="act"><span class="ic">🫧</span>Haenyeo interview</span>
-            <span class="act"><span class="ic">🍲</span>Cook a haenyeo meal</span>
-            <span class="act"><span class="ic">🚶</span>Village walk</span>
-            <span class="act"><span class="ic">🤿</span>Freediving</span>
-            <span class="act"><span class="ic">🧘</span>Yoga</span>
-            <span class="act"><span class="ic">🌲</span>Forest trail</span>
-            <span class="act"><span class="ic">🌀</span>Meditation</span>
-            <span class="act"><span class="ic">🎧</span>Soundscape</span>
-            <span class="act"><span class="ic">🏯</span>Templestay</span>
+            <span class="act"><span class="ic" aria-hidden="true">🫧</span>Haenyeo interview</span>
+            <span class="act"><span class="ic" aria-hidden="true">🍲</span>Cook a haenyeo meal</span>
+            <span class="act"><span class="ic" aria-hidden="true">🚶</span>Village walk</span>
+            <span class="act"><span class="ic" aria-hidden="true">🤿</span>Freediving <small>(optional)</small></span>
+            <span class="act"><span class="ic" aria-hidden="true">🧘</span>Yoga</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌲</span>Forest trail</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌀</span>Meditation</span>
+            <span class="act"><span class="ic" aria-hidden="true">🎧</span>Soundscape</span>
+            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Templestay</span>
           </div>
 
           <div style="margin-top:32px">
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick">✓</span>6 nights (coast + 1 night templestay)</li>
-                <li><span class="tick">✓</span>All meals &amp; haenyeo cooking</li>
-                <li><span class="tick">✓</span>Multiple guided freedives &amp; gear</li>
-                <li><span class="tick">✓</span>Daily yoga, meditation &amp; soundscape</li>
-                <li><span class="tick">✓</span>Templestay, forest trails &amp; all transfers</li>
+                <li><span class="tick" aria-hidden="true">✓</span>6 nights (coast + 1 night templestay)</li>
+                <li><span class="tick" aria-hidden="true">✓</span>All meals &amp; haenyeo cooking</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Multiple guided freedives &amp; gear</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Daily yoga, meditation &amp; soundscape</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Templestay, forest trails &amp; all transfers</li>
               </ul>
             </div>
             <div class="incl-card exc">
               <h4>✕ Not included</h4>
               <ul class="incl-list">
-                <li><span class="tick">✕</span>International flights</li>
-                <li><span class="tick">✕</span>Airport transfers &amp; insurance</li>
-                <li><span class="tick">✕</span>Freediving certification fee</li>
+                <li><span class="tick" aria-hidden="true">✕</span>International flights</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Airport transfers &amp; insurance</li>
+                <li><span class="tick" aria-hidden="true">✕</span>Freediving certification fee</li>
               </ul>
             </div>
           </div>
@@ -981,37 +1009,37 @@
     <div class="voices-grid">
 
       <blockquote class="voice">
-        <span class="quote-mark">&ldquo;</span>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Soraya may be my favorite guide of all the tours I've done. She was knowledgeable, fun, and went above and beyond to make sure we were taken care of and had a good time. I would absolutely travel with her again.</p>
         <cite class="who">Rebecca <span class="loc">USA</span></cite>
       </blockquote>
 
       <blockquote class="voice">
-        <span class="quote-mark">&ldquo;</span>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Soraya was so tremendous — our trip wouldn't have been the same without her. A genuine ball of light, and I'm so grateful to have met her. A warm, well-rounded experience. 10/10 ⭐️</p>
         <cite class="who">Alyssa <span class="loc">USA</span></cite>
       </blockquote>
 
       <blockquote class="voice">
-        <span class="quote-mark">&ldquo;</span>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Our guide, Soraya, was great. She was knowledgeable, helpful, and could read the group really well — she always knew when we were tired or needed a break.</p>
         <cite class="who">Janell <span class="loc">USA</span></cite>
       </blockquote>
 
       <blockquote class="voice">
-        <span class="quote-mark">&ldquo;</span>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Our host Soraya was so patient and lovely with everyone, and she made the whole experience joyful.</p>
         <cite class="who">Angelica <span class="loc">USA</span></cite>
       </blockquote>
 
       <blockquote class="voice">
-        <span class="quote-mark">&ldquo;</span>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Soraya had the best food and shop recommendations and really understood the vibe of our group. I cannot recommend her enough.</p>
         <cite class="who">Samantha <span class="loc">Canada</span></cite>
       </blockquote>
 
       <blockquote class="voice">
-        <span class="quote-mark">&ldquo;</span>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Our tour guide, Soraya, is amazing and I hope to travel with her again — she made everything better.</p>
         <cite class="who">Brittany <span class="loc">USA</span></cite>
       </blockquote>
@@ -1029,22 +1057,42 @@
 
       <details class="faq-item">
         <summary>What language are the retreats in?</summary>
-        <div class="faq-a">English throughout — guided personally by Soraya, who lives on Jeju and translates for the haenyeo.</div>
+        <div class="faq-a">English throughout — guided personally by Soraya, who lives on Jeju and translates for the haenyeo. Prefer Spanish? We run Spanish-language journeys separately — just reach out and ask.</div>
       </details>
 
       <details class="faq-item">
-        <summary>Do I need freediving experience?</summary>
-        <div class="faq-a">No. The freediving sessions (Still Waters &amp; Deep Roots) begin with the fundamentals alongside a certified guide — beginners are welcome. Quiet Tide has no diving.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How fit do I need to be?</summary>
-        <div class="faq-a">The pace is gentle. Expect easy forest walks and calm time in the water and at the temple — you always move at your own speed. Please share any health, mobility, or medical needs in your application so we can prepare.</div>
+        <summary>How does booking work — do I pay now?</summary>
+        <div class="faq-a">We're taking inquiries only for now. There's no payment at this stage; after a short conversation with Soraya, your spot is confirmed. Online booking and payment will open later in 2026.</div>
       </details>
 
       <details class="faq-item">
         <summary>How do I get there, and where do we meet?</summary>
-        <div class="faq-a">Fly into Jeju International Airport (CJU). Once your spot is confirmed, we'll send the exact meeting point and a simple guide on getting there.</div>
+        <div class="faq-a">Fly into Jeju International Airport (CJU). When you book, we send a full guidebook with the exact meeting point, how to get there, and everything you need to know.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What should I pack?</summary>
+        <div class="faq-a">No guesswork — once you book, your personal guidebook covers exactly what to bring and what to expect, day by day.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How fit do I need to be? Is it difficult?</summary>
+        <div class="faq-a">Gentle to moderate. Expect easy forest walks, calm time by the shore, and unhurried days — you always set your own pace, and nothing is mandatory. Please share any health, mobility, or medical needs in your application so we can prepare and adapt.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I have to freedive?</summary>
+        <div class="faq-a">No — freediving is completely optional (Still Waters &amp; Deep Roots). On water days you can join the guided session with a certified guide (beginners welcome, no experience needed), or simply enjoy a free walk along the shore at your own pace. Quiet Tide has no diving at all.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I have accessibility or mobility needs?</summary>
+        <div class="faq-a">Some moments involve uneven shore paths, temple steps, and time in or near the water. If you have mobility, medical, or other accessibility considerations, tell us in your application — we'll talk it through honestly and adapt wherever we can.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What about meals and dietary needs?</summary>
+        <div class="faq-a">All meals are included. Temple cuisine is fully vegan — no meat and no <em>oshinchae</em> (the five pungent vegetables, such as garlic and onion). Tell us about any allergies or other needs and we'll do our best to accommodate.</div>
       </details>
 
       <details class="faq-item">
@@ -1053,13 +1101,8 @@
       </details>
 
       <details class="faq-item">
-        <summary>What about meals and dietary needs?</summary>
-        <div class="faq-a">All meals are included. Temple cuisine is plant-based — just tell us about any allergies or restrictions and we'll do our best to accommodate.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How does booking work — do I pay now?</summary>
-        <div class="faq-a">We're taking inquiries only for now. There's no payment at this stage; after a short conversation with Soraya, your spot is confirmed. Online booking and payment will open later in 2026.</div>
+        <summary>Do I need travel insurance?</summary>
+        <div class="faq-a">We strongly recommend comprehensive travel insurance covering trip cancellation, medical care, and any in-water activities. Insurance is not included in the retreat price.</div>
       </details>
 
       <details class="faq-item">
@@ -1145,6 +1188,7 @@
         <div class="form-submit">
           <button type="submit" class="btn-submit" id="submitBtn">Send application</button>
           <p class="form-note">We're taking inquiries only for now — no payment is taken. Your spot is confirmed after a conversation with Soraya.</p>
+          <p class="form-note">By submitting, you agree to our <a href="privacy.html" style="color:var(--accent-deep);font-weight:700;">Privacy Policy</a>. We use your details only to plan your retreat — never for ads or resale.</p>
         </div>
       </form>
 
@@ -1181,6 +1225,11 @@
           <a href="#top" data-tab="quiet">Quiet Tide</a>
           <a href="#top" data-tab="still">Still Waters</a>
           <a href="#top" data-tab="deep">Deep Roots</a>
+        </div>
+        <div class="foot-col">
+          <h5>Legal</h5>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Booking</a>
         </div>
       </div>
     </div>
