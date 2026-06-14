@@ -210,6 +210,49 @@
   .sketches figcaption { text-align: center; font-size: 12.5px; color: var(--text-muted); margin-top: 10px; font-style: italic; }
   @media (max-width: 620px) { .sketches { grid-template-columns: 1fr; } }
 
+  /* ---------- Host / About ---------- */
+  .host-sec { padding: 92px 0; background: var(--cream); }
+  .host { display: grid; grid-template-columns: 0.85fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; max-width: 980px; margin: 0 auto; }
+  .host-photo { margin: 0; }
+  .host-photo img {
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+    border-radius: var(--radius); box-shadow: var(--shadow); display: block;
+  }
+  .host-body .eyebrow { display: inline-block; margin-bottom: 18px; }
+  .host-body h2 {
+    font-family: "Playfair Display", serif; font-weight: 500;
+    font-size: clamp(27px, 4vw, 39px); line-height: 1.18; margin: 0 0 24px; color: var(--primary);
+  }
+  .host-body p { font-size: 16.5px; line-height: 1.78; color: var(--text-muted); margin: 0 0 18px; }
+  .host-body p:last-child { margin-bottom: 0; }
+  @media (max-width: 760px) { .host { grid-template-columns: 1fr; gap: 30px; } .host-photo { max-width: 360px; margin: 0 auto; } }
+
+  /* ---------- Testimonials ---------- */
+  .voices-sec { padding: 90px 0; background: var(--bg); }
+  .voices-sec .eyebrow { display: block; text-align: center; }
+  .voices-grid {
+    columns: 3; column-gap: 24px; max-width: 1040px; margin: 14px auto 0;
+  }
+  .voice {
+    break-inside: avoid; margin: 0 0 24px; padding: 26px 26px 22px;
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: 0 14px 36px -26px rgba(28,74,53,0.4);
+  }
+  .voice p {
+    margin: 0 0 16px; font-size: 15.5px; line-height: 1.72; color: var(--text);
+  }
+  .voice .quote-mark {
+    font-family: "Playfair Display", serif; font-size: 40px; line-height: 0.6;
+    color: var(--accent); display: block; margin-bottom: 6px;
+  }
+  .voice footer {
+    display: flex; align-items: baseline; gap: 8px;
+    font-size: 13px; font-weight: 700; color: var(--primary); letter-spacing: 0.02em;
+  }
+  .voice footer .loc { font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; }
+  @media (max-width: 900px) { .voices-grid { columns: 2; } }
+  @media (max-width: 600px) { .voices-grid { columns: 1; } }
+
   /* ---------- Product panels ---------- */
   .panels { padding: 72px 0 40px; }
   .panel { display: none; animation: fade 0.45s ease; }
@@ -551,6 +594,24 @@
   <img src="images/main.jpg" alt="A guide introduces the haenyeo to guests, the sea women seated with their tewak floats" />
 </section>
 
+<!-- ============ HOST ============ -->
+<section class="host-sec" id="host">
+  <div class="wrap">
+    <div class="host">
+      <figure class="host-photo">
+        <img src="images/soraya.jpg" alt="Soraya, founder and guide of Vamos a Jeju, on Jeju Island" loading="lazy" />
+      </figure>
+      <div class="host-body">
+        <span class="eyebrow">Your host</span>
+        <h2>I'm Soraya — founder and your guide.</h2>
+        <p>While working as an English guide on Jeju, I often found myself beside the haenyeo, translating their words. Their lives moved me — and it saddened me to watch something so inspiring quietly disappear. I wanted to become the kind of fierce, graceful woman these grandmothers are, so I enrolled in haenyeo school myself.</p>
+        <p>Now I lead the journey I love most — the one that brings you to the haenyeo themselves. Jeju is a deeply spiritual island; through yoga and meditation here, I found a healing I never expected. That is what I most want to give you: to leave with the island's quiet held inside you, and a little of the haenyeo's strength.</p>
+        <p>I also share the haenyeo's stories through the <em>Vamos a Jeju</em> podcast and journal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PRODUCT PANELS ============ -->
 <main class="panels">
   <div class="wrap">
@@ -880,6 +941,54 @@
       <figure><img src="images/sketch1.jpg" alt="A guest's portrait of a haenyeo with notes" loading="lazy" /></figure>
       <figure><img src="images/sketch2.jpg" alt="A guest's sketchbook page of two haenyeo" loading="lazy" /></figure>
       <figure><img src="images/sketch3.jpg" alt="A guest's sketchbook held up against the Jeju sea" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="voices-sec" id="voices">
+  <div class="wrap">
+    <span class="eyebrow">Kind words</span>
+    <h2 class="gallery-title">Travelers on guiding with Soraya</h2>
+    <p class="gallery-sub">Reviews from people Soraya has guided across Korea.</p>
+    <div class="voices-grid">
+
+      <blockquote class="voice">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Soraya may be my favorite guide of all the tours I've done. She was knowledgeable, fun, and went above and beyond to make sure we were taken care of and had a good time. I would absolutely travel with her again.</p>
+        <footer>Rebecca <span class="loc">USA</span></footer>
+      </blockquote>
+
+      <blockquote class="voice">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Soraya was so tremendous — our trip wouldn't have been the same without her. A genuine ball of light, and I'm so grateful to have met her. A warm, well-rounded experience. 10/10 ⭐️</p>
+        <footer>Alyssa <span class="loc">USA</span></footer>
+      </blockquote>
+
+      <blockquote class="voice">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Our guide, Soraya, was great. She was knowledgeable, helpful, and could read the group really well — she always knew when we were tired or needed a break.</p>
+        <footer>Janell <span class="loc">USA</span></footer>
+      </blockquote>
+
+      <blockquote class="voice">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Our host Soraya was so patient and lovely with everyone, and she made the whole experience joyful.</p>
+        <footer>Angelica <span class="loc">USA</span></footer>
+      </blockquote>
+
+      <blockquote class="voice">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Soraya had the best food and shop recommendations and really understood the vibe of our group. I cannot recommend her enough.</p>
+        <footer>Samantha <span class="loc">Canada</span></footer>
+      </blockquote>
+
+      <blockquote class="voice">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Our tour guide, Soraya, is amazing and I hope to travel with her again — she made everything better.</p>
+        <footer>Brittany <span class="loc">USA</span></footer>
+      </blockquote>
+
     </div>
   </div>
 </section>
