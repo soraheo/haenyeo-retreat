@@ -395,6 +395,9 @@
   }
   .btn-apply:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(224,138,69,0.9); }
 
+  .see-dates { color: var(--accent-deep); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+  .see-dates:hover { color: var(--primary); }
+
   /* open dates */
   .opendates { display: flex; flex-direction: column; gap: 14px; }
   .od-month { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -1031,7 +1034,7 @@
           <div class="field">
             <label for="f-departure">Preferred date <span class="req">*</span></label>
             <input id="f-departure" name="departure" type="date" min="2026-08-04" max="2026-12-29" required />
-            <span class="hint">Quiet Tide departs Tue &amp; Fri (see open dates) — please pick a date at least a month ahead. Still Waters: Late October 2026.</span>
+            <span class="hint">Quiet Tide departs Tue &amp; Fri (<a href="#cal" class="see-dates">see open dates</a>) — please pick a date at least a month ahead. Still Waters: Late October 2026.</span>
           </div>
           <div class="field">
             <label for="f-guests">Number of guests <span class="req">*</span></label>
@@ -1137,6 +1140,16 @@
   // Footer retreat links also switch tabs
   document.querySelectorAll(".foot-col a[data-tab]").forEach(a => {
     a.addEventListener("click", () => activateTab(a.dataset.tab));
+  });
+
+  // "see open dates" in the apply form jumps to the Quiet Tide calendar
+  document.querySelectorAll(".see-dates").forEach(a => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      activateTab("quiet");
+      const cal = document.getElementById("cal");
+      if (cal) cal.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   });
 
   /* ---------- "Apply for X" buttons pre-select the retreat ---------- */
