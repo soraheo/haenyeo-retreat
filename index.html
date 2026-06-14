@@ -193,6 +193,23 @@
   .gallery figure:hover img { transform: scale(1.06); }
   @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 
+  /* ---------- Guest sketches ---------- */
+  .sketches-sec { padding: 88px 0; background: var(--primary); }
+  .sketches-sec .eyebrow { display: block; text-align: center; color: var(--accent); }
+  .sketches-sec .gallery-title { color: #fff; }
+  .sketches-sec .gallery-sub { color: rgba(255,255,255,0.82); }
+  .sketches { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 880px; margin: 0 auto; }
+  .sketches figure {
+    margin: 0; background: #fff; padding: 12px; border-radius: 8px;
+    box-shadow: 0 26px 52px -26px rgba(0,0,0,0.6);
+  }
+  .sketches img {
+    width: 100%; height: clamp(300px, 38vw, 430px);
+    object-fit: contain; background: #f3ebdd; border-radius: 4px; display: block;
+  }
+  .sketches figcaption { text-align: center; font-size: 12.5px; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+  @media (max-width: 620px) { .sketches { grid-template-columns: 1fr; } }
+
   /* ---------- Product panels ---------- */
   .panels { padding: 72px 0 40px; }
   .panel { display: none; animation: fade 0.45s ease; }
@@ -848,6 +865,21 @@
       <figure><img src="images/g4.jpg" alt="Guests and haenyeo together after a dive" loading="lazy" /></figure>
       <figure><img src="images/g5.jpg" alt="In traditional haenyeo dress at the sea women's gathering" loading="lazy" /></figure>
       <figure><img src="images/g6.jpg" alt="The haenyeo community with their tewak floats" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUEST SKETCHES ============ -->
+<section class="sketches-sec">
+  <div class="wrap">
+    <span class="eyebrow">Drawn by our guests</span>
+    <h2 class="gallery-title">What they carried home</h2>
+    <p class="gallery-sub">Some guests pick up a pencil. These are the haenyeo, as our travellers saw them.</p>
+    <div class="sketches">
+      <figure><img src="images/sketch.jpg" alt="A guest's sketch of two haenyeo" loading="lazy" /></figure>
+      <figure><img src="images/sketch1.jpg" alt="A guest's portrait of a haenyeo with notes" loading="lazy" /></figure>
+      <figure><img src="images/sketch2.jpg" alt="A guest's sketchbook page of two haenyeo" loading="lazy" /></figure>
+      <figure><img src="images/sketch3.jpg" alt="A guest's sketchbook held up against the Jeju sea" loading="lazy" /></figure>
     </div>
   </div>
 </section>
