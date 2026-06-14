@@ -101,30 +101,35 @@
   /* ---------- Hero ---------- */
   .hero {
     position: relative;
-    padding: 116px 0 94px;
+    padding: 96px 0 80px;
     text-align: center;
     background:
-      linear-gradient(180deg, rgba(18,48,42,0.82) 0%, rgba(18,48,42,0.52) 45%, rgba(18,48,42,0.88) 100%),
-      url("images/hero.jpg") center 42% / cover no-repeat;
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(28,74,53,0.10), transparent 70%),
+      linear-gradient(180deg, #f0ece3 0%, var(--bg) 60%);
     overflow: hidden;
   }
-  .hero::before, .hero::after { display: none; }
-  .hero .eyebrow { display: block; margin-bottom: 22px; color: var(--accent); }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,162,97,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .hero::before { width: 360px; height: 360px; top: -80px; left: -120px; }
+  .hero::after { width: 420px; height: 420px; bottom: -160px; right: -140px;
+    background: radial-gradient(circle, rgba(28,74,53,0.10), transparent 70%); }
+  .hero .eyebrow { display: block; margin-bottom: 22px; }
   .hero h1 {
     font-size: clamp(44px, 8vw, 88px);
-    color: #fff;
+    color: var(--primary);
     font-weight: 700;
     letter-spacing: 0.02em;
-    text-shadow: 0 2px 34px rgba(0,0,0,0.4);
   }
-  .hero h1 .tide { font-style: italic; color: var(--accent); font-weight: 500; }
+  .hero h1 .tide { font-style: italic; color: var(--accent-deep); font-weight: 500; }
   .hero .sub {
     margin: 26px auto 0;
     max-width: 540px;
     font-size: clamp(18px, 2.5vw, 23px);
-    color: rgba(255,255,255,0.92);
+    color: var(--text-muted);
     font-weight: 400;
-    text-shadow: 0 1px 16px rgba(0,0,0,0.3);
   }
   .hero-tabs {
     display: inline-flex; flex-wrap: wrap; justify-content: center;
@@ -149,7 +154,7 @@
   .hero-tabs button.active .dot { box-shadow: 0 0 0 2px rgba(255,255,255,0.6); }
   .hero-scroll {
     margin-top: 34px; font-size: 13px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: rgba(255,255,255,0.82); font-weight: 700;
+    text-transform: uppercase; color: var(--text-muted); font-weight: 700;
   }
 
   /* ---------- Gallery ---------- */
