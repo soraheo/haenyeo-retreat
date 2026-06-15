@@ -580,6 +580,15 @@
   }
   .foot-brand .logo span { color: var(--accent); }
   .foot-brand p { margin-top: 12px; font-size: 14.5px; line-height: 1.7; }
+  .foot-contact { margin-top: 20px; display: flex; align-items: center; gap: 16px; }
+  .foot-contact .qr {
+    width: 84px; height: 84px; flex-shrink: 0; background: #fff;
+    padding: 7px; border-radius: 10px; display: block;
+  }
+  .foot-contact .contact-text { font-size: 13.5px; line-height: 1.5; }
+  .foot-contact .contact-text a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .foot-contact .contact-text a:hover { text-decoration: underline; }
+  .foot-contact .contact-text .small { display: block; color: rgba(255,255,255,0.6); margin-top: 4px; font-size: 12px; }
   .foot-links { display: flex; gap: 56px; flex-wrap: wrap; }
   .foot-col h5 {
     font-family: "Nunito Sans"; font-size: 12px; letter-spacing: 0.16em;
@@ -726,7 +735,7 @@
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick" aria-hidden="true">✓</span>1 night templestay (temple lodging)</li>
+                <li><span class="tick" aria-hidden="true">✓</span>1 night templestay — monastic, simple, intentional</li>
                 <li><span class="tick" aria-hidden="true">✓</span>Haenyeo interview by the shore</li>
                 <li><span class="tick" aria-hidden="true">✓</span>All meals — temple cuisine, lunch to breakfast</li>
                 <li><span class="tick" aria-hidden="true">✓</span>Templestay program &amp; dawn meditation</li>
@@ -821,6 +830,7 @@
             <span class="act"><span class="ic" aria-hidden="true">🤿</span>Freediving <small>(optional)</small></span>
             <span class="act"><span class="ic" aria-hidden="true">🧘</span>Yoga</span>
             <span class="act"><span class="ic" aria-hidden="true">🌲</span>Forest trail</span>
+            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Templestay</span>
             <span class="act"><span class="ic" aria-hidden="true">🎧</span>Soundscape</span>
             <span class="act"><span class="ic" aria-hidden="true">🌀</span>Meditation</span>
           </div>
@@ -829,7 +839,7 @@
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick" aria-hidden="true">✓</span>3 nights coastal stay</li>
+                <li><span class="tick" aria-hidden="true">✓</span>1 night templestay (simple &amp; intentional) + 2 nights coastal hotel</li>
                 <li><span class="tick" aria-hidden="true">✓</span>All meals &amp; haenyeo cooking class</li>
                 <li><span class="tick" aria-hidden="true">✓</span>Guided freediving session &amp; gear</li>
                 <li><span class="tick" aria-hidden="true">✓</span>Daily yoga, meditation &amp; soundscape</li>
@@ -1208,6 +1218,13 @@
       <div class="foot-brand">
         <div class="logo">HAENYEO <span>RETREAT</span></div>
         <p>By Vamos a Jeju · Vamos Travel Korea. Quiet, immersive retreats in the rhythm of Korea's free-diving sea women.</p>
+        <div class="foot-contact">
+          <img class="qr" src="images/whatsapp-qr.svg" alt="Scan to message us on WhatsApp" width="84" height="84" loading="lazy" />
+          <div class="contact-text">
+            <a href="mailto:soraya@vamosajeju.com">soraya@vamosajeju.com</a>
+            <span class="small">Scan the code to chat with us on WhatsApp</span>
+          </div>
+        </div>
       </div>
       <div class="foot-links">
         <div class="foot-col">
@@ -1438,7 +1455,7 @@
       console.error(err);
       submitBtn.disabled = false;
       submitBtn.textContent = "Send application";
-      alert("Something went wrong sending your application. Please email Soraya directly at hello@vamosajeju.com.");
+      alert("Something went wrong sending your application. Please email Soraya directly at soraya@vamosajeju.com.");
     }
   });
 </script>
