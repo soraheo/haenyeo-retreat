@@ -321,7 +321,7 @@
 
   /* ---------- Product panels ---------- */
   .panels { padding: 72px 0 40px; }
-  .panel { display: none; animation: fade 0.45s ease; }
+  .panel { display: none; animation: fade 0.45s ease; scroll-margin-top: 88px; }
   .panel.active { display: block; }
   @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
@@ -636,6 +636,7 @@
     .brand-mark { font-size: 17px; }
     .nav-tabs { order: 3; width: 100%; gap: 6px; }
     .nav-tabs button { flex: 1; padding: 8px 4px; font-size: 12px; }
+    .panel { scroll-margin-top: 124px; }
     .prod-head { padding: 38px 26px; }
     .form-card { padding: 30px 22px; }
   }
@@ -1381,13 +1382,20 @@
     syncApplyForm(tab, true);
   }
 
+  // Switch the panel, then scroll to that retreat's section
+  function goToPanel(tab) {
+    activateTab(tab);
+    const panel = document.getElementById("panel-" + tab);
+    if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   document.querySelectorAll("#navTabs button, #heroTabs button").forEach(btn => {
-    btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+    btn.addEventListener("click", () => goToPanel(btn.dataset.tab));
   });
 
-  // Footer retreat links also switch tabs
+  // Footer retreat links also switch tabs and jump to the section
   document.querySelectorAll(".foot-col a[data-tab]").forEach(a => {
-    a.addEventListener("click", () => activateTab(a.dataset.tab));
+    a.addEventListener("click", (e) => { e.preventDefault(); goToPanel(a.dataset.tab); });
   });
 
   /* ---------- "Apply for X" buttons select the retreat ---------- */
