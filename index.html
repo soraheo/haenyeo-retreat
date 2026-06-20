@@ -562,6 +562,19 @@
     outline: none; border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(244,162,97,0.22);
   }
+  /* Stop mobile browsers / password managers tinting autofilled fields (e.g. green) */
+  .field input:-webkit-autofill,
+  .field input:-webkit-autofill:hover,
+  .field input:-webkit-autofill:focus,
+  .field input:autofill,
+  .field select:-webkit-autofill,
+  .field textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: var(--text);
+    caret-color: var(--text);
+    transition: background-color 9999s ease-out 0s;
+  }
   .field .hint { font-size: 12.5px; color: var(--text-muted); font-weight: 400; }
   .form-submit { margin-top: 30px; text-align: center; }
   .btn-submit {
@@ -1510,7 +1523,16 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (!form.reportValidity()) return;
+    if (!form.reportValidity()) {
+      // On mobile the native validation bubble often doesn't show, so the
+      // button looks dead. Scroll to + focus the first missing field instead.
+      const firstInvalid = [...form.elements].find(el => el.willValidate && !el.checkValidity());
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => firstInvalid.focus({ preventScroll: true }), 300);
+      }
+      return;
+    }
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
