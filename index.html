@@ -558,6 +558,12 @@
     width: 100%;
   }
   .field textarea { resize: vertical; min-height: 96px; }
+  /* iOS gives date inputs a fixed intrinsic width that overflows the field — force it to shrink and align left */
+  .field input[type="date"] {
+    -webkit-appearance: none; appearance: none;
+    min-width: 0; max-width: 100%;
+    text-align: left;
+  }
   .field input:focus, .field select:focus, .field textarea:focus {
     outline: none; border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(244,162,97,0.22);
