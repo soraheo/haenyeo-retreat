@@ -362,6 +362,8 @@
   .prod-head.theme-cream .chip { background: rgba(58,42,30,0.08); border-color: rgba(58,42,30,0.18); }
   .prod-meta .chip .label { font-weight: 400; opacity: 0.75; font-size: 13px; }
   .prod-meta .price { background: var(--accent); color: var(--espresso); border-color: transparent; font-size: 17px; }
+  .prod-meta .chip-inq { background: transparent; border-color: var(--accent-deep); color: var(--accent-deep); text-decoration: none; cursor: pointer; transition: background 0.18s; }
+  .prod-meta .chip-inq:hover { background: rgba(224,138,69,0.1); }
 
   /* layout grid */
   .prod-body {
@@ -702,7 +704,7 @@
         <img src="images/soraya.jpg" alt="Soraya, founder and guide of Vamos a Jeju, on Jeju Island" loading="lazy" />
       </figure>
       <div class="host-body">
-        <span class="eyebrow">Your host</span>
+        <span class="eyebrow">The woman behind it</span>
         <h2>I'm Soraya — your host.</h2>
         <p>While working as an English guide on Jeju, I often found myself beside the haenyeo, translating their words. Their lives moved me — and it saddened me to watch something so inspiring quietly disappear. I wanted to become the kind of fierce, graceful woman these grandmothers are, so I enrolled in haenyeo school myself.</p>
         <p>Now I lead the journey I love most — the one that brings you to the haenyeo themselves. Jeju is a deeply spiritual island; through yoga and meditation here, I found a healing I never expected. That is what I most want to give you: to leave with the island's quiet held inside you, and a little of the haenyeo's strength.</p>
@@ -735,6 +737,7 @@
         <div class="prod-meta">
           <span class="chip"><span class="label">Style</span> Private · your group only</span>
           <span class="chip"><span class="label">Group</span> 2–4 guests</span>
+          <a href="#apply" class="chip chip-inq" onclick="syncApplyForm('quiet')">5+ guests? →</a>
           <span class="chip price">$600 / private group</span>
         </div>
       </div>
