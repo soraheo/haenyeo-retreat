@@ -1417,6 +1417,17 @@
     });
   });
 
+  /* ---------- Picking a retreat in the dropdown updates its date window ---------- */
+  const retreatSel = document.getElementById("f-retreat");
+  if (retreatSel) retreatSel.addEventListener("change", () => {
+    const tab = RETREAT_TO_TAB[retreatSel.value];
+    if (tab) {
+      syncApplyForm(tab, false);            // refresh date min/max, required, visibility
+      const d = document.getElementById("f-departure");
+      if (d) d.value = "";                  // clear any date left over from the previous retreat
+    }
+  });
+
   // Initialise the date hint/window for the tab that's active on load.
   syncApplyForm("quiet", false);
 
