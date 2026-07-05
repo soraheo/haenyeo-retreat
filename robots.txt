@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://haenyeo.vercel.app/sitemap.xml
+Sitemap: https://jejuslowly.com/sitemap.xml
