@@ -791,12 +791,49 @@
     display: block; margin-top: 13px; font-size: 13px; color: var(--text-muted);
   }
   .founding-cta .deadline b { color: var(--primary); }
+  .fday-list { list-style: none; display: grid; gap: 7px; }
+  .fday-list li {
+    position: relative; padding-left: 15px;
+    font-size: 13.5px; line-height: 1.5; color: var(--text);
+  }
+  .fday-list li::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  }
+  .fday-list li b {
+    font-weight: 800; color: var(--primary);
+    font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .founding-includes {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 26px;
+    border-top: 1px dashed var(--line); padding-top: 24px; margin-bottom: 26px;
+  }
+  .inc-col h4 {
+    font-family: "Nunito Sans", sans-serif; font-size: 12px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;
+    color: var(--primary);
+  }
+  .inc-col.out h4 { color: var(--text-muted); }
+  .inc-col ul { list-style: none; display: grid; gap: 8px; }
+  .inc-col li {
+    display: flex; gap: 9px; font-size: 13.8px; line-height: 1.5;
+    color: var(--text-muted);
+  }
+  .inc-col li::before { flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+  .inc-col:not(.out) li::before { content: "✓"; color: var(--primary); font-weight: 800; }
+  .inc-col.out li::before { content: "–"; color: var(--text-muted); }
+  .founding-reassure {
+    text-align: center; font-size: 14px; line-height: 1.6;
+    color: var(--text-muted); margin-bottom: 26px;
+  }
+  .founding-reassure b { color: var(--primary); font-weight: 700; }
   @media (max-width: 720px) {
     .founding { padding: 44px 0; }
     .founding-top { padding: 28px 22px 24px; }
     .founding-body { padding: 26px 22px 30px; }
     .founding-stats { grid-template-columns: repeat(2, 1fr); }
-    .founding-flow { grid-template-columns: 1fr; gap: 14px; }
+    .founding-flow { grid-template-columns: 1fr; gap: 18px; }
+    .founding-includes { grid-template-columns: 1fr; gap: 20px; }
   }
 </style>
 </head>
@@ -819,7 +856,7 @@
 <a href="#apply" class="promo-bar" data-pick="Founding Guests · Sep 10–12 pilot">
   <span class="promo-tag">Founding Guests</span>
   <span class="promo-text">Our first pilot retreat · Sep 10–12, 2026 · 10 seats at <b>$300</b><span class="promo-was"> (usually $1,090)</span></span>
-  <span class="promo-cta">Apply by Jul 31 →</span>
+  <span class="promo-cta">Apply by Aug 15 →</span>
 </a>
 
 <!-- ============ HERO ============ -->
@@ -878,7 +915,7 @@
           <span class="fl">Seats · solo welcome</span>
         </div>
         <div class="founding-stat">
-          <span class="fn">Jul 31</span>
+          <span class="fn">Aug 15</span>
           <span class="fl">Applications close</span>
         </div>
       </div>
@@ -887,17 +924,52 @@
         <div class="founding-flow">
           <div class="founding-day">
             <div class="fday">Day 1 · Thu</div>
-            <p>Arrive, a slow forest walk, then Haenyeo's Kitchen — theatre and dinner where the sea women tell their own story.</p>
+            <ul class="fday-list">
+              <li>Arrive on Jeju, then a slow forest walk to ease in</li>
+              <li>Haenyeo's Kitchen: a theatre-dinner where the sea women tell their own story</li>
+              <li><b>Night</b> a comfortable hotel near Seongsan</li>
+            </ul>
           </div>
           <div class="founding-day">
             <div class="fday">Day 2 · Fri</div>
-            <p>The sea women's village day in Sehwa: coastal walk, museum, a sit-down interview with a working haenyeo, and the Bam Bada Salon by the water.</p>
+            <ul class="fday-list">
+              <li>Optional sunrise hike up Seongsan Ilchulbong</li>
+              <li>The village day in Sehwa: Sumbisori coastal walk, the Haenyeo Museum, and a sit-down interview with a working haenyeo, interpreted by Soraya</li>
+              <li>Bam Bada Salon (an evening on the beach): grilled conch and noodles by the water</li>
+              <li><b>Night</b> a village guesthouse in Sehwa</li>
+            </ul>
           </div>
           <div class="founding-day">
             <div class="fday">Day 3 · Sat</div>
-            <p>Yoga, then a half-day temple stay — seated meditation, a temple lunch, and tea with the resident monk. A closing circle, and farewell.</p>
+            <ul class="fday-list">
+              <li>Yoga, then a half-day temple stay: seated meditation, a temple lunch, and tea with the resident monk</li>
+              <li>A closing circle, a keepsake to remember Jeju by, and farewell</li>
+              <li><b>Ends</b> at Jeju Airport by late afternoon</li>
+            </ul>
           </div>
         </div>
+
+        <div class="founding-includes">
+          <div class="inc-col">
+            <h4>Your $300 includes</h4>
+            <ul>
+              <li>2 nights' lodging, twin-share: a hotel near Seongsan and a village guesthouse in Sehwa</li>
+              <li>6 meals: 2 dinners (Haenyeo's Kitchen theatre-dinner and the Bam Bada Salon), 2 lunches including the temple lunch, and 2 breakfasts</li>
+              <li>Every experience and entry: museum, haenyeo interview, yoga, temple stay, and tea with the monk</li>
+              <li>All local transport on Jeju during the retreat, and a keepsake</li>
+            </ul>
+          </div>
+          <div class="inc-col out">
+            <h4>Not included</h4>
+            <ul>
+              <li>Flights to and from Jeju, and café stops</li>
+              <li>Personal expenses</li>
+              <li>Travel insurance, which is required. Policies need your personal details, so each guest arranges their own before the retreat.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="founding-reassure"><b>No diving required.</b> Gentle pace, any age, solo travelers warmly welcome. Most guests come solo and leave with friends. Fly into Jeju by noon on Thu Sep 10; the exact airport meeting time is shared after you're selected.</p>
 
         <div class="founding-perks">
           <h4>What founding guests receive</h4>
@@ -910,7 +982,7 @@
 
         <div class="founding-cta">
           <a href="#apply" class="btn-found" data-pick="Founding Guests · Sep 10–12 pilot">Apply as a founding guest →</a>
-          <span class="deadline">Applications close <b>Thursday, July 31</b> · everyone hears back by email on <b>August 1</b>. Not this time? We run again in November and next spring.</span>
+          <span class="deadline">Applications close <b>Saturday, August 15</b> · everyone hears back by email by <b>August 18</b>. No payment now: your $300 place is settled only after you're selected, in late August. Not this time? We run again in November and next spring.</span>
         </div>
       </div>
     </div>
@@ -1549,7 +1621,7 @@
       retreat: "Founding Guests · Sep 10–12 pilot",
       min: "2026-09-10", max: "2026-09-10",
       hideDate: true,
-      hint: 'The pilot runs <b>Sep 10–12, 2026</b> (fixed dates). Applications close <b>Jul 31</b>; you\'ll hear back by email on Aug 1. Solo travelers warmly welcome.'
+      hint: 'The pilot runs <b>Sep 10–12, 2026</b> (fixed dates). Applications close <b>Aug 15</b>; you\'ll hear back by email by Aug 18. No payment now — your $300 place is settled only after you\'re selected. Solo travelers warmly welcome.'
     },
     quiet: {
       retreat: "The Sea Women Walk",
@@ -1724,10 +1796,28 @@
     render();
   })();
 
-  /* ---------- Form submit ---------- */
+  /* ---------- Application backend ----------
+     Recommended: Google Apps Script — submissions log to a Google Sheet and
+     Soraya is notified from her own Gmail, so alerts never land in junk.
+     Paste the Web app /exec URL below to switch on that path. While it's
+     blank, the form falls back to Formspree (the form's action attribute). */
+  const GOOGLE_ENDPOINT = ""; // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+
   const form = document.getElementById("applyForm");
   const submitBtn = document.getElementById("submitBtn");
   const successBox = document.getElementById("formSuccess");
+
+  function showSuccess() {
+    form.style.display = "none";
+    successBox.classList.add("show");
+    successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    form.reset();
+  }
+  function showError() {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send application";
+    alert("Something went wrong sending your application. Please email Soraya directly at soraya@vamosajeju.com.");
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -1745,18 +1835,33 @@
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
 
+    // Google Apps Script path: the response is opaque (no-cors), so we can't
+    // read it — we confirm optimistically. The Google Sheet is the source of
+    // truth, and Soraya's own-account email is the reliable notification.
+    if (GOOGLE_ENDPOINT) {
+      try {
+        await fetch(GOOGLE_ENDPOINT, {
+          method: "POST",
+          body: new FormData(form),
+          mode: "no-cors"
+        });
+        showSuccess();
+      } catch (err) {
+        console.error(err);
+        showError();
+      }
+      return;
+    }
+
+    // Fallback: Formspree (reads the JSON response for a real ok/error).
     try {
       const response = await fetch(form.action, {
         method: "POST",
         body: new FormData(form),
         headers: { "Accept": "application/json" },
       });
-
       if (response.ok) {
-        form.style.display = "none";
-        successBox.classList.add("show");
-        successBox.scrollIntoView({ behavior: "smooth", block: "center" });
-        form.reset();
+        showSuccess();
       } else {
         const data = await response.json().catch(() => ({}));
         const msg = (data.errors && data.errors.map(er => er.message).join(", ")) || "Submission failed.";
@@ -1764,9 +1869,7 @@
       }
     } catch (err) {
       console.error(err);
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send application";
-      alert("Something went wrong sending your application. Please email Soraya directly at soraya@vamosajeju.com.");
+      showError();
     }
   });
 </script>
