@@ -1503,6 +1503,11 @@
             <input id="f-email" name="email" type="email" required autocomplete="email" />
           </div>
           <div class="field">
+            <label for="f-phone">Phone / WhatsApp <span class="req">*</span></label>
+            <input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+1 555 123 4567" />
+            <span class="hint">We coordinate with guests on WhatsApp before the retreat.</span>
+          </div>
+          <div class="field">
             <label for="f-nationality">Nationality</label>
             <input id="f-nationality" name="nationality" type="text" autocomplete="country-name" />
           </div>
@@ -1513,6 +1518,11 @@
               <option value="Two of us, applying together">Two of us, applying together</option>
             </select>
             <span class="hint">Each place is chosen individually, up to a maximum of two people per application. A pair shares one twin room. Solo travelers are warmly welcome.</span>
+          </div>
+          <div class="field">
+            <label for="f-social">Social media</label>
+            <input id="f-social" name="social" type="text" placeholder="Instagram, TikTok, YouTube…" />
+            <span class="hint">Optional. A handle or link is fine.</span>
           </div>
           <div class="field full">
             <label for="f-dietary">Dietary restrictions</label>
@@ -1633,11 +1643,22 @@
   });
 
   /* ---------- Application backend ----------
-     Recommended: Google Apps Script — submissions log to a Google Sheet and
-     Soraya is notified from her own Gmail, so alerts never land in junk.
-     Paste the Web app /exec URL below to switch on that path. While it's
-     blank, the form falls back to Formspree (the form's action attribute). */
-  const GOOGLE_ENDPOINT = ""; // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+     Applications post to a Google Form, which logs to a Google Sheet and
+     emails Soraya from her own account (so alerts never land in junk).
+     ENTRY_MAP maps our field names to the Google Form's entry IDs.
+     If GOOGLE_ENDPOINT is blank, the form falls back to Formspree. */
+  const GOOGLE_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLSfjHdmIIUQrdv90XhArYnx4VFqynShBwxDPCwWYkgwDN-lQGA/formResponse";
+  const ENTRY_MAP = {
+    name:          "entry.705530326",
+    email:         "entry.1587602688",
+    phone:         "entry.1078040968",
+    nationality:   "entry.1849905841",
+    guests:        "entry.1601676240",
+    social:        "entry.1036437387",
+    dietary:       "entry.1090040957",
+    accessibility: "entry.238765478",
+    motivation:    "entry.28239273"
+  };
 
   const form = document.getElementById("applyForm");
   const submitBtn = document.getElementById("submitBtn");
@@ -1671,14 +1692,20 @@
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
 
-    // Google Apps Script path: the response is opaque (no-cors), so we can't
-    // read it — we confirm optimistically. The Google Sheet is the source of
-    // truth, and Soraya's own-account email is the reliable notification.
+    // Google Form path: the response is opaque (no-cors), so we can't read it
+    // — we confirm optimistically. The Google Sheet is the source of truth, and
+    // Soraya's own-account email is the reliable notification. We remap our
+    // field names to the Google Form's entry IDs before posting.
     if (GOOGLE_ENDPOINT) {
+      const params = new URLSearchParams();
+      for (const key in ENTRY_MAP) {
+        const el = form.elements[key];
+        if (el) params.append(ENTRY_MAP[key], el.value);
+      }
       try {
         await fetch(GOOGLE_ENDPOINT, {
           method: "POST",
-          body: new FormData(form),
+          body: params,
           mode: "no-cors"
         });
         showSuccess();
