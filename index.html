@@ -329,6 +329,12 @@
 
   /* ---------- Product panels ---------- */
   .panels { padding: 72px 0 40px; }
+  .journeys-intro { text-align: center; max-width: 640px; margin: 0 auto; }
+  .journeys-intro .eyebrow { color: var(--accent-deep); }
+  .journeys-intro h2 { font-size: clamp(26px, 4vw, 38px); color: var(--primary); margin: 10px 0 12px; }
+  .journeys-intro p { color: var(--text-muted); font-size: 16px; margin-bottom: 26px; }
+  .journey-tabs { justify-content: center; margin-bottom: 8px; }
+  .journeys-intro.panel-open { margin-bottom: 48px; }
   .panel { display: none; animation: fade 0.45s ease; scroll-margin-top: 88px; }
   .panel.active { display: block; }
   @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -854,7 +860,7 @@
   <div class="wrap topbar-inner">
     <a href="#top" class="brand-mark">JEJU, <span>SLOWLY</span></a>
     <nav class="nav-tabs" id="navTabs">
-      <button data-tab="quiet" class="active">The Walk</button>
+      <button data-tab="quiet">The Walk</button>
       <button data-tab="still">3 Days</button>
       <button data-tab="deep">4 Days</button>
     </nav>
@@ -877,7 +883,7 @@
     <p class="sub">A retreat with the sea women: Jeju's free-diving grandmothers who've harvested the sea by breath alone for generations. Slow days in their world, their stories in your ears, and rest. <em>No diving required.</em></p>
 
     <div class="hero-tabs" id="heroTabs">
-      <button data-tab="quiet" class="active"><span class="dot" aria-hidden="true" style="background:#1C4A35"></span>The Walk</button>
+      <button data-tab="quiet"><span class="dot" aria-hidden="true" style="background:#1C4A35"></span>The Walk</button>
       <button data-tab="still"><span class="dot" aria-hidden="true" style="background:#d9c49e"></span>3 Days</button>
       <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>4 Days</button>
     </div>
@@ -1060,8 +1066,19 @@
 <main class="panels">
   <div class="wrap">
 
+    <div class="journeys-intro" id="journeysIntro">
+      <span class="eyebrow">Our other journeys</span>
+      <h2>Beyond the founding pilot</h2>
+      <p>The Founding Guests pilot is our focus right now. If you'd like to see the rest of what we offer, tap one below.</p>
+      <div class="hero-tabs journey-tabs" id="panelTabs">
+        <button data-tab="quiet"><span class="dot" aria-hidden="true" style="background:#1C4A35"></span>The Walk</button>
+        <button data-tab="still"><span class="dot" aria-hidden="true" style="background:#d9c49e"></span>3 Days</button>
+        <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>4 Days</button>
+      </div>
+    </div>
+
     <!-- ===== QUIET TIDE ===== -->
-    <section class="panel active" id="panel-quiet">
+    <section class="panel" id="panel-quiet">
       <div class="prod-head theme-green">
         <span class="eyebrow">Half-Day Story Walk · Hado-ri, Jeju</span>
         <h2>The Sea Women Walk</h2>
@@ -1610,34 +1627,49 @@
      and arrive by email + in the Formspree dashboard (formspree.io).
      ==================================================================== */
 
-  /* ---------- Tab switching ---------- */
+  /* ---------- Product panels (The Walk / 3 Days / 4 Days) ----------
+     Hidden by default so the page leads with the Founding Guests pilot.
+     Tabs reveal a panel on click, and collapse it when clicked again.
+     The apply form is dedicated to the pilot; the Walk books on Airbnb and
+     3/4 Days inquire by email. */
   const tabs = ["quiet", "still", "deep"];
+  const TAB_BTNS = "#navTabs button, #heroTabs button, #panelTabs button";
 
-  // Product tabs (The Walk / 3 Days / 4 Days) switch informational panels.
-  // The apply form is dedicated to the Founding Guests pilot, so tabs no
-  // longer drive it — the Walk books on Airbnb and 3/4 Days inquire by email.
-  function activateTab(tab) {
-    if (!tabs.includes(tab)) return;
+  // Open the given panel (hide the others), or pass null to collapse all.
+  function setPanel(tab) {
     document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
-    const panel = document.getElementById("panel-" + tab);
-    if (panel) panel.classList.add("active");
-    document.querySelectorAll("#navTabs button, #heroTabs button").forEach(b => {
-      b.classList.toggle("active", b.dataset.tab === tab);
+    if (tab) {
+      const panel = document.getElementById("panel-" + tab);
+      if (panel) panel.classList.add("active");
+    }
+    document.querySelectorAll(TAB_BTNS).forEach(b => {
+      b.classList.toggle("active", tab !== null && b.dataset.tab === tab);
     });
+    const intro = document.getElementById("journeysIntro");
+    if (intro) intro.classList.toggle("panel-open", tab !== null);
   }
 
-  // Switch the panel, then scroll to that section.
   function goToPanel(tab) {
-    activateTab(tab);
+    setPanel(tab);
     const panel = document.getElementById("panel-" + tab);
     if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  document.querySelectorAll("#navTabs button, #heroTabs button").forEach(btn => {
-    btn.addEventListener("click", () => goToPanel(btn.dataset.tab));
+  // Tabs toggle their panel: click to open, click the open one to collapse.
+  document.querySelectorAll(TAB_BTNS).forEach(btn => {
+    btn.addEventListener("click", () => {
+      const tab = btn.dataset.tab;
+      if (!tabs.includes(tab)) return;
+      const panel = document.getElementById("panel-" + tab);
+      if (panel && panel.classList.contains("active")) {
+        setPanel(null);
+      } else {
+        goToPanel(tab);
+      }
+    });
   });
 
-  // Footer retreat links also switch tabs and jump to the section.
+  // Footer retreat links open the relevant panel (never collapse).
   document.querySelectorAll(".foot-col a[data-tab]").forEach(a => {
     a.addEventListener("click", (e) => { e.preventDefault(); goToPanel(a.dataset.tab); });
   });
