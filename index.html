@@ -549,6 +549,16 @@
     box-shadow: 0 40px 80px -40px rgba(0,0,0,0.5);
     position: relative;
   }
+  .applying-to {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
+    background: rgba(224,138,69,0.1); border: 1px solid rgba(224,138,69,0.28);
+    border-radius: 12px; padding: 12px 16px; margin-bottom: 24px;
+    font-size: 15px; font-weight: 700; color: var(--primary);
+  }
+  .applying-to span {
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-deep);
+  }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; }
   .field { display: flex; flex-direction: column; gap: 7px; }
   .field.full { grid-column: 1 / -1; }
@@ -1059,7 +1069,7 @@
         <div class="prod-meta">
           <span class="chip"><span class="label">Style</span> Small group · guided walk</span>
           <span class="chip"><span class="label">Duration</span> About 3 hours</span>
-          <a href="#apply" class="chip chip-inq" onclick="syncApplyForm('quiet')">Private group? →</a>
+          <a href="mailto:soraya@vamosajeju.com?subject=Sea%20Women%20Walk%20—%20private%20group" class="chip chip-inq">Private group? →</a>
           <span class="chip price">From ₩40,000 / person</span>
         </div>
         <p style="margin-top:14px; max-width:600px; color:rgba(255,255,255,0.82); font-size:13.5px; line-height:1.6;">Booked directly on Airbnb with instant confirmation. Guiding in English or Spanish, museum entry, and tea by the sea included.</p>
@@ -1131,7 +1141,7 @@
       <div class="departures">
         <div>
           <div class="dep-label">Booked on Airbnb · live dates &amp; instant confirmation</div>
-          <p style="margin-top:10px; max-width:470px; color:var(--text-muted); font-size:15.5px;">The Walk runs as a small group on set dates, and as a private walk on request. Prefer a private group, or have a question first? <a href="#apply" style="color:var(--accent-deep);font-weight:700;">Send an inquiry</a> and we reply within 48 hours.</p>
+          <p style="margin-top:10px; max-width:470px; color:var(--text-muted); font-size:15.5px;">The Walk runs as a small group on set dates, and as a private walk on request. Prefer a private group, or have a question first? <a href="mailto:soraya@vamosajeju.com?subject=Sea%20Women%20Walk%20inquiry" style="color:var(--accent-deep);font-weight:700;">Email us</a> and we reply within 48 hours.</p>
         </div>
         <a href="https://airbnb.co.kr/x/soraya" target="_blank" rel="noopener" class="btn-apply">Book on Airbnb →</a>
       </div>
@@ -1219,7 +1229,7 @@
             <span class="date"><small>Flights</small>Ends at Jeju Airport by 3:00 PM · book departures after 4:30 PM</span>
           </div>
         </div>
-        <a href="#apply" class="btn-apply" data-pick="Jeju, Slowly: 3 Days">Apply for the 2026 cohorts →</a>
+        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%2C%20Slowly%203%20Days%20—%20inquiry" class="btn-apply">Booking opens late July · email to inquire →</a>
       </div>
     </section>
 
@@ -1308,7 +1318,7 @@
             <span class="date"><small>Be first to know</small>Join the waitlist</span>
           </div>
         </div>
-        <a href="#apply" class="btn-apply" data-pick="Jeju, Slowly: 4 Days">Join the waitlist →</a>
+        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%2C%20Slowly%204%20Days%20—%20inquiry" class="btn-apply">Booking opens late July · email to inquire →</a>
       </div>
     </section>
 
@@ -1472,15 +1482,17 @@
   <div class="wrap">
     <p class="impact-line">A living heritage, quietly disappearing. Your visit helps keep their story — and their livelihood — alive.</p>
     <div class="apply-head">
-      <span class="eyebrow">Reservation</span>
-      <h2>Apply for your retreat</h2>
-      <p>Tell us a little about you. Soraya personally reviews every application and will be in touch within 48 hours.</p>
+      <span class="eyebrow">Founding Guests · Pilot Cohort</span>
+      <h2>Apply as a founding guest</h2>
+      <p>The Sep 10–12 pilot, 10 seats. Soraya reads every application personally. No payment now: your $300 place is settled only after you're selected.</p>
     </div>
 
     <div class="form-card">
       <form id="applyForm" action="https://formspree.io/f/mojzywzq" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="New Jeju, Slowly application" />
+        <input type="hidden" name="_subject" value="New Founding Guests application" />
+        <input type="hidden" name="retreat" value="Founding Guests · Sep 10–12 pilot" />
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <p class="applying-to"><span>You're applying to</span> Founding Guests pilot · Sep 10–12, 2026 · $300</p>
         <div class="form-grid">
           <div class="field">
             <label for="f-name">Full name <span class="req">*</span></label>
@@ -1491,40 +1503,16 @@
             <input id="f-email" name="email" type="email" required autocomplete="email" />
           </div>
           <div class="field">
-            <label for="f-nationality">Nationality <span class="req">*</span></label>
-            <input id="f-nationality" name="nationality" type="text" required autocomplete="country-name" />
+            <label for="f-nationality">Nationality</label>
+            <input id="f-nationality" name="nationality" type="text" autocomplete="country-name" />
           </div>
           <div class="field">
-            <label for="f-retreat">Retreat <span class="req">*</span></label>
-            <select id="f-retreat" name="retreat" required>
-              <option value="" disabled selected>Choose a retreat…</option>
-              <option value="Founding Guests · Sep 10–12 pilot">★ Founding Guests · Sep 10–12 pilot · $300</option>
-              <option value="The Sea Women Walk">The Sea Women Walk · Half-day · booked on Airbnb</option>
-              <option value="Jeju, Slowly: 3 Days">Jeju, Slowly: 3 Days · Oct–Nov 2026 · $1,090</option>
-              <option value="Jeju, Slowly: 4 Days">Jeju, Slowly: 4 Days · waitlist · $2,100</option>
+            <label for="f-guests">Applying for</label>
+            <select id="f-guests" name="guests">
+              <option value="Just me (solo)" selected>Just me — solo</option>
+              <option value="2 (applying together)">2 of us, applying together</option>
             </select>
-          </div>
-          <div class="field" id="departureField">
-            <label for="f-departure">Preferred date <span class="req">*</span></label>
-            <input id="f-departure" name="departure" type="date" min="2026-09-01" max="2027-06-30" required />
-            <span class="hint" id="departureHint"></span>
-          </div>
-          <div class="field">
-            <label for="f-guests">Number of guests <span class="req">*</span></label>
-            <select id="f-guests" name="guests" required>
-              <option value="" disabled selected>Choose…</option>
-              <option value="2">2 guests</option>
-              <option value="3">3 guests</option>
-              <option value="4">4 guests</option>
-              <option value="5">5 guests</option>
-              <option value="6">6 guests</option>
-              <option value="7">7 guests</option>
-              <option value="8">8 guests</option>
-              <option value="9">9 guests</option>
-              <option value="10">10 guests</option>
-              <option value="1 (private supplement)">Just me — solo (private supplement)</option>
-            </select>
-            <span class="hint">The retreats take up to 10 guests; solo travelers warmly welcome. The Walk is easiest to book on Airbnb — use this form for questions or private groups.</span>
+            <span class="hint">Solo travelers are warmly welcome; most guests come alone.</span>
           </div>
           <div class="field full">
             <label for="f-dietary">Dietary restrictions</label>
@@ -1538,13 +1526,13 @@
           <div class="field full">
             <label for="f-motivation">What are you hoping to find in the quiet?</label>
             <textarea id="f-motivation" name="motivation" placeholder="The sea, the silence, the slowing down — a few words on what's drawing you here…"></textarea>
-            <span class="hint">This helps Soraya make sure the retreat is the right fit for you.</span>
+            <span class="hint">This helps Soraya make sure the pilot is the right fit for you.</span>
           </div>
         </div>
 
         <div class="form-submit">
           <button type="submit" class="btn-submit" id="submitBtn">Send application</button>
-          <p class="form-note">We're taking inquiries only for now — no payment is taken. Your spot is confirmed after a conversation with Soraya.</p>
+          <p class="form-note">Applications close August 15; everyone hears back by email by August 18. No payment is taken now.</p>
           <p class="form-note">By submitting, you agree to our <a href="privacy.html" style="color:var(--accent-deep);font-weight:700;">Privacy Policy</a>. We use your details only to plan your retreat — never for ads or resale.</p>
         </div>
       </form>
@@ -1552,7 +1540,7 @@
       <div class="form-success" id="formSuccess">
         <div class="check">✓</div>
         <h3>Application received</h3>
-        <p>Soraya will be in touch within 48 hours. Keep an eye on your inbox — and welcome to the tide.</p>
+        <p>Applications close August 15; you'll hear back by email by August 18. Keep an eye on your inbox — and welcome to the tide.</p>
       </div>
     </div>
   </div>
@@ -1615,78 +1603,20 @@
   /* ---------- Tab switching ---------- */
   const tabs = ["quiet", "still", "deep"];
 
-  // Per-retreat apply-form context: retreat value, date window, and date hint.
-  const RETREAT_CFG = {
-    founding: {
-      retreat: "Founding Guests · Sep 10–12 pilot",
-      min: "2026-09-10", max: "2026-09-10",
-      hideDate: true,
-      hint: 'The pilot runs <b>Sep 10–12, 2026</b> (fixed dates). Applications close <b>Aug 15</b>; you\'ll hear back by email by Aug 18. No payment now — your $300 place is settled only after you\'re selected. Solo travelers warmly welcome.'
-    },
-    quiet: {
-      retreat: "The Sea Women Walk",
-      min: "2026-09-01", max: "2027-06-30",
-      hideDate: true,
-      hint: 'The Walk is booked directly on <a href="https://airbnb.co.kr/x/soraya" target="_blank" rel="noopener">Airbnb</a> with live dates. This form is for questions and private groups.'
-    },
-    still: {
-      retreat: "Jeju, Slowly: 3 Days",
-      min: "2026-10-01", max: "2026-11-30",
-      hint: 'First cohorts run <b>October–November 2026</b>. Exact dates are announced soon; tell us your preferred window.'
-    },
-    deep: {
-      retreat: "Jeju, Slowly: 4 Days",
-      min: "2026-11-01", max: "2027-06-30",
-      hideDate: true,
-      hint: 'Cohorts from <b>late 2026</b>. No date needed to join the waitlist.'
-    }
-  };
-  const RETREAT_TO_TAB = { "Founding Guests · Sep 10–12 pilot": "founding", "The Sea Women Walk": "quiet", "Jeju, Slowly: 3 Days": "still", "Jeju, Slowly: 4 Days": "deep" };
-
-  // Wire the "see open dates" link inside the (re-rendered) date hint.
-  function wireSeeDates() {
-    const sd = document.querySelector("#departureHint .see-dates");
-    if (!sd) return;
-    sd.addEventListener("click", (e) => {
-      e.preventDefault();
-      activateTab("quiet");
-      const cal = document.getElementById("cal");
-      if (cal) cal.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-  }
-
-  // Point the apply form at a retreat: set retreat, date window, and hint.
-  // When `reset` is true, all entered values are cleared first.
-  function syncApplyForm(tab, reset) {
-    const cfg = RETREAT_CFG[tab];
-    if (!cfg) return;
-    const form = document.getElementById("applyForm");
-    if (reset && form) form.reset();
-    const sel = document.getElementById("f-retreat");
-    if (sel) sel.value = cfg.retreat;
-    const dep = document.getElementById("f-departure");
-    if (dep) {
-      dep.min = cfg.min; dep.max = cfg.max; if (reset) dep.value = "";
-      dep.required = !cfg.hideDate;          // waitlist needs no date
-    }
-    const depField = document.getElementById("departureField");
-    if (depField) depField.style.display = cfg.hideDate ? "none" : "";
-    const hint = document.getElementById("departureHint");
-    if (hint) { hint.innerHTML = cfg.hint; wireSeeDates(); }
-  }
-
+  // Product tabs (The Walk / 3 Days / 4 Days) switch informational panels.
+  // The apply form is dedicated to the Founding Guests pilot, so tabs no
+  // longer drive it — the Walk books on Airbnb and 3/4 Days inquire by email.
   function activateTab(tab) {
     if (!tabs.includes(tab)) return;
     document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
-    document.getElementById("panel-" + tab).classList.add("active");
+    const panel = document.getElementById("panel-" + tab);
+    if (panel) panel.classList.add("active");
     document.querySelectorAll("#navTabs button, #heroTabs button").forEach(b => {
       b.classList.toggle("active", b.dataset.tab === tab);
     });
-    // Reset the apply form to match the newly active tab.
-    syncApplyForm(tab, true);
   }
 
-  // Switch the panel, then scroll to that retreat's section
+  // Switch the panel, then scroll to that section.
   function goToPanel(tab) {
     activateTab(tab);
     const panel = document.getElementById("panel-" + tab);
@@ -1697,104 +1627,10 @@
     btn.addEventListener("click", () => goToPanel(btn.dataset.tab));
   });
 
-  // Footer retreat links also switch tabs and jump to the section
+  // Footer retreat links also switch tabs and jump to the section.
   document.querySelectorAll(".foot-col a[data-tab]").forEach(a => {
     a.addEventListener("click", (e) => { e.preventDefault(); goToPanel(a.dataset.tab); });
   });
-
-  /* ---------- "Apply for X" buttons + promo/founding CTAs select the retreat ---------- */
-  document.querySelectorAll("[data-pick]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const tab = RETREAT_TO_TAB[btn.dataset.pick];
-      if (tab) syncApplyForm(tab, false);
-    });
-  });
-
-  /* ---------- Picking a retreat in the dropdown updates its date window ---------- */
-  const retreatSel = document.getElementById("f-retreat");
-  if (retreatSel) retreatSel.addEventListener("change", () => {
-    const tab = RETREAT_TO_TAB[retreatSel.value];
-    if (tab) {
-      syncApplyForm(tab, false);            // refresh date min/max, required, visibility
-      const d = document.getElementById("f-departure");
-      if (d) d.value = "";                  // clear any date left over from the previous retreat
-    }
-  });
-
-  // Initialise the date hint/window for the tab that's active on load.
-  syncApplyForm("quiet", false);
-
-  /* ---------- Open-date calendar (Quiet Tide private departures) ---------- */
-  (function () {
-    const OPEN = new Set([
-      "2026-09-01","2026-09-08","2026-09-11","2026-09-15","2026-09-18","2026-09-25","2026-09-29",
-      "2026-10-02","2026-10-09","2026-10-16","2026-10-20","2026-10-23","2026-10-27","2026-10-30",
-      "2026-11-13","2026-11-17","2026-11-20","2026-11-24","2026-11-27",
-      "2027-04-02","2027-04-06","2027-04-09","2027-04-13","2027-04-16","2027-04-20","2027-04-23","2027-04-27","2027-04-30",
-      "2027-05-04","2027-05-07","2027-05-11","2027-05-14","2027-05-18","2027-05-21","2027-05-25","2027-05-28",
-      "2027-06-01","2027-06-04","2027-06-08","2027-06-11","2027-06-15","2027-06-18","2027-06-22","2027-06-25","2027-06-29"
-    ]);
-    const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    const MIN = { y: 2026, m: 8 };  // September 2026
-    const MAX = { y: 2027, m: 5 };  // June 2027
-    const view = { y: 2026, m: 8 };
-    let selected = null;
-
-    const titleEl = document.getElementById("calTitle");
-    const daysEl = document.getElementById("calDays");
-    const prevB = document.getElementById("calPrev");
-    const nextB = document.getElementById("calNext");
-    const selEl = document.getElementById("calSelected");
-    if (!daysEl) return;
-
-    const iso = (y, m, d) => y + "-" + String(m + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0");
-    const pretty = (id) => {
-      const [y, m, d] = id.split("-").map(Number);
-      return MONTHS[m - 1] + " " + d + ", " + y;
-    };
-
-    function render() {
-      titleEl.textContent = MONTHS[view.m] + " " + view.y;
-      daysEl.innerHTML = "";
-      const firstDow = new Date(view.y, view.m, 1).getDay();
-      const daysIn = new Date(view.y, view.m + 1, 0).getDate();
-      for (let i = 0; i < firstDow; i++) {
-        const e = document.createElement("div");
-        e.className = "cal-day empty";
-        daysEl.appendChild(e);
-      }
-      for (let d = 1; d <= daysIn; d++) {
-        const cell = document.createElement("div");
-        cell.textContent = d;
-        const id = iso(view.y, view.m, d);
-        if (OPEN.has(id)) {
-          cell.className = "cal-day open";
-          if (selected === id) cell.classList.add("selected");
-          cell.addEventListener("click", () => {
-            selected = id;
-            document.getElementById("f-retreat").value = "Quiet Tide";
-            document.getElementById("f-departure").value = id;
-            selEl.innerHTML = "Selected: <b>" + pretty(id) + "</b> — continue in the form below.";
-            render();
-            document.getElementById("apply").scrollIntoView({ behavior: "smooth", block: "start" });
-          });
-        } else {
-          cell.className = "cal-day dim";
-        }
-        daysEl.appendChild(cell);
-      }
-      prevB.disabled = (view.y === MIN.y && view.m === MIN.m);
-      nextB.disabled = (view.y === MAX.y && view.m === MAX.m);
-    }
-
-    prevB.addEventListener("click", () => {
-      if (view.y > MIN.y || view.m > MIN.m) { view.m--; if (view.m < 0) { view.m = 11; view.y--; } render(); }
-    });
-    nextB.addEventListener("click", () => {
-      if (view.y < MAX.y || view.m < MAX.m) { view.m++; if (view.m > 11) { view.m = 0; view.y++; } render(); }
-    });
-    render();
-  })();
 
   /* ---------- Application backend ----------
      Recommended: Google Apps Script — submissions log to a Google Sheet and
