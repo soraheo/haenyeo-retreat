@@ -32,7 +32,7 @@
   "makesOffer": [
     { "@type": "Offer", "name": "The Sea Women Walk — half-day guided walk in Hado-ri", "price": "40000", "priceCurrency": "KRW", "category": "Half-day experience" },
     { "@type": "Offer", "name": "Jeju, Slowly: 3 Days — retreat with the sea women", "price": "1090", "priceCurrency": "USD", "category": "Group retreat" },
-    { "@type": "Offer", "name": "Jeju, Slowly: 4 Days — retreat with the sea women", "price": "2100", "priceCurrency": "USD", "category": "Group retreat" }
+    { "@type": "Offer", "name": "Jeju, Slowly: 7 Days, the Olle Trail Retreat", "category": "Group retreat" }
   ]
 }
 </script>
@@ -775,6 +775,11 @@
     text-transform: uppercase; color: var(--accent-deep); margin-bottom: 6px;
   }
   .founding-day p { font-size: 14.5px; line-height: 1.55; color: var(--text); }
+  .fday-photo {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    border-radius: 10px; margin-bottom: 12px; display: block;
+    background: var(--line);
+  }
   .founding-perks {
     background: rgba(28,74,53,0.05); border-radius: 14px;
     padding: 18px 22px; margin-bottom: 28px;
@@ -862,7 +867,7 @@
     <nav class="nav-tabs" id="navTabs">
       <button data-tab="quiet">The Walk</button>
       <button data-tab="still">3 Days</button>
-      <button data-tab="deep">4 Days</button>
+      <button data-tab="deep">7 Days</button>
     </nav>
     <a href="#apply" class="nav-cta">Apply</a>
   </div>
@@ -885,7 +890,7 @@
     <div class="hero-tabs" id="heroTabs">
       <button data-tab="quiet"><span class="dot" aria-hidden="true" style="background:#1C4A35"></span>The Walk</button>
       <button data-tab="still"><span class="dot" aria-hidden="true" style="background:#d9c49e"></span>3 Days</button>
-      <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>4 Days</button>
+      <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>7 Days</button>
     </div>
     <p class="hero-scroll">Half-day walks year-round · First retreat cohorts: October–November 2026</p>
   </div>
@@ -939,6 +944,7 @@
       <div class="founding-body">
         <div class="founding-flow">
           <div class="founding-day">
+            <img class="fday-photo" src="images/founding-day1.jpg" alt="A slow forest walk on Jeju" loading="lazy" />
             <div class="fday">Day 1 · Thu</div>
             <ul class="fday-list">
               <li>Arrive on Jeju, then a slow forest walk to ease in</li>
@@ -947,6 +953,7 @@
             </ul>
           </div>
           <div class="founding-day">
+            <img class="fday-photo" src="images/founding-day2.jpg" alt="The haenyeo village day in Sehwa" loading="lazy" />
             <div class="fday">Day 2 · Fri</div>
             <ul class="fday-list">
               <li>Optional sunrise hike up Seongsan Ilchulbong</li>
@@ -956,6 +963,7 @@
             </ul>
           </div>
           <div class="founding-day">
+            <img class="fday-photo" src="images/founding-day3.jpg" alt="Morning yoga and a temple stay on Jeju" loading="lazy" />
             <div class="fday">Day 3 · Sat</div>
             <ul class="fday-list">
               <li>Yoga, then a half-day temple stay: seated meditation, a temple lunch, and tea with the resident monk</li>
@@ -998,7 +1006,7 @@
 
         <div class="founding-cta">
           <a href="#apply" class="btn-found" data-pick="Founding Guests · Sep 10–12 pilot">Apply as a founding guest →</a>
-          <span class="deadline">Applications close <b>Saturday, August 15</b> · everyone hears back by email by <b>August 18</b>. No payment now: your $300 place is settled only after you're selected, in late August. Not this time? We run again in November and next spring.</span>
+          <span class="deadline">Applications close <b>Saturday, August 15</b> · everyone hears back by email by <b>August 18</b>. No payment now. Once the ten founding guests are confirmed, we'll send your payment link directly, in late August. Not this time? We run again in November and next spring.</span>
         </div>
       </div>
     </div>
@@ -1073,7 +1081,7 @@
       <div class="hero-tabs journey-tabs" id="panelTabs">
         <button data-tab="quiet"><span class="dot" aria-hidden="true" style="background:#1C4A35"></span>The Walk</button>
         <button data-tab="still"><span class="dot" aria-hidden="true" style="background:#d9c49e"></span>3 Days</button>
-        <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>4 Days</button>
+        <button data-tab="deep"><span class="dot" aria-hidden="true" style="background:#3a2a1e"></span>7 Days</button>
       </div>
     </div>
 
@@ -1246,20 +1254,20 @@
             <span class="date"><small>Flights</small>Ends at Jeju Airport by 3:00 PM · book departures after 4:30 PM</span>
           </div>
         </div>
-        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%2C%20Slowly%203%20Days%20—%20inquiry" class="btn-apply">Booking opens late July · email to inquire →</a>
+        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%2C%20Slowly%203%20Days%20inquiry" class="btn-apply">Booking opens August 15 · email to inquire →</a>
       </div>
     </section>
 
     <!-- ===== DEEP ROOTS ===== -->
     <section class="panel" id="panel-deep">
       <div class="prod-head theme-espresso">
-        <span class="eyebrow">The Sea Women Retreat · 3 nights, 4 days</span>
-        <h2>4 Days</h2>
-        <p class="concept">The 3-day journey, given room to breathe: a full day of forest and sound between the sea women and your farewell.</p>
+        <span class="eyebrow">The Olle Trail Retreat · 6 nights, 7 days</span>
+        <h2>7 Days</h2>
+        <p class="concept">Jeju's east coast, walked slowly: days on the Olle trail, deep time inside a haenyeo village, and a half-day at a mountain temple.</p>
         <div class="prod-meta">
-          <span class="chip"><span class="label">Duration</span> 4 days / 3 nights</span>
+          <span class="chip"><span class="label">Duration</span> 7 days / 6 nights</span>
           <span class="chip"><span class="label">Group</span> Max 10 guests</span>
-          <span class="chip price">$2,100 / person</span>
+          <span class="chip price">Price on request</span>
         </div>
       </div>
 
@@ -1269,23 +1277,38 @@
           <div class="timeline">
             <div class="tl-item">
               <div class="tl-day">Day 1</div>
-              <div class="tl-title">Arrival &amp; first encounter</div>
-              <div class="tl-desc">Arrive in the afternoon, a slow forest walk, and an evening at Haenyeo's Kitchen: the sea women's story, told by them, over dinner. Night in a comfortable hotel near Seongsan.</div>
+              <div class="tl-title">Arrival &amp; first steps</div>
+              <div class="tl-desc">Arrive in the afternoon, an easy Olle trail walk to loosen the legs, and an evening at Haenyeo's Kitchen: the sea women's story, told by them, over dinner. Night in a comfortable hotel near Seongsan.</div>
             </div>
             <div class="tl-item">
               <div class="tl-day">Day 2</div>
-              <div class="tl-title">The sea women's day</div>
-              <div class="tl-desc">The full village day in Sehwa: the Sumbisori coastal walk, the Haenyeo Museum, a sit-down interview with a working haenyeo, <em>neokdungbaegi</em>, and Bam Bada Salon ("an evening on the beach"). Night in the village guesthouse.</div>
+              <div class="tl-title">Coast &amp; the sea women's day</div>
+              <div class="tl-desc">An Olle trail morning along the coast into Sehwa, then the village day: the Sumbisori coastal walk, the Haenyeo Museum, a sit-down interview with a working haenyeo, and Bam Bada Salon (an evening on the beach). Night in the village guesthouse.</div>
             </div>
             <div class="tl-item">
               <div class="tl-day">Day 3</div>
-              <div class="tl-title">Forest &amp; sound</div>
-              <div class="tl-desc">Forest bathing deep in the gotjawal, a soundscape session by the water, and a slow village afternoon, with an optional oreum sunset. Night on the coast.</div>
+              <div class="tl-title">Deeper into the haenyeo village</div>
+              <div class="tl-desc">A full day inside the haenyeo community: the <em>bulteok</em> gathering hut, sorting the day's catch alongside the cooperative, <em>neokdungbaegi</em>, and a home-style lunch made by the village women. Night in the village guesthouse.</div>
             </div>
             <div class="tl-item">
               <div class="tl-day">Day 4</div>
-              <div class="tl-title">Stillness &amp; farewell</div>
-              <div class="tl-desc">Morning yoga, a temple morning of meditation and tea that becomes our closing circle, a keepsake to carry home, and drop-off at Jeju Airport by 3:00 PM.</div>
+              <div class="tl-title">Olle trail, the east coast</div>
+              <div class="tl-desc">A full day of walking: quiet coastal Olle sections, black lava rock and turquoise water, small fishing hamlets, lunch in a village along the way. Night on the coast.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 5</div>
+              <div class="tl-title">Olle trail, into the gotjawal</div>
+              <div class="tl-desc">Another Olle day, this one inland through the gotjawal forest, with a soundscape session by the water in the late afternoon and an optional oreum sunset. Night on the coast.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 6</div>
+              <div class="tl-title">Stillness</div>
+              <div class="tl-desc">Morning yoga, then a half-day temple stay: seated meditation, a temple lunch, and tea with the resident monk. The rest of the afternoon is unhurried, yours to keep.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-day">Day 7</div>
+              <div class="tl-title">Closing circle &amp; farewell</div>
+              <div class="tl-desc">A closing circle, a keepsake to carry home, and drop-off at Jeju Airport by 3:00 PM.</div>
             </div>
           </div>
         </div>
@@ -1296,11 +1319,12 @@
             <span class="act"><span class="ic" aria-hidden="true">🎭</span>Haenyeo's Kitchen show &amp; dinner</span>
             <span class="act"><span class="ic" aria-hidden="true">🫧</span>Haenyeo interview</span>
             <span class="act"><span class="ic" aria-hidden="true">🥾</span>Sumbisori coastal walk</span>
-            <span class="act"><span class="ic" aria-hidden="true">🌲</span>Gotjawal forest bathing</span>
-            <span class="act"><span class="ic" aria-hidden="true">🎧</span>Soundscape by the sea</span>
+            <span class="act"><span class="ic" aria-hidden="true">🚶</span>Multi-day Olle trail trekking</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌊</span><em>Bulteok</em> &amp; haenyeo village life</span>
+            <span class="act"><span class="ic" aria-hidden="true">🌲</span>Gotjawal forest &amp; soundscape</span>
             <span class="act"><span class="ic" aria-hidden="true">🌋</span>Oreum sunset <small>(optional)</small></span>
             <span class="act"><span class="ic" aria-hidden="true">🧘</span>Morning yoga</span>
-            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Temple morning</span>
+            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Half-day temple stay</span>
             <span class="act"><span class="ic" aria-hidden="true">🎁</span>Closing circle &amp; keepsake</span>
           </div>
 
@@ -1308,10 +1332,10 @@
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick" aria-hidden="true">✓</span>3 nights: hotel near Seongsan, the Sehwa village guesthouse, and a coastal stay</li>
-                <li><span class="tick" aria-hidden="true">✓</span>Everything in 3 Days, plus the full forest &amp; sound day</li>
-                <li><span class="tick" aria-hidden="true">✓</span>Gotjawal forest bathing &amp; soundscape session</li>
-                <li><span class="tick" aria-hidden="true">✓</span>Morning yoga &amp; the temple program</li>
+                <li><span class="tick" aria-hidden="true">✓</span>6 nights: hotel near Seongsan, the Sehwa village guesthouse, and coastal stays along the Olle trail</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Everything in 3 Days, plus three more days centered on the Olle trail and deeper haenyeo village time</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Multi-day Olle trail guiding, gotjawal forest walk &amp; soundscape session</li>
+                <li><span class="tick" aria-hidden="true">✓</span>Morning yoga &amp; the half-day temple stay</li>
                 <li><span class="tick" aria-hidden="true">✓</span>All local transport &amp; guiding in English or Spanish</li>
               </ul>
             </div>
@@ -1328,14 +1352,14 @@
 
       <div class="departures">
         <div>
-          <div class="dep-label">From late 2026 · waitlist &amp; private groups</div>
+          <div class="dep-label">From late 2026 · by application</div>
           <div class="dep-dates" style="margin-top:12px">
             <span class="date"><small>First cohort</small>From November 2026</span>
-            <span class="date"><small>Private groups</small>4–10 guests · on request</span>
-            <span class="date"><small>Be first to know</small>Join the waitlist</span>
+            <span class="date"><small>Group size</small>Up to 10 guests</span>
+            <span class="date"><small>Pricing</small>On request</span>
           </div>
         </div>
-        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%2C%20Slowly%204%20Days%20—%20inquiry" class="btn-apply">Booking opens late July · email to inquire →</a>
+        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%2C%20Slowly%207%20Days%20inquiry" class="btn-apply">Price on request · email to inquire →</a>
       </div>
     </section>
 
@@ -1436,7 +1460,7 @@
 
       <details class="faq-item">
         <summary>How does booking work, and do I pay now?</summary>
-        <div class="faq-a">We're taking inquiries only for now. There's no payment at this stage; after a short conversation with Soraya, your spot is confirmed. Online booking and payment will open later in 2026.</div>
+        <div class="faq-a">The Sea Women Walk books and pays instantly through Airbnb. For everything else, we're building our own payment system now, and it opens August 15. Until then, apply or email to inquire, and no payment is taken. For the Founding Guests pilot, once the ten guests are confirmed, Soraya sends you a payment link directly.</div>
       </details>
 
       <details class="faq-item">
@@ -1451,7 +1475,7 @@
 
       <details class="faq-item">
         <summary>Where will I sleep?</summary>
-        <div class="faq-a"><b>The Walk</b> is a half-day, so you keep your own hotel. <b>3 Days</b> includes one night in a comfortable hotel near Seongsan and one night in a small, simple guesthouse inside Sehwa, a working haenyeo village: clean, warm, and part of the story. <b>4 Days</b> adds one more coastal night in comfort.</div>
+        <div class="faq-a"><b>The Walk</b> is a half-day, so you keep your own hotel. <b>3 Days</b> includes one night in a comfortable hotel near Seongsan and one night in a small, simple guesthouse inside Sehwa, a working haenyeo village: clean, warm, and part of the story. <b>7 Days</b> adds several more nights in the village and along the coast as the Olle trail continues.</div>
       </details>
 
       <details class="faq-item">
@@ -1486,7 +1510,7 @@
 
       <details class="faq-item">
         <summary>What is your cancellation &amp; refund policy?</summary>
-        <div class="faq-a">A deposit secures your place and is non-refundable. For the remaining balance: cancel <b>60+ days</b> before the start date for a full refund; <b>30–59 days</b>, 50% refunded; <b>within 30 days</b>, non-refundable. If we ever have to cancel a retreat, you'll receive a full refund. We strongly recommend travel insurance. <span style="display:block;margin-top:8px;">(We're taking inquiries only for now — no payment is taken yet, so this policy applies once booking opens.)</span></div>
+        <div class="faq-a">A deposit secures your place and is non-refundable. For the remaining balance: cancel <b>60+ days</b> before the start date for a full refund; <b>30–59 days</b>, 50% refunded; <b>within 30 days</b>, non-refundable. If we ever have to cancel a retreat, you'll receive a full refund. We strongly recommend travel insurance. <span style="display:block;margin-top:8px;">(We're taking inquiries only for now, no payment is taken yet, so this policy applies once booking opens on August 15.)</span></div>
       </details>
 
     </div>
@@ -1501,7 +1525,7 @@
     <div class="apply-head">
       <span class="eyebrow">Founding Guests · Pilot Cohort</span>
       <h2>Apply as a founding guest</h2>
-      <p>The Sep 10–12 pilot, 10 seats. Soraya reads every application personally. No payment now: your $300 place is settled only after you're selected.</p>
+      <p>The Sep 10–12 pilot, 10 seats. Soraya reads every application personally. No payment now: once the ten founding guests are confirmed, we'll send your payment link directly.</p>
     </div>
 
     <div class="form-card">
@@ -1604,7 +1628,7 @@
           <h5>Journeys</h5>
           <a href="#top" data-tab="quiet">The Sea Women Walk</a>
           <a href="#top" data-tab="still">3 Days</a>
-          <a href="#top" data-tab="deep">4 Days</a>
+          <a href="#top" data-tab="deep">7 Days</a>
         </div>
         <div class="foot-col">
           <h5>Legal</h5>
@@ -1627,11 +1651,11 @@
      and arrive by email + in the Formspree dashboard (formspree.io).
      ==================================================================== */
 
-  /* ---------- Product panels (The Walk / 3 Days / 4 Days) ----------
+  /* ---------- Product panels (The Walk / 3 Days / 7 Days) ----------
      Hidden by default so the page leads with the Founding Guests pilot.
      Tabs reveal a panel on click, and collapse it when clicked again.
      The apply form is dedicated to the pilot; the Walk books on Airbnb and
-     3/4 Days inquire by email. */
+     3/7 Days inquire by email. */
   const tabs = ["quiet", "still", "deep"];
   const TAB_BTNS = "#navTabs button, #heroTabs button, #panelTabs button";
 
