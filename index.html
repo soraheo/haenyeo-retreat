@@ -211,7 +211,7 @@
     text-align: center; color: var(--text-muted);
     max-width: 580px; margin: 0 auto 42px; font-size: 17px;
   }
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
   .gallery figure {
     margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3;
     box-shadow: var(--shadow); background: #e8e2d6;
@@ -221,6 +221,7 @@
     transition: transform 0.5s ease;
   }
   .gallery figure:hover img { transform: scale(1.06); }
+  @media (max-width: 1000px) { .gallery { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
   @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---------- Guest sketches ---------- */
@@ -1392,7 +1393,6 @@
       <figure><img src="images/g1.jpg" alt="A guide shares the story of the haenyeo with guests" loading="lazy" /></figure>
       <figure><img src="images/g2.jpg" alt="Guests and a haenyeo sorting the day's catch" loading="lazy" /></figure>
       <figure><img src="images/g3.jpg" alt="A haenyeo at work along the rocky shore" loading="lazy" /></figure>
-      <figure><img src="images/g4.jpg" alt="Guests and haenyeo together after a dive" loading="lazy" /></figure>
       <figure><img src="images/g5.jpg" alt="In traditional haenyeo dress at the sea women's gathering" loading="lazy" /></figure>
       <figure><img src="images/g6.jpg" alt="The haenyeo community with their tewak floats" loading="lazy" /></figure>
     </div>
