@@ -1741,6 +1741,15 @@
   const successBox = document.getElementById("formSuccess");
 
   function showSuccess() {
+    // Google Ads conversion: fires only on a completed application, not on
+    // page views, so the campaign optimises towards real submissions.
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", {
+        send_to: "AW-18368598865/7CxdCLebntscENGm6rZE",
+        value: 1.0,
+        currency: "KRW"
+      });
+    }
     form.style.display = "none";
     successBox.classList.add("show");
     successBox.scrollIntoView({ behavior: "smooth", block: "center" });
