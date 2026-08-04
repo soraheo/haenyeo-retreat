@@ -55,8 +55,8 @@
     --cream: #F3EBDD;
     --espresso: #3a2a1e;
     --line: rgba(28, 74, 53, 0.14);
-    --radius: 18px;
-    --shadow: 0 18px 50px -24px rgba(28, 74, 53, 0.35);
+    --radius: 6px;
+    --shadow: 0 10px 30px -20px rgba(28, 74, 53, 0.22);
     --maxw: 1120px;
   }
 
@@ -197,10 +197,10 @@
   }
   .hero-banner img {
     width: 50%; height: auto; display: block; margin: 0 auto;
-    border-radius: 22px;
+    border-radius: 6px;
     box-shadow: 0 34px 64px -34px rgba(28,74,53,0.5);
   }
-  @media (max-width: 720px) { .hero-banner { margin-top: -24px; padding: 0 18px; } .hero-banner img { border-radius: 16px; } }
+  @media (max-width: 720px) { .hero-banner { margin-top: -24px; padding: 0 18px; } .hero-banner img { border-radius: 6px; } }
 
   /* ---------- Gallery ---------- */
   .gallery-sec { padding: 84px 0; background: var(--bg); }
@@ -213,18 +213,21 @@
     text-align: center; color: var(--text-muted);
     max-width: 580px; margin: 0 auto 42px; font-size: 17px;
   }
-  .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  /* Full-bleed photo band: the pictures are the strongest asset here, so they
+     run edge to edge instead of sitting inside rounded cards. */
+  .gallery {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 3px;
+  }
   .gallery figure {
-    flex: 0 0 calc((100% - 24px) / 3);
-    margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3;
-    box-shadow: var(--shadow); background: #e8e2d6;
+    flex: 0 0 calc((100% - 6px) / 3);
+    margin: 0; overflow: hidden; aspect-ratio: 4 / 3; background: #e8e2d6;
   }
   .gallery img {
     width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
-  .gallery figure:hover img { transform: scale(1.06); }
-  @media (max-width: 760px) { .gallery figure { flex-basis: calc((100% - 12px) / 2); } }
+  .gallery figure:hover img { transform: scale(1.04); }
+  @media (max-width: 760px) { .gallery figure { flex-basis: calc((100% - 3px) / 2); } }
 
   /* ---------- Guest sketches ---------- */
   .sketches-sec { padding: 88px 0; background: var(--primary); }
@@ -233,7 +236,7 @@
   .sketches-sec .gallery-sub { color: rgba(255,255,255,0.82); }
   .sketches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1120px; margin: 0 auto; }
   .sketches figure {
-    margin: 0; background: #fff; padding: 10px; border-radius: 8px;
+    margin: 0; background: #fff; padding: 10px; border-radius: 6px;
     box-shadow: 0 26px 52px -26px rgba(0,0,0,0.6);
   }
   .sketches img {
@@ -267,7 +270,7 @@
   .haenyeo-lede { max-width: 720px; margin: 0 auto; font-size: 18px; line-height: 1.78; color: var(--text-muted); }
   .haenyeo-lede b { color: var(--primary); }
   .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 42px; }
-  .fact { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; min-width: 150px; box-shadow: 0 14px 36px -26px rgba(28,74,53,0.4); }
+  .fact { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; min-width: 150px; box-shadow: 0 14px 36px -26px rgba(28,74,53,0.4); }
   .fact-n { display: block; font-family: "Playfair Display", serif; font-weight: 700; font-size: 23px; color: var(--accent-deep); }
   .fact-l { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 5px; letter-spacing: 0.02em; }
 
@@ -311,7 +314,7 @@
   .faq-sec .eyebrow { display: block; text-align: center; }
   .faq-list { max-width: 760px; margin: 26px auto 0; }
   .faq-item {
-    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
     margin-bottom: 14px; overflow: hidden;
   }
   .faq-item summary {
@@ -424,11 +427,10 @@
   .act {
     display: inline-flex; align-items: center; gap: 9px;
     background: #fff; border: 1px solid var(--line);
-    padding: 11px 16px; border-radius: 12px;
+    padding: 11px 16px; border-radius: 6px;
     font-size: 14.5px; font-weight: 700; color: var(--primary);
     box-shadow: 0 4px 14px -10px rgba(28,74,53,0.4);
   }
-  .act .ic { font-size: 17px; }
 
   /* includes */
   .incl-card {
@@ -465,7 +467,7 @@
   .dep-dates { display: flex; gap: 14px; flex-wrap: wrap; }
   .dep-dates .date {
     background: #fff; border: 1px solid var(--line);
-    padding: 12px 22px; border-radius: 12px;
+    padding: 12px 22px; border-radius: 6px;
     font-family: "Playfair Display", serif; font-weight: 600; font-size: 17px; color: var(--primary);
   }
   .dep-dates .date small { display: block; font-family: "Nunito Sans"; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
@@ -491,7 +493,7 @@
   }
   .od-chip {
     cursor: pointer; background: #fff; border: 1px solid var(--line);
-    border-radius: 10px; padding: 7px 13px; font-size: 13.5px; font-weight: 700;
+    border-radius: 6px; padding: 7px 13px; font-size: 13.5px; font-weight: 700;
     color: var(--primary); transition: all 0.18s ease;
   }
   .od-chip i { font-style: normal; font-weight: 400; color: var(--text-muted); font-size: 11px; margin-left: 5px; }
@@ -504,7 +506,7 @@
   }
 
   /* calendar */
-  .cal { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; max-width: 430px; box-shadow: 0 14px 34px -22px rgba(28,74,53,0.55); }
+  .cal { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; max-width: 430px; box-shadow: 0 14px 34px -22px rgba(28,74,53,0.55); }
   .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
   .cal-title { font-family: "Playfair Display", serif; font-weight: 600; font-size: 19px; color: var(--primary); }
   .cal-nav { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: 18px; color: var(--primary); line-height: 1; transition: all 0.18s ease; }
@@ -512,7 +514,7 @@
   .cal-nav:disabled { opacity: 0.28; cursor: not-allowed; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
   .cal-dow span { text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 0.03em; color: var(--text-muted); text-transform: uppercase; padding: 2px 0 8px; }
-  .cal-day { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; border-radius: 10px; color: #cfcabf; }
+  .cal-day { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; border-radius: 6px; color: #cfcabf; }
   .cal-day.empty { visibility: hidden; }
   .cal-day.dim { color: #d2cdc2; }
   .cal-day.open { background: rgba(28,74,53,0.07); color: var(--primary); cursor: pointer; border: 1px solid rgba(28,74,53,0.18); transition: all 0.15s ease; }
@@ -552,7 +554,7 @@
 
   .form-card {
     background: var(--bg); color: var(--text);
-    border-radius: 24px; padding: 44px;
+    border-radius: 6px; padding: 44px;
     max-width: 760px; margin: 0 auto;
     box-shadow: 0 40px 80px -40px rgba(0,0,0,0.5);
     position: relative;
@@ -560,7 +562,7 @@
   .applying-to {
     display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
     background: rgba(224,138,69,0.1); border: 1px solid rgba(224,138,69,0.28);
-    border-radius: 12px; padding: 12px 16px; margin-bottom: 24px;
+    border-radius: 6px; padding: 12px 16px; margin-bottom: 24px;
     font-size: 15px; font-weight: 700; color: var(--primary);
   }
   .applying-to span {
@@ -578,7 +580,7 @@
   .field label .req { color: var(--accent-deep); }
   .field input, .field select, .field textarea {
     font-family: "Nunito Sans"; font-size: 16px;
-    padding: 13px 15px; border-radius: 11px;
+    padding: 13px 15px; border-radius: 6px;
     border: 1.5px solid var(--line); background: #fff;
     color: var(--text); transition: border 0.18s ease, box-shadow 0.18s ease;
     width: 100%;
@@ -650,7 +652,7 @@
   .foot-contact { margin-top: 20px; display: flex; align-items: center; gap: 16px; }
   .foot-contact .qr {
     width: 84px; height: 84px; flex-shrink: 0; background: #fff;
-    padding: 7px; border-radius: 10px; display: block;
+    padding: 7px; border-radius: 6px; display: block;
   }
   .foot-contact .contact-text { font-size: 13.5px; line-height: 1.5; }
   .foot-contact .contact-text a { color: var(--accent); font-weight: 700; text-decoration: none; }
@@ -663,7 +665,6 @@
     background: rgba(244,162,97,0.12); border: 1px solid rgba(244,162,97,0.3);
     padding: 6px 13px; border-radius: 999px;
   }
-  .foot-badge .badge-icon { vertical-align: -1px; margin-right: 2px; }
   .foot-links { display: flex; gap: 56px; flex-wrap: wrap; }
   .foot-col h5 {
     font-family: "Nunito Sans"; font-size: 12px; letter-spacing: 0.16em;
@@ -791,11 +792,11 @@
   .founding-day p { font-size: 14.5px; line-height: 1.55; color: var(--text); }
   .fday-photo {
     width: 100%; aspect-ratio: 4/3; object-fit: cover;
-    border-radius: 10px; margin-bottom: 12px; display: block;
+    border-radius: 6px; margin-bottom: 12px; display: block;
     background: var(--line);
   }
   .founding-perks {
-    background: rgba(28,74,53,0.05); border-radius: 14px;
+    background: rgba(28,74,53,0.05); border-radius: 6px;
     padding: 18px 22px; margin-bottom: 28px;
   }
   .founding-perks h4 {
@@ -915,7 +916,7 @@
 <!-- ============ TRUST BAR ============ -->
 <section style="background:var(--primary); color:#fff;">
   <div class="wrap" style="display:flex; flex-wrap:wrap; justify-content:center; gap:9px 26px; padding:13px 20px; font-size:13px; font-weight:700; letter-spacing:0.02em;">
-    <span>🌊 English &amp; Spanish speaking host</span>
+    <span>English and Spanish speaking host</span>
     <span>Studying at the haenyeo school</span>
     <span>Groups of ten, never more</span>
     <span>Replies within 48h</span>
@@ -1153,11 +1154,11 @@
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
-            <span class="act"><span class="ic" aria-hidden="true">🏛️</span>Haenyeo Museum</span>
-            <span class="act"><span class="ic" aria-hidden="true">🥾</span>Sumbisori Trail (gentle)</span>
-            <span class="act"><span class="ic" aria-hidden="true">🔥</span>Bulteok stories</span>
-            <span class="act"><span class="ic" aria-hidden="true">⛩️</span>Shore shrine</span>
-            <span class="act"><span class="ic" aria-hidden="true">🍵</span>Tea by the sea</span>
+            <span class="act">Haenyeo Museum</span>
+            <span class="act">Sumbisori Trail (gentle)</span>
+            <span class="act">Bulteok stories</span>
+            <span class="act">Shore shrine</span>
+            <span class="act">Tea by the sea</span>
           </div>
 
           <div style="margin-top:32px">
@@ -1233,15 +1234,15 @@
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
-            <span class="act"><span class="ic" aria-hidden="true">🎭</span>Haenyeo's Kitchen show &amp; dinner</span>
-            <span class="act"><span class="ic" aria-hidden="true">🫧</span>Haenyeo interview</span>
-            <span class="act"><span class="ic" aria-hidden="true">🥾</span>Sumbisori coastal walk</span>
-            <span class="act"><span class="ic" aria-hidden="true">🏛️</span>Haenyeo Museum</span>
-            <span class="act"><span class="ic" aria-hidden="true">🎲</span>Neokdungbaegi game</span>
-            <span class="act"><span class="ic" aria-hidden="true">🔥</span>Bam Bada Salon</span>
-            <span class="act"><span class="ic" aria-hidden="true">🧘</span>Morning yoga</span>
-            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Temple morning</span>
-            <span class="act"><span class="ic" aria-hidden="true">🎁</span>Closing circle &amp; keepsake</span>
+            <span class="act">Haenyeo's Kitchen show &amp; dinner</span>
+            <span class="act">Haenyeo interview</span>
+            <span class="act">Sumbisori coastal walk</span>
+            <span class="act">Haenyeo Museum</span>
+            <span class="act">Neokdungbaegi game</span>
+            <span class="act">Bam Bada Salon</span>
+            <span class="act">Morning yoga</span>
+            <span class="act">Temple morning</span>
+            <span class="act">Closing circle &amp; keepsake</span>
           </div>
 
           <div style="margin-top:32px">
@@ -1338,14 +1339,14 @@
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
-            <span class="act"><span class="ic" aria-hidden="true">🚶</span>Olle Trail, Courses 7, 6, 1, 21 &amp; 20</span>
-            <span class="act"><span class="ic" aria-hidden="true">🎭</span>Haenyeo's Kitchen show &amp; dinner</span>
-            <span class="act"><span class="ic" aria-hidden="true">🫧</span>Haenyeo interview</span>
-            <span class="act"><span class="ic" aria-hidden="true">🥾</span>Sumbisori coastal walk</span>
-            <span class="act"><span class="ic" aria-hidden="true">🏛️</span>Haenyeo Museum</span>
-            <span class="act"><span class="ic" aria-hidden="true">🌊</span>Bam Bada Salon, an evening on the beach</span>
-            <span class="act"><span class="ic" aria-hidden="true">🏯</span>Half-day temple stay</span>
-            <span class="act"><span class="ic" aria-hidden="true">🎁</span>Closing circle &amp; keepsake</span>
+            <span class="act">Olle Trail, Courses 7, 6, 1, 21 &amp; 20</span>
+            <span class="act">Haenyeo's Kitchen show &amp; dinner</span>
+            <span class="act">Haenyeo interview</span>
+            <span class="act">Sumbisori coastal walk</span>
+            <span class="act">Haenyeo Museum</span>
+            <span class="act">Bam Bada Salon, an evening on the beach</span>
+            <span class="act">Half-day temple stay</span>
+            <span class="act">Closing circle &amp; keepsake</span>
           </div>
 
           <div style="margin-top:32px">
@@ -1392,13 +1393,13 @@
     <span class="eyebrow">Moments</span>
     <h2 class="gallery-title">From the shore to the temple</h2>
     <p class="gallery-sub">Photos from the haenyeo walks and village days I've guided.</p>
-    <div class="gallery">
-      <figure><img src="images/g1.jpg" alt="A guide shares the story of the haenyeo with guests" loading="lazy" /></figure>
-      <figure><img src="images/g2.jpg" alt="Guests and a haenyeo sorting the day's catch" loading="lazy" /></figure>
-      <figure><img src="images/g3.jpg" alt="A haenyeo at work along the rocky shore" loading="lazy" /></figure>
-      <figure><img src="images/g5.jpg" alt="In traditional haenyeo dress at the sea women's gathering" loading="lazy" /></figure>
-      <figure><img src="images/g6.jpg" alt="The haenyeo community with their tewak floats" loading="lazy" /></figure>
-    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="images/g1.jpg" alt="A guide shares the story of the haenyeo with guests" loading="lazy" /></figure>
+    <figure><img src="images/g2.jpg" alt="Guests and a haenyeo sorting the day's catch" loading="lazy" /></figure>
+    <figure><img src="images/g3.jpg" alt="A haenyeo at work along the rocky shore" loading="lazy" /></figure>
+    <figure><img src="images/g5.jpg" alt="In traditional haenyeo dress at the sea women's gathering" loading="lazy" /></figure>
+    <figure><img src="images/g6.jpg" alt="The haenyeo community with their tewak floats" loading="lazy" /></figure>
   </div>
 </section>
 
@@ -1623,7 +1624,7 @@
       <div class="foot-brand">
         <div class="logo">JEJU, <span>SLOWLY</span></div>
         <p>By Vamos a Jeju · Vamos Travel Korea. A retreat with the sea women: slow, immersive days in the rhythm of Korea's free-diving grandmothers.</p>
-        <span class="foot-badge"><span class="badge-icon">🏆</span> 18th Tourism Venture Program, Korea Tourism Organization (2026)</span>
+        <span class="foot-badge">18th Tourism Venture Program, Korea Tourism Organization (2026)</span>
         <div class="foot-contact">
           <img class="qr" src="images/whatsapp-qr.svg" alt="Scan to message us on WhatsApp" width="84" height="84" loading="lazy" />
           <div class="contact-text">
