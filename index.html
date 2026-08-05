@@ -823,6 +823,14 @@
   .founding-cta .btn-found:hover {
     transform: translateY(-2px); box-shadow: 0 20px 38px -14px rgba(224,138,69,1);
   }
+  /* Secondary action: kept quiet so it never competes with the apply button. */
+  .founding-cta .btn-ask {
+    display: block; width: fit-content; margin: 16px auto 0; text-decoration: none;
+    font-size: 14px; font-weight: 700; color: var(--primary);
+    border-bottom: 1.5px solid rgba(28,74,53,0.3); padding-bottom: 2px;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+  .founding-cta .btn-ask:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
   .founding-cta .deadline {
     display: block; margin-top: 13px; font-size: 13px; color: var(--text-muted);
   }
@@ -1020,6 +1028,7 @@
 
         <div class="founding-cta">
           <a href="#apply" class="btn-found" data-pick="Founding Guests · Sep 10–12 pilot">Apply as a founding guest →</a>
+          <a href="mailto:soraya@vamosajeju.com?subject=Question%20about%20the%20Founding%20Guests%20pilot%20(Sep%2010-12)" class="btn-ask">Have a question first? Email me</a>
           <span class="deadline">Applications close <b>Saturday, August 15</b> · everyone hears back by email by <b>August 18</b>. No payment now. Once the ten founding guests are confirmed, we'll send your payment link directly, in late August. Not this time? We run again in November and next spring.</span>
         </div>
       </div>
