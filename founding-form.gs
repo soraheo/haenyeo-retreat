@@ -136,8 +136,8 @@ function sendAutoReply_(p) {
   var body =
     'Hi ' + (p.name ? p.name.split(' ')[0] : 'there') + ',\n\n' +
     'Thank you for applying to ' + CONFIG.BRAND + '. Your application has reached us safely.\n\n' +
-    'Soraya reads every application personally. For the Founding Guests pilot (Sep 10-12), ' +
-    'applications close August 15 and everyone hears back by email by August 18. ' +
+    'Soraya reads every application personally. For the Founding Guests pilot (Oct 29-31), ' +
+    'applications are open now and everyone hears back by email within 24 hours. ' +
     'There is no payment now — your place is settled only after you are selected.\n\n' +
     'With warmth,\nSoraya\n' + CONFIG.BRAND + ' · Vamos Travel Korea\nsoraya@vamosajeju.com';
 
