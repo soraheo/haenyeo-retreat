@@ -910,6 +910,28 @@
   .inc-col li::before { flex-shrink: 0; font-size: 12px; margin-top: 1px; }
   .inc-col:not(.out) li::before { content: "✓"; color: var(--primary); font-weight: 800; }
   .inc-col.out li::before { content: "–"; color: var(--text-muted); }
+  /* where you'll stay */
+  .stay { margin-top: 42px; }
+  .stay > h4 {
+    font-family: "Playfair Display", serif; font-weight: 600;
+    font-size: 21px; color: var(--primary); margin: 0 0 18px;
+  }
+  .stay-row + .stay-row { margin-top: 26px; }
+  .stay-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 10px;
+  }
+  .stay-head b { color: var(--primary); font-size: 16px; }
+  .stay-head span { color: var(--text-muted); font-size: 14.5px; }
+  .stay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stay-grid img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: var(--radius); display: block;
+  }
+  @media (max-width: 620px) {
+    .stay-grid { grid-template-columns: 1fr 1fr; }
+    .stay-grid img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+  }
+
   .founding-reassure {
     text-align: center; font-size: 14px; line-height: 1.6;
     color: var(--text-muted); margin-bottom: 26px;
@@ -1009,7 +1031,7 @@
       <div class="founding-body">
         <div class="founding-flow">
           <div class="founding-day">
-            <img class="fday-photo" src="images/founding-day1.jpg" alt="A slow forest walk on Jeju" loading="lazy" />
+            <img class="fday-photo" src="images/founding-day1.jpg" alt="Tea being poured at a tea ceremony table on Jeju" loading="lazy" />
             <div class="fday">Day 1 · Thu</div>
             <ul class="fday-list">
               <li><b>Afternoon</b> we meet at Jeju Airport, then a tea ceremony class to slow the day down</li>
@@ -1059,6 +1081,30 @@
               <li>Personal expenses</li>
               <li>Travel insurance, which is required. Policies need your personal details, so each guest arranges their own before the retreat.</li>
             </ul>
+          </div>
+        </div>
+
+        <div class="stay">
+          <h4>Where you'll stay</h4>
+
+          <div class="stay-row">
+            <div class="stay-head"><b>Chuidasun</b> <span>east coast · night one · twin-share</span></div>
+            <div class="stay-grid">
+              <img src="images/Chidasun1.jpg" alt="A room at Chuidasun with the sea at the window" loading="lazy" />
+              <img src="images/Chidasun2.jpg" alt="A tea table by the window at Chuidasun, looking out to the sea" loading="lazy" />
+              <img src="images/Chidasun3.jpg" alt="An interior at Chuidasun opening onto the garden" loading="lazy" />
+            </div>
+            <p class="itinerary-note" style="margin-top:8px;">The sea is at the window. The morning meditation and yoga come with the stay here.</p>
+          </div>
+
+          <div class="stay-row">
+            <div class="stay-head"><b>WE Hotel</b> <span>west · night two · twin-share</span></div>
+            <div class="stay-grid">
+              <img src="images/wehotel1.jpg" alt="A twin room at WE Hotel looking onto the forest" loading="lazy" />
+              <img src="images/wehotel2.jpg" alt="The glass atrium at WE Hotel" loading="lazy" />
+              <img src="images/wehotel3.jpg" alt="WE Hotel at dusk, set in the forest" loading="lazy" />
+            </div>
+            <p class="itinerary-note" style="margin-top:8px;">Forest on every side, for the night after the day in Yeongnak.</p>
           </div>
         </div>
 
