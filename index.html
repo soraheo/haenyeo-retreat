@@ -596,6 +596,15 @@
   .wl-done { color: var(--accent); font-weight: 700; font-size: 15.5px; margin: 0; }
   @media (max-width: 560px) { .wl-form input { max-width: none; flex-basis: 100%; } .wl-form button { width: 100%; } }
 
+  .apply-fineprint {
+    max-width: 640px; margin: 30px auto 0; position: relative; text-align: center;
+  }
+  .apply-fineprint .form-note {
+    margin-top: 12px; font-size: 13px; line-height: 1.65;
+    color: rgba(255,255,255,0.7);
+  }
+  .apply-fineprint .form-note a { color: rgba(255,255,255,0.85) !important; }
+
   .form-card {
     background: var(--bg); color: var(--text);
     border-radius: 6px; padding: 44px;
@@ -1708,9 +1717,6 @@
 
         <div class="form-submit">
           <button type="submit" class="btn-submit" id="submitBtn">Send application</button>
-          <p class="form-note">Nine of us move together on a set itinerary, and the meals are booked in advance, so I cannot promise to work around every dietary preference. If you have a serious food allergy, or something that affects how you move through a day, email me before you apply and we will talk it through.</p>
-          <p class="form-note">If these days look right for you, Soraya writes back within 48 hours. Nothing is charged at this point: the payment link for the $100 follows once your place is confirmed.</p>
-          <p class="form-note">By submitting, you agree to our <a href="privacy.html" style="color:var(--accent-deep);font-weight:700;">Privacy Policy</a>. We use your details only to plan your retreat, never for ads or resale.</p>
         </div>
       </form>
 
@@ -1730,6 +1736,12 @@
         <button type="submit" id="wlBtn">Keep me posted</button>
       </form>
       <p class="wl-done" id="waitlistDone" hidden>Thank you. I will write to you when the next dates are set.</p>
+    </div>
+
+    <div class="apply-fineprint">
+      <p class="form-note">Nine of us move together on a set itinerary, and the meals are booked in advance, so I cannot promise to work around every dietary preference. If you have a serious food allergy, or something that affects how you move through a day, email me before you apply and we will talk it through.</p>
+      <p class="form-note">If these days look right for you, Soraya writes back within 48 hours. Nothing is charged at this point: the payment link for the $100 follows once your place is confirmed.</p>
+      <p class="form-note">By submitting, you agree to our <a href="privacy.html" style="color:var(--accent-deep);font-weight:700;">Privacy Policy</a>. We use your details only to plan your retreat, never for ads or resale.</p>
     </div>
   </div>
 </section>
