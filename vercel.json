@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/founding-guests/payment",
+      "destination": "/founding-guests/payment/",
+      "permanent": false
+    }
+  ]
+}
