@@ -1849,6 +1849,19 @@
     a.addEventListener("click", (e) => { e.preventDefault(); goToPanel(a.dataset.tab); });
   });
 
+  // Deep links for outside pages (trip planner, emails): #walk, #3-days, #7-days
+  // open the matching panel on load and whenever the hash changes.
+  const HASH_TABS = {
+    "#walk": "quiet", "#3-days": "still", "#7-days": "deep",
+    "#panel-quiet": "quiet", "#panel-still": "still", "#panel-deep": "deep"
+  };
+  function openFromHash() {
+    const tab = HASH_TABS[location.hash];
+    if (tab) goToPanel(tab);
+  }
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
+
   /* ---------- Application backend ----------
      Applications post to a Google Form, which logs to a Google Sheet and
      emails Soraya from her own account (so alerts never land in junk).
