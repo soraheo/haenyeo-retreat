@@ -402,7 +402,7 @@
   .journeys-intro h2 { font-size: clamp(26px, 4vw, 38px); color: var(--primary); margin: 10px 0 12px; }
   .journeys-intro p { color: var(--text-muted); font-size: 16px; margin-bottom: 26px; }
   .journey-tabs { justify-content: center; margin-bottom: 8px; }
-  .journeys-intro.panel-open { margin-bottom: 48px; }
+
   .panel { display: none; animation: fade 0.45s ease; scroll-margin-top: 88px; }
   .panel.active { display: block; }
   @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -1002,6 +1002,59 @@
     .founding-includes { grid-template-columns: 1fr; gap: 20px; }
   }
 
+  /* ---------- Product cards: all three offers up front, tabs below for the full days ---------- */
+  .prod-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 8px 0 0; }
+  .prod-card {
+    background: #fff; border: 1px solid var(--n100); border-radius: var(--radius);
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .prod-card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--n100); }
+  .pc-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+  .pc-badge {
+    align-self: flex-start; font-size: 12.5px; font-weight: 600; color: var(--basalt);
+    background: var(--tangerine); padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .pc-kicker { font-family: "Noto Serif", Georgia, serif; font-size: 14px; color: var(--accent-deep); }
+  .prod-card h3 { font-size: 26px; color: var(--soil); margin: 4px 0 8px; }
+  .pc-when { font-size: 14.5px; color: var(--text-muted); margin-bottom: 14px; }
+  .pc-price { font-family: "Noto Serif", Georgia, serif; font-size: 22px; font-weight: 600; color: var(--soil); margin-top: auto; }
+  .pc-price span { display: block; font-family: "Noto Sans", sans-serif; font-size: 13px; font-weight: 400; color: var(--text-muted); margin-top: 2px; }
+  .pc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 18px; }
+  .pc-more { font-size: 14.5px; font-weight: 600; color: var(--soil); text-decoration: underline; text-decoration-color: var(--tangerine); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .tabs-wrap { text-align: center; margin: 44px 0 36px; }
+  .tabs-label { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+  .journeys-intro { margin-bottom: 30px; }
+  @media (max-width: 900px) { .prod-cards { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
+
+  /* 3 Days panel extras */
+  .prod-offer { margin-top: 16px; max-width: 620px; font-size: 15px; line-height: 1.65; color: var(--soil); }
+  .prod-offer b { font-weight: 700; }
+  .day-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 40px 0 0; }
+  .day-strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); display: block; }
+  .dep-note { margin-top: 12px; font-size: 14px; color: var(--text-muted); max-width: 560px; }
+  @media (max-width: 620px) { .day-strip { grid-template-columns: 1fr 1fr; } .day-strip img:first-child { grid-column: 1 / -1; } }
+
+  /* contact buttons: Instagram DM and email, reachable on a phone where the QR is useless */
+  .contact-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+  .contact-btns .btn .ico { width: 20px; height: 20px; }
+  .ico-instagram { --ico: url(assets/brand/icons/instagram.svg); }
+  .ico-mail      { --ico: url(assets/brand/icons/mail.svg); }
+  .contact-btns.on-dark { justify-content: flex-start; margin-top: 18px; }
+  .contact-btns.on-dark .btn-line { border-color: rgba(251,250,243,0.5); color: var(--buckwheat); }
+  .contact-btns.on-dark .btn-line:hover { background: var(--buckwheat); color: var(--basalt); }
+
+  .facts-src { margin-top: 18px; font-size: 12.5px; color: var(--text-muted); }
+  .facts-src a { color: var(--text-muted); }
+  .haenyeo-doc { max-width: 640px; margin: 26px auto 0; font-family: "Noto Serif", Georgia, serif; font-size: 17px; color: var(--soil); }
+
+  .wl-form select {
+    flex: 1 1 190px; max-width: 240px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28);
+    border-radius: var(--radius-sm); padding: 12px 14px; color: #fff; font: inherit; font-size: 15px;
+  }
+  .wl-form select option { color: var(--basalt); }
+  @media (max-width: 560px) { .wl-form select { max-width: none; flex-basis: 100%; } }
+
   /* ---------- pilot on/off: .pilot-only shows while applications are open,
      .after-pilot shows once <body> carries .pilot-closed ---------- */
   body.pilot-closed .pilot-only { display: none !important; }
@@ -1018,6 +1071,12 @@
   <span class="promo-cta">Apply now →</span>
 </a>
 
+<a href="#3-days" class="promo-bar after-pilot">
+  <span class="promo-tag">Early booking</span>
+  <span class="promo-text">3 Days · 29-31 May 2027 · <b>15% off</b> if you book by 30 November</span>
+  <span class="promo-cta">See the days →</span>
+</a>
+
 <!-- ============ TOP BAR ============ -->
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -1028,7 +1087,7 @@
       <button data-tab="deep">7 Days</button>
     </nav>
     <a href="#apply" class="nav-cta pilot-only">Apply</a>
-    <a href="#apply" class="nav-cta after-pilot">Waiting list</a>
+    <a href="#retreats" class="nav-cta after-pilot">Book</a>
   </div>
 </header>
 
@@ -1044,14 +1103,14 @@
       <div class="hero-actions">
         <a href="#founding" class="btn btn-line pilot-only">See the three days</a>
         <a href="#apply" class="btn btn-dark pilot-only" data-pick="Founding Guests · Oct 29-31 pilot">Apply as a founding guest</a>
-        <a href="#host" class="btn btn-line after-pilot">Meet your hosts</a>
-        <a href="#apply" class="btn btn-dark after-pilot">Join the waiting list</a>
-        <a href="#apply" class="btn-arrow" aria-label="Go to the sign-up section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#retreats" class="btn btn-line after-pilot">See what we run</a>
+        <a href="#3-days" class="btn btn-dark after-pilot">3 Days, May 2027</a>
+        <a href="#retreats" class="btn-arrow" aria-label="See the retreats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
   <div class="wrap">
-    <figure class="hero-photo"><img src="images/founding-day2.jpg" alt="Three haenyeo swimming out with their orange floats off the Jeju coast" width="1276" height="1250" fetchpriority="high" /></figure>
+    <figure class="hero-photo"><img src="images/founding-day2.jpg" srcset="images/founding-day2-800.jpg 800w, images/founding-day2.jpg 1276w" sizes="(max-width: 860px) 100vw, 1264px" alt="Three haenyeo swimming out with their orange floats off the Jeju coast" width="1276" height="1250" fetchpriority="high" /></figure>
   </div>
 </section>
 
@@ -1061,7 +1120,7 @@
     <span><i class="ico ico-languages" aria-hidden="true"></i>English and Spanish speaking host</span>
     <span><i class="ico ico-haenyeo" aria-hidden="true"></i>Studying at the haenyeo school</span>
     <span><i class="ico ico-guests" aria-hidden="true"></i>Groups of ten, never more</span>
-    <span><i class="ico ico-application" aria-hidden="true"></i>Every application read by Soraya</span>
+    <span><i class="ico ico-application" aria-hidden="true"></i>Every message answered by Soraya</span>
     <span><i class="ico ico-certified" aria-hidden="true"></i>Licensed and bonded in Korea</span>
   </div>
 </section>
@@ -1197,84 +1256,8 @@
   </div>
 </section>
 
-<!-- ============ HOST ============ -->
-<section class="host-sec" id="host">
-  <div class="wrap">
-    <div class="host">
-      <figure class="host-photo">
-        <img src="images/soraya.jpg" alt="Soraya, founder and guide of Vamos a Jeju, on Jeju Island" loading="lazy" />
-      </figure>
-      <div class="host-body">
-        <span class="eyebrow">The woman behind it</span>
-        <h2>I'm Soraya, your host.</h2>
-        <p>I used to interpret for the haenyeo on tours, standing beside them while they answered questions from travellers. One day someone asked a grandmother what the most dangerous part of diving was. I expected her to say the depth, or the cold. She said greed. You see one more abalone below you and you think, just one more. That is how people drown.</p>
-        <p>I could not stop thinking about it. A few months later I enrolled at the haenyeo school myself.</p>
-        <p>I am still a student. I will never dive like a woman who has done it for fifty years. But it changed how I guide, because when I take you to meet them now, I am not translating from the outside.</p>
-        <p>I also share the haenyeo's stories through the <em>Vamos a Jeju</em> <a href="https://vamosajeju.com/all-episodes/" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:700;">podcast</a> and <a href="https://vamosajeju.com/all-blogposts/" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:700;">journal</a>.</p>
-      </div>
-    </div>
-
-    <div class="host flip">
-      <figure class="host-photo">
-        <img src="images/Kylie.jpeg" alt="Kylie, a licensed haenyeo, in her diving suit on the Jeju coast" loading="lazy" />
-      </figure>
-      <div class="host-body">
-        <span class="eyebrow">Special Guest</span>
-        <h2>And Kylie, who dives at Yeongnak.</h2>
-        <p>Kylie came to Korea in 2012, straight out of college, to teach English in Jinju. She moved to Jeju, went through Hansupul Haenyeo School in 2018, started diving at Yeongnak village in January 2024, and was licensed as a haenyeo in the spring of 2026. Eight years from the school to the licence.</p>
-        <p>Yeongnak is where we spend our second afternoon. It is her village, and the women you meet there are the ones she works the water with.</p>
-        <p>She is with us for all three days. She is on Instagram at <a href="https://www.instagram.com/migookhaenyeo/" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:700;">@migookhaenyeo</a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHO ARE THE HAENYEO ============ -->
-<section class="haenyeo-sec" id="haenyeo">
-  <div class="wrap">
-    <span class="eyebrow">Who are the haenyeo?</span>
-    <h2 class="haenyeo-title">Korea's last sea women</h2>
-    <p class="haenyeo-lede">For centuries, the haenyeo of Jeju have dived with no oxygen, holding their breath metres down, gathering abalone and urchin by hand, many still working into their 70s and 80s. Theirs is a rare, all-women culture, recognised by UNESCO in 2016. But their numbers have fallen from some 30,000 to roughly 2,400 today, and 63% are now over 70. <b>Meet them while you still can.</b></p>
-    <div class="facts">
-      <div class="fact"><span class="fact-n">Centuries</span><span class="fact-l">old, all-women tradition</span></div>
-      <div class="fact"><span class="fact-n">UNESCO</span><span class="fact-l">cultural heritage · 2016</span></div>
-      <div class="fact"><span class="fact-n">2,400</span><span class="fact-l">left in 2026, from some 30,000</span></div>
-      <div class="fact"><span class="fact-n">63%</span><span class="fact-l">are over 70</span></div>
-      <div class="fact"><span class="fact-n">No oxygen</span><span class="fact-l">on breath alone</span></div>
-    </div>
-    <p class="haenyeo-lede" style="margin-top:32px;">Through cold winters and decades of change, they kept each other going. The haenyeo are a sisterhood before they are a trade. Before and after every dive, they gather at the <em>어촌계</em>, the village cooperative building by the sea: a place to change, warm up, share food, and talk. What looks ordinary from the outside is the living heart of their world, and the place where you'll be welcomed in.</p>
-  </div>
-</section>
-
-<!-- ============ HERO BANNER ============ -->
-<section class="hero-banner">
-  <img src="images/main.jpg" alt="A guide introduces the haenyeo to guests, the sea women seated with their tewak floats" />
-</section>
-
-<!-- ============ JOURNAL TEASER ============ -->
-<section style="background:var(--bg); padding:0 0 84px; text-align:center;">
-  <div class="wrap">
-    <p style="max-width:620px; margin:0 auto 24px; font-size:17px; line-height:1.7; color:var(--text-muted);">Not ready to apply? I write about the haenyeo in the journal and talk to them on the podcast. Instagram is where I post from the school.</p>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px;">
-      <a href="https://vamosajeju.com/all-blogposts/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Read the journal →</a>
-      <a href="https://vamosajeju.com/all-episodes/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Listen to the podcast →</a>
-      <a href="https://instagram.com/soraya.jeju" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Follow along →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HAENYEO QUOTE ============ -->
-<section class="haenyeo-quote-sec">
-  <div class="wrap">
-    <blockquote class="haenyeo-quote">
-      <p>"Dive only as far as your own breath allows."</p>
-      <cite>— A Jeju haenyeo</cite>
-    </blockquote>
-  </div>
-</section>
-
 <!-- ============ PRODUCT PANELS ============ -->
-<main class="panels">
+<main class="panels" id="retreats">
   <div class="wrap">
 
     <div class="journeys-intro" id="journeysIntro">
@@ -1283,7 +1266,54 @@
       <p class="pilot-only">The Founding Guests pilot is our focus right now. If you'd like to see the rest of what we offer, tap one below.</p>
       <span class="eyebrow after-pilot">What we run</span>
       <h2 class="after-pilot">Three ways to come</h2>
-      <p class="after-pilot">A half-day walk, a three-day retreat, or a week on the Olle trail. Tap one to see how it runs.</p>
+      <p class="after-pilot">A half-day walk, a three-day retreat, or a week on the Olle trail.</p>
+    </div>
+
+    <div class="prod-cards">
+      <article class="prod-card">
+        <img src="images/main.jpg" alt="Soraya introducing the haenyeo to a small group, orange floats all around" loading="lazy" />
+        <div class="pc-body">
+          <span class="pc-kicker">Half-day · Hado-ri</span>
+          <h3>The Sea Women Walk</h3>
+          <p class="pc-when">Set dates on Airbnb, or private on request</p>
+          <p class="pc-price">From ₩40,000<span>about US$29 per person</span></p>
+          <div class="pc-actions">
+            <a class="btn btn-dark" href="https://airbnb.co.kr/x/haenyeo" target="_blank" rel="noopener">Book on Airbnb</a>
+            <a class="pc-more" href="#walk" data-tab="quiet">Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="prod-card">
+        <img src="images/Chidasun2.jpg" alt="A tea table by the window at Chuidasun, looking out to the sea" loading="lazy" />
+        <div class="pc-body">
+          <span class="pc-badge">15% off until 30 November</span>
+          <span class="pc-kicker">2 nights · east coast to west</span>
+          <h3>3 Days</h3>
+          <p class="pc-when">Sat 29 to Mon 31 May 2027 · 4 to 10 guests</p>
+          <p class="pc-price">$1,090<span>per person, a room of your own included</span></p>
+          <div class="pc-actions">
+            <a class="btn btn-dark" href="mailto:soraya@vamosajeju.com?subject=Booking%203%20Days%2C%2029-31%20May%202027" data-book="still">Book 3 Days</a>
+            <a class="pc-more" href="#3-days" data-tab="still">See the three days</a>
+          </div>
+        </div>
+      </article>
+      <article class="prod-card">
+        <img src="images/founding-day3.jpg" alt="The lantern-lined path to a temple on Jeju" loading="lazy" />
+        <div class="pc-body">
+          <span class="pc-kicker">6 nights · the Olle trail and a haenyeo village</span>
+          <h3>7 Days</h3>
+          <p class="pc-when">Wed 24 to Tue 30 November 2027 · up to 10 guests</p>
+          <p class="pc-price">Price on request<span>written to fit your group</span></p>
+          <div class="pc-actions">
+            <a class="btn btn-dark" href="mailto:soraya@vamosajeju.com?subject=7%20Days%2C%2024-30%20November%202027">Ask about 7 Days</a>
+            <a class="pc-more" href="#7-days" data-tab="deep">See the week</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tabs-wrap">
+      <p class="tabs-label">Every day, in detail</p>
       <div class="hero-tabs journey-tabs" id="panelTabs">
         <button data-tab="quiet"><span class="dot" aria-hidden="true" style="background:var(--mugwort)"></span>The Walk</button>
         <button data-tab="still"><span class="dot" aria-hidden="true" style="background:var(--sand)"></span>3 Days</button>
@@ -1301,10 +1331,11 @@
           <span class="chip"><span class="label">Style</span> Small group · guided walk</span>
           <span class="chip"><span class="label">Duration</span> About 3 hours</span>
           <a href="mailto:soraya@vamosajeju.com?subject=Sea%20Women%20Walk%20private%20group" class="chip chip-inq">Private group? →</a>
-          <span class="chip price">From ₩40,000 / person</span>
+          <span class="chip price">From ₩40,000 / person <span class="label">(about US$29)</span></span>
         </div>
         <p style="margin-top:14px; max-width:600px; color:rgba(255,255,255,0.82); font-size:13.5px; line-height:1.6;">Booked directly on Airbnb with instant confirmation. Guiding in English or Spanish, museum entry, and tea by the sea included.</p>
-        <p style="margin-top:12px; max-width:600px; color:rgba(255,255,255,0.9); font-size:14.5px; line-height:1.65;">No diving. No fitness needed: flat, gentle, and unhurried. <b>Solo travelers warmly welcome.</b> Made for travelers who want meaning and calm, not adventure sports.</p>
+        <p style="margin-top:12px; max-width:600px; color:rgba(255,255,255,0.9); font-size:14.5px; line-height:1.65;">No diving. No fitness needed: flat, gentle, and unhurried. <b>Solo travelers and families warmly welcome.</b> Made for travelers who want meaning and calm, not adventure sports.</p>
+        <p style="margin-top:10px; max-width:600px; color:rgba(255,255,255,0.9); font-size:14.5px; line-height:1.65;">Came to the haenyeo through <em>When Life Gives You Tangerines</em>? Ae-sun's mother was one. This walk is the gentlest way to meet the real ones.</p>
       </div>
 
       <p class="pull-quote">"Follow the sumbisori,<br>the haenyeo's breath, given back to the sky."</p>
@@ -1382,16 +1413,23 @@
     <!-- ===== STILL WATERS ===== -->
     <section class="panel" id="panel-still">
       <div class="prod-head theme-cream">
-        <span class="limited-badge">First Cohorts · 2026</span>
+        <span class="limited-badge">Open for booking · 29-31 May 2027</span>
         <span class="eyebrow">The Sea Women Retreat · 2 nights, 3 days</span>
         <h2>3 Days</h2>
         <p class="concept">One evening with the sea women on stage. One day inside their village world. One morning of stillness before you go. The name says it plainly: Jeju Slowly.</p>
         <div class="prod-meta">
-          <span class="chip"><span class="label">Duration</span> 3 days / 2 nights</span>
-          <span class="chip"><span class="label">Seats</span> 10 only · by application</span>
+          <span class="chip"><span class="label">Dates</span> Sat 29 to Mon 31 May 2027</span>
+          <span class="chip"><span class="label">Group</span> 4 to 10 guests</span>
           <span class="chip price">$1,090 / person</span>
         </div>
+        <p class="prod-offer">A room of your own is included, with no single supplement. <b>Book by 30 November 2026 and take 15% off.</b> Sharing a twin room with a friend? You each take 10% off.</p>
         <p style="margin-top:12px; max-width:600px; color:rgba(60,45,30,0.75); font-size:14px; line-height:1.65;">No diving, and none needed. Time in the water alongside the haenyeo can sometimes be arranged as an add-on, tide and the divers' schedule permitting.</p>
+      </div>
+
+      <div class="day-strip">
+        <img src="images/founding-day1.jpg" alt="Tea being poured at a tea ceremony table on Jeju" loading="lazy" />
+        <img src="images/founding-day2.jpg" alt="Haenyeo swimming out with their orange floats" loading="lazy" />
+        <img src="images/founding-day3.jpg" alt="The lantern-lined path to Baekjesa temple" loading="lazy" />
       </div>
 
       <div class="prod-body">
@@ -1399,33 +1437,33 @@
           <h3 class="section-title">Itinerary</h3>
           <div class="timeline">
             <div class="tl-item">
-              <div class="tl-day">Day 1</div>
-              <div class="tl-title">Arrival &amp; first encounter</div>
-              <div class="tl-desc">Arrive in the afternoon and ease in with a slow forest walk. In the evening, Haenyeo's Kitchen: a theatre-dinner where the sea women tell their own story on stage. Night in a comfortable hotel near Seongsan.</div>
+              <div class="tl-day">Day 1 · Sat 29 May</div>
+              <div class="tl-title">Tea, and the sea women on stage</div>
+              <div class="tl-desc">We meet at Jeju Airport in the early afternoon and head east for a tea ceremony class to slow the day down. In the evening, Haenyeo's Kitchen in Jongdal: a theatre-dinner where the sea women tell their own story. Night at Chuidasun, on the east coast.</div>
             </div>
             <div class="tl-item">
-              <div class="tl-day">Day 2</div>
+              <div class="tl-day">Day 2 · Sun 30 May</div>
               <div class="tl-title">The sea women's day</div>
-              <div class="tl-desc">An optional sunrise hike up Seongsan Ilchulbong, then the day this retreat is named for: the Sumbisori coastal walk (with the divers at work, tide permitting), the Haenyeo Museum with Soraya, a sit-down interview with a working haenyeo, <em>neokdungbaegi</em> (their traditional board game), and Bam Bada Salon ("an evening on the beach"): grilled conch by the fire, noodles, and a beer as the light fades. Night in a small guesthouse inside Sehwa, a working haenyeo village.</div>
+              <div class="tl-desc">Meditation and yoga at the hotel if you want them, or sleep in. After breakfast, the Haenyeo Museum with a tour in English. In the afternoon we cross to Yeongnak, the village where Kylie dives, to sit down with the haenyeo she works the water with, and stay on for dinner together. Night at WE Hotel, on the west of the island.</div>
             </div>
             <div class="tl-item">
-              <div class="tl-day">Day 3</div>
+              <div class="tl-day">Day 3 · Mon 31 May</div>
               <div class="tl-title">Stillness &amp; farewell</div>
-              <div class="tl-desc">A half day at the temple: a walk through the grounds, 108 bows threading a mala you keep, and a simple lunch with the monks. Tea with one of them afterwards becomes our closing circle, with time to ask whatever you like. Drop-off at Jeju Airport by 3:00 PM.</div>
+              <div class="tl-desc">A walk on your own if you feel like one, then breakfast. A half day at Baekjesa temple in Aewol: a walk through the grounds, and 108 bows, threading one bead at a time into a mala you keep. The bows are yours to skip. A simple lunch with the monks, tea with one of them, and a closing circle. We finish at Jeju Airport in the afternoon.</div>
             </div>
           </div>
-          <p class="itinerary-note">These dates and the schedule above may still shift. The village keeps its own rhythm, and the weather, the tides, and the schedules of the haenyeo and the temple all have a say in it. If anything moves, I will tell you as early as I can.</p>
+          <p class="itinerary-note">The schedule above may still shift. The village keeps its own rhythm, and the weather, the tides, and the schedules of the haenyeo and the temple all have a say in it. If anything moves, I will tell you as early as I can.</p>
         </div>
 
         <div>
           <h3 class="section-title">Experiences</h3>
           <div class="acts">
+            <span class="act">Tea ceremony class</span>
             <span class="act">Haenyeo's Kitchen show &amp; dinner</span>
-            <span class="act">Haenyeo interview</span>
-            <span class="act">Sumbisori coastal walk</span>
-            <span class="act">Haenyeo Museum</span>
-            <span class="act">Neokdungbaegi game</span>
-            <span class="act">Bam Bada Salon</span>
+            <span class="act">Haenyeo Museum, in English</span>
+            <span class="act">Haenyeo interview in Yeongnak</span>
+            <span class="act">Dinner with the haenyeo</span>
+            <span class="act">Morning meditation &amp; yoga</span>
             <span class="act">Half-day temple stay</span>
             <span class="act">Closing circle &amp; keepsake</span>
           </div>
@@ -1434,34 +1472,58 @@
             <div class="incl-card inc">
               <h4>✓ Included</h4>
               <ul class="incl-list">
-                <li><span class="tick" aria-hidden="true">·</span>2 nights: a comfortable hotel near Seongsan + a village guesthouse in Sehwa</li>
-                <li><span class="tick" aria-hidden="true">·</span>Haenyeo's Kitchen theatre-dinner &amp; Bam Bada Salon ("an evening on the beach")</li>
-                <li><span class="tick" aria-hidden="true">·</span>Sit-down interview with a working haenyeo, in Soraya's translation</li>
-                <li><span class="tick" aria-hidden="true">·</span>The half-day temple stay</li>
-                <li><span class="tick" aria-hidden="true">·</span>All local transport &amp; guiding in English or Spanish</li>
+                <li><span class="tick" aria-hidden="true">·</span>2 nights in a room of your own: Chuidasun on the east coast, then WE Hotel on the west, breakfast included</li>
+                <li><span class="tick" aria-hidden="true">·</span>6 meals: 2 dinners (Haenyeo's Kitchen, and dinner in Yeongnak), 2 lunches including the temple lunch, 2 breakfasts</li>
+                <li><span class="tick" aria-hidden="true">·</span>The tea ceremony, the Haenyeo Museum tour, and the half-day temple stay with your mala</li>
+                <li><span class="tick" aria-hidden="true">·</span>A sit-down interview with working haenyeo, in Soraya's translation. They are paid properly for their time.</li>
+                <li><span class="tick" aria-hidden="true">·</span>All local transport from the airport and back, and guiding in English or Spanish</li>
               </ul>
             </div>
             <div class="incl-card exc">
               <h4>✕ Not included</h4>
               <ul class="incl-list">
-                <li><span class="tick" aria-hidden="true">·</span>International flights</li>
-                <li><span class="tick" aria-hidden="true">·</span>Airport transfers &amp; insurance</li>
+                <li><span class="tick" aria-hidden="true">·</span>Flights to and from Jeju</li>
+                <li><span class="tick" aria-hidden="true">·</span>Travel insurance, which is required. Policies need your personal details, so each guest arranges their own.</li>
+                <li><span class="tick" aria-hidden="true">·</span>Personal expenses</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
+      <div class="stay">
+        <h4>Where you'll stay</h4>
+        <div class="stay-row">
+          <div class="stay-head"><b>Chuidasun</b> <span>east coast · night one · a room of your own</span></div>
+          <div class="stay-grid">
+            <img src="images/Chidasun1.jpg" alt="A room at Chuidasun with the sea at the window" loading="lazy" />
+            <img src="images/Chidasun2.jpg" alt="A tea table by the window at Chuidasun, looking out to the sea" loading="lazy" />
+            <img src="images/Chidasun3.jpg" alt="An interior at Chuidasun opening onto the garden" loading="lazy" />
+          </div>
+          <p class="itinerary-note" style="margin-top:8px;">The sea is at the window. The morning meditation and yoga come with the stay here.</p>
+        </div>
+        <div class="stay-row">
+          <div class="stay-head"><b>WE Hotel</b> <span>west · night two · a room of your own</span></div>
+          <div class="stay-grid">
+            <img src="images/wehotel1.jpg" alt="A room at WE Hotel looking onto the forest" loading="lazy" />
+            <img src="images/wehotel2.jpg" alt="The glass atrium at WE Hotel" loading="lazy" />
+            <img src="images/wehotel3.jpg" alt="WE Hotel at dusk, set in the forest" loading="lazy" />
+          </div>
+          <p class="itinerary-note" style="margin-top:8px;">Forest on every side, for the night after the day in Yeongnak.</p>
+        </div>
+      </div>
+
       <div class="departures">
         <div>
-          <div class="dep-label">First cohorts · autumn 2026</div>
+          <div class="dep-label">Open for booking</div>
           <div class="dep-dates" style="margin-top:12px">
-            <span class="date"><small>Cohort window</small>October–November 2026</span>
-            <span class="date"><small>Availability</small>10 seats per cohort · by application</span>
-            <span class="date"><small>Flights</small>Ends at Jeju Airport by 3:00 PM · book departures after 4:30 PM</span>
+            <span class="date"><small>Dates</small>29-31 May 2027</span>
+            <span class="date"><small>Group</small>4 to 10 guests</span>
+            <span class="date"><small>Flights</small>Land by early afternoon on the 29th · leave after 4:30 PM on the 31st</span>
           </div>
+          <p class="dep-note">The retreat runs with four guests or more. If fewer than four have booked, I cancel it and refund you in full.</p>
         </div>
-        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%20Slowly%203%20Days%20inquiry" class="btn-apply">Booking opens January 2027 · email to inquire →</a>
+        <a href="mailto:soraya@vamosajeju.com?subject=Booking%203%20Days%2C%2029-31%20May%202027" data-book="still" class="btn-apply">Book 3 Days →</a>
       </div>
     </section>
 
@@ -1472,7 +1534,7 @@
         <h2>7 Days</h2>
         <p class="concept">Two coasts of Jeju, walked slowly: three days on the Olle trail's south coast, then three nights inside a haenyeo village on the east coast, and a half-day at a mountain temple before you go.</p>
         <div class="prod-meta">
-          <span class="chip"><span class="label">Duration</span> 7 days / 6 nights</span>
+          <span class="chip"><span class="label">Dates</span> Wed 24 to Tue 30 Nov 2027</span>
           <span class="chip"><span class="label">Group</span> Max 10 guests</span>
           <span class="chip price">Price on request</span>
         </div>
@@ -1540,7 +1602,7 @@
               <ul class="incl-list">
                 <li><span class="tick" aria-hidden="true">·</span>6 nights: 3 at a guesthouse on the Olle trail's south coast, and 3 in the haenyeo village of Sehwa</li>
                 <li><span class="tick" aria-hidden="true">·</span>Five Olle Trail sections, courses 7, 6, 1, 21, and 20</li>
-                <li><span class="tick" aria-hidden="true">·</span>Everything in 3 Days: Haenyeo's Kitchen, the haenyeo interview, the Haenyeo Museum, and Bam Bada Salon</li>
+                <li><span class="tick" aria-hidden="true">·</span>Haenyeo's Kitchen, a sit-down interview with working haenyeo (paid properly for their time), the Haenyeo Museum, and Bam Bada Salon</li>
                 <li><span class="tick" aria-hidden="true">·</span>The half-day temple stay before departure</li>
                 <li><span class="tick" aria-hidden="true">·</span>All local transport &amp; guiding in English or Spanish</li>
               </ul>
@@ -1558,19 +1620,97 @@
 
       <div class="departures">
         <div>
-          <div class="dep-label">From late 2026 · by application</div>
+          <div class="dep-label">24-30 November 2027</div>
           <div class="dep-dates" style="margin-top:12px">
-            <span class="date"><small>First cohort</small>From November 2026</span>
+            <span class="date"><small>Dates</small>24-30 November 2027</span>
             <span class="date"><small>Group size</small>Up to 10 guests</span>
             <span class="date"><small>Pricing</small>On request</span>
           </div>
         </div>
-        <a href="mailto:soraya@vamosajeju.com?subject=Jeju%20Slowly%207%20Days%20inquiry" class="btn-apply">Price on request · email to inquire →</a>
+        <a href="mailto:soraya@vamosajeju.com?subject=7%20Days%2C%2024-30%20November%202027" class="btn-apply">Ask about 7 Days →</a>
       </div>
     </section>
 
   </div>
 </main>
+
+<!-- ============ HOST ============ -->
+<section class="host-sec" id="host">
+  <div class="wrap">
+    <div class="host">
+      <figure class="host-photo">
+        <img src="images/soraya.jpg" alt="Soraya, founder and guide of Vamos a Jeju, on Jeju Island" loading="lazy" />
+      </figure>
+      <div class="host-body">
+        <span class="eyebrow">The woman behind it</span>
+        <h2>I'm Soraya, your host.</h2>
+        <p>I used to interpret for the haenyeo on tours, standing beside them while they answered questions from travellers. One day someone asked a grandmother what the most dangerous part of diving was. I expected her to say the depth, or the cold. She said greed. You see one more abalone below you and you think, just one more. That is how people drown.</p>
+        <p>I could not stop thinking about it. A few months later I enrolled at the haenyeo school myself.</p>
+        <p>I am still a student. I will never dive like a woman who has done it for fifty years. But it changed how I guide, because when I take you to meet them now, I am not translating from the outside.</p>
+        <p>I also share the haenyeo's stories through the <em>Vamos a Jeju</em> <a href="https://vamosajeju.com/all-episodes/" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:700;">podcast</a> and <a href="https://vamosajeju.com/all-blogposts/" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:700;">journal</a>.</p>
+      </div>
+    </div>
+
+    <div class="host flip">
+      <figure class="host-photo">
+        <img src="images/Kylie.jpeg" alt="Kylie, a licensed haenyeo, in her diving suit on the Jeju coast" loading="lazy" />
+      </figure>
+      <div class="host-body">
+        <span class="eyebrow">Special Guest</span>
+        <h2>And Kylie, who dives at Yeongnak.</h2>
+        <p>Kylie came to Korea in 2012, straight out of college, to teach English in Jinju. She moved to Jeju, went through Hansupul Haenyeo School in 2018, started diving at Yeongnak village in January 2024, and was licensed as a haenyeo in the spring of 2026. Eight years from the school to the licence.</p>
+        <p>Yeongnak is where we spend our second afternoon. It is her village, and the women you meet there are the ones she works the water with.</p>
+        <p>She is with us for all three days. She is on Instagram at <a href="https://www.instagram.com/migookhaenyeo/" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:700;">@migookhaenyeo</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO ARE THE HAENYEO ============ -->
+<section class="haenyeo-sec" id="haenyeo">
+  <div class="wrap">
+    <span class="eyebrow">Who are the haenyeo?</span>
+    <h2 class="haenyeo-title">Korea's last sea women</h2>
+    <p class="haenyeo-lede">For centuries, the haenyeo of Jeju have dived with no oxygen, holding their breath metres down, gathering abalone and urchin by hand, many still working into their 70s and 80s. Theirs is a rare, all-women culture, recognised by UNESCO in 2016. But their numbers have fallen from 23,081 in 1965 to 2,371 at the end of 2025, and 63% are now over 70. <b>Meet them while you still can.</b></p>
+    <div class="facts">
+      <div class="fact"><span class="fact-n">Centuries</span><span class="fact-l">old, all-women tradition</span></div>
+      <div class="fact"><span class="fact-n">UNESCO</span><span class="fact-l">cultural heritage · 2016</span></div>
+      <div class="fact"><span class="fact-n">2,371</span><span class="fact-l">still diving, end of 2025</span></div>
+      <div class="fact"><span class="fact-n">63%</span><span class="fact-l">are over 70</span></div>
+      <div class="fact"><span class="fact-n">No oxygen</span><span class="fact-l">on breath alone</span></div>
+    </div>
+    <p class="facts-src">2025 figures: <a href="https://www.jeju.go.kr/haenyeo/haenyeo/statistics.htm" target="_blank" rel="noopener">Jeju Special Self-Governing Province haenyeo census</a>.</p>
+    <p class="haenyeo-lede" style="margin-top:32px;">Through cold winters and decades of change, they kept each other going. The haenyeo are a sisterhood before they are a trade. Before and after every dive, they gather at the <em>어촌계</em>, the village cooperative building by the sea: a place to change, warm up, share food, and talk. What looks ordinary from the outside is the living heart of their world, and the place where you'll be welcomed in. The haenyeo who sit down with us are paid properly for their time, the way you would pay any expert for theirs.</p>
+    <p class="haenyeo-doc">If you first met them in <em>The Last of the Sea Women</em> on Apple TV+, this is a way to meet them in person.</p>
+  </div>
+</section>
+
+<!-- ============ HERO BANNER ============ -->
+<section class="hero-banner">
+  <img src="images/main.jpg" alt="A guide introduces the haenyeo to guests, the sea women seated with their tewak floats" />
+</section>
+
+<!-- ============ JOURNAL TEASER ============ -->
+<section style="background:var(--bg); padding:0 0 84px; text-align:center;">
+  <div class="wrap">
+    <p style="max-width:620px; margin:0 auto 24px; font-size:17px; line-height:1.7; color:var(--text-muted);">Not ready to book? I write about the haenyeo in the journal and talk to them on the podcast. Instagram is where I post from the school.</p>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px;">
+      <a href="https://vamosajeju.com/all-blogposts/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Read the journal →</a>
+      <a href="https://vamosajeju.com/all-episodes/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Listen to the podcast →</a>
+      <a href="https://instagram.com/soraya.jeju" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Follow along →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HAENYEO QUOTE ============ -->
+<section class="haenyeo-quote-sec">
+  <div class="wrap">
+    <blockquote class="haenyeo-quote">
+      <p>"Dive only as far as your own breath allows."</p>
+      <cite>— A Jeju haenyeo</cite>
+    </blockquote>
+  </div>
+</section>
 
 <!-- ============ GALLERY ============ -->
 <section class="gallery-sec">
@@ -1665,7 +1805,7 @@
 
       <details class="faq-item">
         <summary>How does booking work, and do I pay now?</summary>
-        <div class="faq-a">The Sea Women Walk books and pays instantly through Airbnb.<span class="pilot-only"> For the Founding Guests pilot, applications are open now. Soraya writes back within 48 hours to the people she thinks the dates suit, and the payment link for the $100 follows once your place is confirmed. Nothing is charged before then.</span></div>
+        <div class="faq-a"><b>The Walk</b> books and pays instantly through Airbnb. <b>3 Days</b> (29-31 May 2027) is open for booking now: you pay by card through WeTravel, our booking platform, or write to me first if you have questions. <b>7 Days</b> (24-30 November 2027) is priced on request, so it starts with an email.<span class="pilot-only"> For the Founding Guests pilot, applications are open now. Soraya writes back within 48 hours to the people she thinks the dates suit, and the payment link for the $100 follows once your place is confirmed. Nothing is charged before then.</span></div>
       </details>
 
       <details class="faq-item">
@@ -1680,12 +1820,12 @@
 
       <details class="faq-item">
         <summary>Where will I sleep?</summary>
-        <div class="faq-a"><b>The Walk</b> is a half-day, so you keep your own hotel. <b>3 Days</b> includes one night in a comfortable hotel near Seongsan and one night in a small, simple guesthouse inside Sehwa, a working haenyeo village: clean, warm, and part of the story. <b>7 Days</b> adds several more nights in the village and along the coast as the Olle trail continues.</div>
+        <div class="faq-a"><b>The Walk</b> is a half-day, so you keep your own hotel. <b>3 Days</b> gives you a room of your own both nights, with no single supplement: Chuidasun on the east coast, then WE Hotel on the west. Sharing a twin room with a friend takes 10% off for each of you. <b>7 Days</b> adds several more nights in the village and along the coast as the Olle trail continues.</div>
       </details>
 
       <details class="faq-item">
         <summary>How fit do I need to be? Is it difficult?</summary>
-        <div class="faq-a">Gentle to moderate. The longest walk on any day is about 1-2 hours, on flat ground, and you can sit any of it out. Please share any health, mobility, or medical needs in your application so we can prepare and adapt.</div>
+        <div class="faq-a">Gentle to moderate. The longest walk on any day is about 1-2 hours, on flat ground, and you can sit any of it out. Tell me about any health, mobility, or medical needs when you book, so we can prepare and adapt.</div>
       </details>
 
       <details class="faq-item">
@@ -1695,7 +1835,7 @@
 
       <details class="faq-item">
         <summary>What if I have accessibility or mobility needs?</summary>
-        <div class="faq-a">We want to be honest so your time with us is wonderful: much of the retreat takes place on Jeju's natural terrain, including uneven village shores, rocky coastline, temple steps, and time by the water. It suits travellers who are comfortable on their feet over varied ground. If you have any mobility or medical considerations, please share them in your application and we'll talk it through openly to find the right fit for you.</div>
+        <div class="faq-a">We want to be honest so your time with us is wonderful: much of the retreat takes place on Jeju's natural terrain, including uneven village shores, rocky coastline, temple steps, and time by the water. It suits travellers who are comfortable on their feet over varied ground. If you have any mobility or medical considerations, please write to me before you book and we'll talk it through openly to find the right fit for you.</div>
       </details>
 
       <details class="faq-item">
@@ -1705,7 +1845,12 @@
 
       <details class="faq-item">
         <summary>Can I come on my own?</summary>
-        <div class="faq-a">The Walk runs as a small group and is booked on Airbnb; private walks are available on request. The retreats take a maximum of 10 guests, by application. Solo travelers, couples, and friends are all welcome, and private group bookings (4–10 guests) can be arranged.</div>
+        <div class="faq-a">The Walk runs as a small group and is booked on Airbnb; private walks are available on request. The retreats take a maximum of 10 guests. Solo travelers, couples, and friends are all welcome, and private group bookings (4–10 guests) can be arranged.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I bring children?</summary>
+        <div class="faq-a">Children are welcome on the Walk with a parent. The retreats are built for adults travelling slowly; if you would like to bring a teenager, write to me first and we can talk it through.</div>
       </details>
 
       <details class="faq-item">
@@ -1715,11 +1860,15 @@
 
       <details class="faq-item">
         <summary>What is your cancellation &amp; refund policy?</summary>
-        <div class="faq-a"><span class="pilot-only"><b>The Founding Guests pilot</b> is $100, paid once your place is confirmed, and that payment is non-refundable. Nine places means one empty seat is a real loss, so please only confirm if you are sure of the dates. If something changes, tell me as early as you can and I will do what I can to fill the place.</span><span style="display:block;margin-top:10px;"><b>On the regular retreats</b>, a deposit secures your place and is non-refundable. For the remaining balance: cancel <b>60+ days</b> before the start date for a full refund; <b>30–59 days</b>, 50% refunded; <b>within 30 days</b>, non-refundable. If we ever have to cancel a retreat, you'll receive a full refund. We strongly recommend travel insurance.</span></div>
+        <div class="faq-a"><span class="pilot-only"><b>The Founding Guests pilot</b> is $100, paid once your place is confirmed, and that payment is non-refundable. Nine places means one empty seat is a real loss, so please only confirm if you are sure of the dates. If something changes, tell me as early as you can and I will do what I can to fill the place.</span><span style="display:block;margin-top:10px;"><b>On the regular retreats</b>, a deposit secures your place and is non-refundable. For the remaining balance: cancel <b>60+ days</b> before the start date for a full refund; <b>30–59 days</b>, 50% refunded; <b>within 30 days</b>, non-refundable. Retreats run with four guests or more; if fewer than four have booked, I cancel and you receive a full refund. If we ever have to cancel a retreat for any other reason, you'll receive a full refund too. We strongly recommend travel insurance.</span></div>
       </details>
 
     </div>
-    <p class="faq-note">Still have a question? Add it with your application below. Soraya answers every one personally.</p>
+    <p class="faq-note">Still have a question? I answer every one myself.</p>
+    <div class="contact-btns">
+      <a class="btn btn-line" href="https://ig.me/m/soraya.jeju" target="_blank" rel="noopener"><i class="ico ico-instagram" aria-hidden="true"></i>Message on Instagram</a>
+      <a class="btn btn-line" href="mailto:soraya@vamosajeju.com"><i class="ico ico-mail" aria-hidden="true"></i>Email Soraya</a>
+    </div>
   </div>
 </section>
 
@@ -1728,9 +1877,10 @@
   <div class="wrap">
     <p class="impact-line">A living heritage, quietly disappearing. Your visit helps keep their story alive, and their livelihood with it.</p>
     <div class="apply-head">
-      <span class="eyebrow">Founding Guests · Pilot Cohort</span>
-      <h2 class="after-pilot">Applications have closed</h2>
-      <p class="after-pilot">Thank you to everyone who wrote in for the October pilot. Leave your email below and I will write when the next dates are set. That is all it is, and there is no newsletter.</p>
+      <span class="eyebrow pilot-only">Founding Guests · Pilot Cohort</span>
+      <span class="eyebrow after-pilot">Stay in touch</span>
+      <h2 class="after-pilot">Hear about new dates first</h2>
+      <p class="after-pilot">The October founding group is full. 3 Days in May 2027 is open for booking now, and 7 Days follows in November 2027. Leave your email, tell me what you are curious about, and I will write when there is something to tell. That is all it is, and there is no newsletter.</p>
       <h2 class="pilot-only">Apply as a founding guest</h2>
       <p class="pilot-only">The Oct 29-31 pilot, nine places, no charge to apply. Soraya reads every application herself and writes back within 48 hours to the people she thinks these particular days are right for. Nine is a small room, so she is choosing it carefully rather than filling it.</p>
     </div>
@@ -1797,6 +1947,14 @@
       <form class="wl-form" id="waitlistForm" novalidate>
         <input type="text" id="wl-name" name="wlname" placeholder="First name" aria-label="First name" autocomplete="given-name" />
         <input type="email" id="wl-email" name="wlemail" placeholder="you@email.com" aria-label="Email" autocomplete="email" required />
+        <select id="wl-interest" name="wlinterest" aria-label="Interested in" hidden>
+          <option value="">Interested in…</option>
+          <option>3 Days · May 2027</option>
+          <option>7 Days · November 2027</option>
+          <option>The Sea Women Walk</option>
+          <option>A private group</option>
+          <option>Anything new</option>
+        </select>
         <button type="submit" id="wlBtn">Keep me posted</button>
       </form>
       <p class="wl-done" id="waitlistDone" hidden>Thank you. I will write to you when the next dates are set.</p>
@@ -1825,6 +1983,10 @@
             <span class="small">Scan the code to chat with us on WhatsApp</span>
           </div>
         </div>
+        <div class="contact-btns on-dark">
+          <a class="btn btn-line" href="https://ig.me/m/soraya.jeju" target="_blank" rel="noopener"><i class="ico ico-instagram" aria-hidden="true"></i>Instagram</a>
+          <a class="btn btn-line" href="mailto:soraya@vamosajeju.com"><i class="ico ico-mail" aria-hidden="true"></i>Email</a>
+        </div>
         <p class="foot-reg">Business Registration No. 522-50-01130 | Tourism Business Registration No. 제2026-000011호 | 경기도 김포시 사우중로74번길 7, 펠리스 205-143호 (사우동) | Bonded through SGI Seoul Guarantee Insurance</p>
       </div>
       <div class="foot-links">
@@ -1844,6 +2006,10 @@
           <a href="#top" data-tab="quiet">The Sea Women Walk</a>
           <a href="#top" data-tab="still">3 Days</a>
           <a href="#top" data-tab="deep">7 Days</a>
+        </div>
+        <div class="foot-col">
+          <h5>Trade</h5>
+          <a href="mailto:soraya@vamosajeju.com?subject=Trade%20enquiry">Travel advisors &amp; operators</a>
         </div>
         <div class="foot-col">
           <h5>Legal</h5>
@@ -1908,8 +2074,8 @@
     });
   });
 
-  // Footer retreat links open the relevant panel (never collapse).
-  document.querySelectorAll(".foot-col a[data-tab]").forEach(a => {
+  // Footer links and product-card "details" links open the panel (never collapse).
+  document.querySelectorAll(".foot-col a[data-tab], .prod-card a[data-tab]").forEach(a => {
     a.addEventListener("click", (e) => { e.preventDefault(); goToPanel(a.dataset.tab); });
   });
 
@@ -1950,6 +2116,20 @@
      name-less submission still lands. */
   const WAITLIST_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLSdZhbmH2PHqTnNKRJ1xlrhXVAK-NLRCrR6vfbKQuBBGMex0pg/formResponse";
   const WAITLIST_MAP = { wlname: "entry.36346848", wlemail: "entry.1741851091" };
+  // Add an "Interested in" short-answer question to the waiting-list Google Form and put its
+  // entry id here. Until then the select stays hidden, so no one picks an answer that goes nowhere.
+  const WAITLIST_INTEREST_ENTRY = "";
+  if (WAITLIST_INTEREST_ENTRY) {
+    WAITLIST_MAP.wlinterest = WAITLIST_INTEREST_ENTRY;
+    const sel = document.getElementById("wl-interest"); if (sel) sel.hidden = false;
+  }
+
+  /* 3 Days booking: paste the WeTravel trip link here. Empty = the buttons open an email instead. */
+  const BOOKING_URL = { still: "" };
+  document.querySelectorAll("a[data-book]").forEach(a => {
+    const url = BOOKING_URL[a.dataset.book];
+    if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+  });
 
   const wlForm = document.getElementById("waitlistForm");
   if (wlForm) {
