@@ -604,6 +604,8 @@
     padding: 80px 0 90px;
     position: relative; overflow: hidden;
   }
+  /* this line sits on the dark apply band; it inherited the band's own colour and had been invisible */
+  .apply .impact-line { color: rgba(251,250,243,0.86); }
   .apply-head { text-align: center; max-width: 600px; margin: 0 auto 44px; position: relative; }
   .apply-head .eyebrow { color: var(--accent); }
   .apply-head h2 { color: #fff; font-size: clamp(32px, 5vw, 50px); margin: 14px 0 14px; }
@@ -999,12 +1001,18 @@
     .founding-flow { grid-template-columns: 1fr; gap: 18px; }
     .founding-includes { grid-template-columns: 1fr; gap: 20px; }
   }
+
+  /* ---------- pilot on/off: .pilot-only shows while applications are open,
+     .after-pilot shows once <body> carries .pilot-closed ---------- */
+  body.pilot-closed .pilot-only { display: none !important; }
+  body:not(.pilot-closed) .after-pilot { display: none !important; }
 </style>
 </head>
-<body>
+<!-- Founding Guests applications closed 2026-09-28. Remove "pilot-closed" to bring the pilot blocks back. -->
+<body class="pilot-closed">
 
 <!-- ============ FOUNDING GUESTS PROMO BAR ============ -->
-<a href="#apply" class="promo-bar" data-pick="Founding Guests · Oct 29-31 pilot">
+<a href="#apply" class="promo-bar pilot-only" data-pick="Founding Guests · Oct 29-31 pilot">
   <span class="promo-tag">Founding Guests</span>
   <span class="promo-text">Our first pilot retreat · Oct 29-31, 2026 · 9 places at <b>$100</b><span class="promo-was"> (usually $1,090)</span></span>
   <span class="promo-cta">Apply now →</span>
@@ -1019,7 +1027,8 @@
       <button data-tab="still">3 Days</button>
       <button data-tab="deep">7 Days</button>
     </nav>
-    <a href="#apply" class="nav-cta">Apply</a>
+    <a href="#apply" class="nav-cta pilot-only">Apply</a>
+    <a href="#apply" class="nav-cta after-pilot">Waiting list</a>
   </div>
 </header>
 
@@ -1033,9 +1042,11 @@
     <div class="hero-side">
       <p class="sub">Jeju's free-diving grandmothers have harvested the sea by breath alone for generations. Slow days in their village, at the pace they set. <em>No diving required.</em></p>
       <div class="hero-actions">
-        <a href="#founding" class="btn btn-line">See the three days</a>
-        <a href="#apply" class="btn btn-dark" data-pick="Founding Guests · Oct 29-31 pilot">Apply as a founding guest</a>
-        <a href="#apply" class="btn-arrow" aria-label="Go to the application form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#founding" class="btn btn-line pilot-only">See the three days</a>
+        <a href="#apply" class="btn btn-dark pilot-only" data-pick="Founding Guests · Oct 29-31 pilot">Apply as a founding guest</a>
+        <a href="#host" class="btn btn-line after-pilot">Meet your hosts</a>
+        <a href="#apply" class="btn btn-dark after-pilot">Join the waiting list</a>
+        <a href="#apply" class="btn-arrow" aria-label="Go to the sign-up section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -1056,7 +1067,7 @@
 </section>
 
 <!-- ============ FOUNDING GUESTS ============ -->
-<section class="founding" id="founding">
+<section class="founding pilot-only" id="founding">
   <div class="wrap">
     <div class="founding-card">
       <div class="founding-top">
@@ -1267,9 +1278,12 @@
   <div class="wrap">
 
     <div class="journeys-intro" id="journeysIntro">
-      <span class="eyebrow">The other three</span>
-      <h2>Beyond the founding pilot</h2>
-      <p>The Founding Guests pilot is our focus right now. If you'd like to see the rest of what we offer, tap one below.</p>
+      <span class="eyebrow pilot-only">The other three</span>
+      <h2 class="pilot-only">Beyond the founding pilot</h2>
+      <p class="pilot-only">The Founding Guests pilot is our focus right now. If you'd like to see the rest of what we offer, tap one below.</p>
+      <span class="eyebrow after-pilot">What we run</span>
+      <h2 class="after-pilot">Three ways to come</h2>
+      <p class="after-pilot">A half-day walk, a three-day retreat, or a week on the Olle trail. Tap one to see how it runs.</p>
       <div class="hero-tabs journey-tabs" id="panelTabs">
         <button data-tab="quiet"><span class="dot" aria-hidden="true" style="background:var(--mugwort)"></span>The Walk</button>
         <button data-tab="still"><span class="dot" aria-hidden="true" style="background:var(--sand)"></span>3 Days</button>
@@ -1651,7 +1665,7 @@
 
       <details class="faq-item">
         <summary>How does booking work, and do I pay now?</summary>
-        <div class="faq-a">The Sea Women Walk books and pays instantly through Airbnb. The 3 Days and 7 Days retreats open for booking in mid-August; until then, email to inquire and nothing is charged. For the Founding Guests pilot, applications are open now. Soraya writes back within 48 hours to the people she thinks the dates suit, and the payment link for the $100 follows once your place is confirmed. Nothing is charged before then.</div>
+        <div class="faq-a">The Sea Women Walk books and pays instantly through Airbnb. The 3 Days and 7 Days retreats open for booking in mid-August; until then, email to inquire and nothing is charged.<span class="pilot-only"> For the Founding Guests pilot, applications are open now. Soraya writes back within 48 hours to the people she thinks the dates suit, and the payment link for the $100 follows once your place is confirmed. Nothing is charged before then.</span></div>
       </details>
 
       <details class="faq-item">
@@ -1701,7 +1715,7 @@
 
       <details class="faq-item">
         <summary>What is your cancellation &amp; refund policy?</summary>
-        <div class="faq-a"><b>The Founding Guests pilot</b> is $100, paid once your place is confirmed, and that payment is non-refundable. Nine places means one empty seat is a real loss, so please only confirm if you are sure of the dates. If something changes, tell me as early as you can and I will do what I can to fill the place.<span style="display:block;margin-top:10px;"><b>On the regular retreats</b>, a deposit secures your place and is non-refundable. For the remaining balance: cancel <b>60+ days</b> before the start date for a full refund; <b>30–59 days</b>, 50% refunded; <b>within 30 days</b>, non-refundable. If we ever have to cancel a retreat, you'll receive a full refund. We strongly recommend travel insurance.</span></div>
+        <div class="faq-a"><span class="pilot-only"><b>The Founding Guests pilot</b> is $100, paid once your place is confirmed, and that payment is non-refundable. Nine places means one empty seat is a real loss, so please only confirm if you are sure of the dates. If something changes, tell me as early as you can and I will do what I can to fill the place.</span><span style="display:block;margin-top:10px;"><b>On the regular retreats</b>, a deposit secures your place and is non-refundable. For the remaining balance: cancel <b>60+ days</b> before the start date for a full refund; <b>30–59 days</b>, 50% refunded; <b>within 30 days</b>, non-refundable. If we ever have to cancel a retreat, you'll receive a full refund. We strongly recommend travel insurance.</span></div>
       </details>
 
     </div>
@@ -1715,11 +1729,13 @@
     <p class="impact-line">A living heritage, quietly disappearing. Your visit helps keep their story alive, and their livelihood with it.</p>
     <div class="apply-head">
       <span class="eyebrow">Founding Guests · Pilot Cohort</span>
-      <h2>Apply as a founding guest</h2>
-      <p>The Oct 29-31 pilot, nine places, no charge to apply. Soraya reads every application herself and writes back within 48 hours to the people she thinks these particular days are right for. Nine is a small room, so she is choosing it carefully rather than filling it.</p>
+      <h2 class="after-pilot">Applications have closed</h2>
+      <p class="after-pilot">Thank you to everyone who wrote in for the October pilot. Leave your email below and I will write when the next dates are set. That is all it is, and there is no newsletter.</p>
+      <h2 class="pilot-only">Apply as a founding guest</h2>
+      <p class="pilot-only">The Oct 29-31 pilot, nine places, no charge to apply. Soraya reads every application herself and writes back within 48 hours to the people she thinks these particular days are right for. Nine is a small room, so she is choosing it carefully rather than filling it.</p>
     </div>
 
-    <div class="form-card">
+    <div class="form-card pilot-only">
       <form id="applyForm" action="https://formspree.io/f/mojzywzq" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New Founding Guests application" />
         <input type="hidden" name="retreat" value="Founding Guests · Oct 29-31 pilot" />
@@ -1776,8 +1792,8 @@
     </div>
 
     <div class="waitlist">
-      <p class="wl-lead">These dates don't work?</p>
-      <p class="wl-sub">Leave your email and I'll write when the next one opens. That is all it is, and there is no newsletter.</p>
+      <p class="wl-lead pilot-only">These dates don't work?</p>
+      <p class="wl-sub pilot-only">Leave your email and I'll write when the next one opens. That is all it is, and there is no newsletter.</p>
       <form class="wl-form" id="waitlistForm" novalidate>
         <input type="text" id="wl-name" name="wlname" placeholder="First name" aria-label="First name" autocomplete="given-name" />
         <input type="email" id="wl-email" name="wlemail" placeholder="you@email.com" aria-label="Email" autocomplete="email" required />
@@ -1787,8 +1803,8 @@
     </div>
 
     <div class="apply-fineprint">
-      <p class="form-note">Nine of us move together on a set itinerary, and the meals are booked in advance, so I cannot promise to work around every dietary preference. If you have a serious food allergy, or something that affects how you move through a day, email me before you apply and we will talk it through.</p>
-      <p class="form-note">If these days look right for you, Soraya writes back within 48 hours. Nothing is charged at this point: the payment link for the $100 follows once your place is confirmed.</p>
+      <p class="form-note pilot-only">Nine of us move together on a set itinerary, and the meals are booked in advance, so I cannot promise to work around every dietary preference. If you have a serious food allergy, or something that affects how you move through a day, email me before you apply and we will talk it through.</p>
+      <p class="form-note pilot-only">If these days look right for you, Soraya writes back within 48 hours. Nothing is charged at this point: the payment link for the $100 follows once your place is confirmed.</p>
       <p class="form-note">By submitting, you agree to our <a href="privacy.html" style="color:var(--accent-deep);font-weight:700;">Privacy Policy</a>. We use your details only to plan your retreat, never for ads or resale.</p>
     </div>
   </div>
