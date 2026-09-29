@@ -1055,6 +1055,27 @@
   .wl-form select option { color: var(--basalt); }
   @media (max-width: 560px) { .wl-form select { max-width: none; flex-basis: 100%; } }
 
+  /* ---------- Field notes: latest journal posts, the podcast player and the Instagram grid ---------- */
+  .field-sec { padding: 0 0 84px; background: var(--bg); }
+  .field-sec .eyebrow { display: block; text-align: center; }
+  .field-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 24px; align-items: stretch; }
+  .field-col { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .field-h { font-family: "Noto Serif", Georgia, serif; font-weight: 600; font-size: 20px; color: var(--primary); margin: 0 0 16px; }
+  .field-posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .field-posts a { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; text-decoration: none; color: var(--basalt); }
+  .field-posts img { width: 84px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); background: var(--n100); display: block; }
+  .field-posts b { display: block; font-weight: 600; font-size: 15.5px; line-height: 1.4; }
+  .field-posts a:hover b { color: var(--accent-deep); }
+  .field-posts small { display: block; margin-top: 4px; font-size: 12.5px; color: var(--text-muted); }
+  .field-more { margin-top: auto; align-self: flex-start; }
+  .field-posts, .field-spotify, .field-ig { margin-bottom: 18px; }
+  .field-spotify { display: block; width: 100%; height: 352px; border: 0; border-radius: var(--radius-sm); }
+  .field-links { margin: -6px 0 0; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .field-links a { color: var(--accent-deep); }
+  .field-ig { position: relative; width: 100%; aspect-ratio: 1 / 1.16; overflow: hidden; border-radius: var(--radius-sm); background: #fff; }
+  .field-ig iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  @media (max-width: 1000px) { .field-grid { grid-template-columns: 1fr; } }
+
   /* ---------- pilot on/off: .pilot-only shows while applications are open,
      .after-pilot shows once <body> carries .pilot-closed ---------- */
   body.pilot-closed .pilot-only { display: none !important; }
@@ -1689,14 +1710,32 @@
   <img src="images/main.jpg" alt="A guide introduces the haenyeo to guests, the sea women seated with their tewak floats" />
 </section>
 
-<!-- ============ JOURNAL TEASER ============ -->
-<section style="background:var(--bg); padding:0 0 84px; text-align:center;">
+<!-- ============ FIELD NOTES: journal, podcast, Instagram ============ -->
+<section class="field-sec" id="field-notes">
   <div class="wrap">
-    <p style="max-width:620px; margin:0 auto 24px; font-size:17px; line-height:1.7; color:var(--text-muted);">Not ready to book? I write about the haenyeo in the journal and talk to them on the podcast. Instagram is where I post from the school.</p>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px;">
-      <a href="https://vamosajeju.com/all-blogposts/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Read the journal →</a>
-      <a href="https://vamosajeju.com/all-episodes/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Listen to the podcast →</a>
-      <a href="https://instagram.com/soraya.jeju" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; padding:12px 26px; border-radius:999px; border:1.5px solid var(--primary); color:var(--primary); background:#fff; font-weight:700; font-size:15px; text-decoration:none;">Follow along →</a>
+    <span class="eyebrow">Not ready to book?</span>
+    <h2 class="gallery-title">Read, listen, follow along</h2>
+    <p class="gallery-sub">I write about the haenyeo in the journal, talk about Jeju on the podcast, and post from the haenyeo school on Instagram. All of it lives on vamosajeju.com. This is the latest.</p>
+    <div class="field-grid">
+      <div class="field-col">
+        <h3 class="field-h">Journal</h3>
+        <ul class="field-posts" id="fieldPosts">
+          <li><a href="https://vamosajeju.com/island-of-sea-women-jeju/" target="_blank" rel="noopener"><img src="https://vamosajeju.com/wp-content/uploads/2026/07/IMG_6883-768x1024.jpg" alt="" loading="lazy" /><span><b>The Island of Sea Women: A Reader's Guide to the Real Jeju</b><small>4 August 2026</small></span></a></li>
+          <li><a href="https://vamosajeju.com/eat-what-the-haenyeo-catch-a-sea-women-seafood-guide-to-jeju/" target="_blank" rel="noopener"><img src="https://vamosajeju.com/wp-content/uploads/2026/07/IMG_8636-768x1024.jpg" alt="" loading="lazy" /><span><b>Eat What the Haenyeo Catch: A Sea-Women Seafood Guide to Jeju</b><small>19 July 2026</small></span></a></li>
+          <li><a href="https://vamosajeju.com/training-at-a-jeju-haenyeo-school-what-its-really-like/" target="_blank" rel="noopener"><img src="https://vamosajeju.com/wp-content/uploads/2026/06/IMG_5229-scaled-e1782398802789-768x620.jpg" alt="" loading="lazy" /><span><b>Training at a Jeju Haenyeo School: What It's Really Like</b><small>25 June 2026</small></span></a></li>
+        </ul>
+        <a class="btn btn-line field-more" href="https://vamosajeju.com/all-blogposts/" target="_blank" rel="noopener">All journal posts →</a>
+      </div>
+      <div class="field-col">
+        <h3 class="field-h">Podcast</h3>
+        <iframe class="field-spotify" src="https://open.spotify.com/embed/show/1XUzKwLlkvbydGKVs8ZUF5?utm_source=generator&amp;theme=0" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vamos a Jeju podcast on Spotify"></iframe>
+        <p class="field-links">Vamos a Jeju, the podcast. Also on <a href="https://podcasts.apple.com/us/podcast/vamos-a-jeju/id1867552706" target="_blank" rel="noopener">Apple Podcasts</a> and at <a href="https://vamosajeju.com/all-episodes/" target="_blank" rel="noopener">vamosajeju.com</a>, with show notes.</p>
+      </div>
+      <div class="field-col">
+        <h3 class="field-h">Instagram</h3>
+        <div class="field-ig"><iframe src="https://www.instagram.com/soraya.jeju/embed/" loading="lazy" scrolling="no" title="@soraya.jeju on Instagram"></iframe></div>
+        <a class="btn btn-line field-more" href="https://instagram.com/soraya.jeju" target="_blank" rel="noopener">Follow @soraya.jeju →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2112,6 +2151,36 @@
   const WAITLIST_MAP = { wlname: "entry.36346848", wlemail: "entry.1741851091" };
   // Add an "Interested in" short-answer question to the waiting-list Google Form and put its
   // entry id here. Until then the select stays hidden, so no one picks an answer that goes nowhere.
+  // Latest journal posts from vamosajeju.com (WordPress REST, CORS allowed for this origin).
+  // The three cards in the HTML are the fallback; they are only replaced when the live call succeeds.
+  (function () {
+    const list = document.getElementById("fieldPosts");
+    if (!list || !window.fetch) return;
+    fetch("https://vamosajeju.com/wp-json/wp/v2/posts?per_page=3&categories=15&_embed=wp:featuredmedia&_fields=date,link,title,_links,_embedded")
+      .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then(posts => {
+        if (!Array.isArray(posts) || posts.length < 3) return;
+        const decode = s => { const t = document.createElement("textarea"); t.innerHTML = s; return t.value; };
+        const frag = document.createDocumentFragment();
+        posts.forEach(p => {
+          const media = ((p._embedded || {})["wp:featuredmedia"] || [])[0] || {};
+          const sizes = (media.media_details || {}).sizes || {};
+          const src = (sizes.medium || sizes.medium_large || {}).source_url || media.source_url || "";
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = p.link; a.target = "_blank"; a.rel = "noopener";
+          if (src) { const im = new Image(); im.src = src; im.alt = ""; im.loading = "lazy"; a.appendChild(im); }
+          const span = document.createElement("span");
+          const b = document.createElement("b"); b.textContent = decode((p.title || {}).rendered || "");
+          const small = document.createElement("small");
+          small.textContent = new Date(p.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+          span.append(b, small); a.appendChild(span); li.appendChild(a); frag.appendChild(li);
+        });
+        list.replaceChildren(frag);
+      })
+      .catch(() => {});
+  })();
+
   const WAITLIST_INTEREST_ENTRY = "";
   if (WAITLIST_INTEREST_ENTRY) {
     WAITLIST_MAP.wlinterest = WAITLIST_INTEREST_ENTRY;
